@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ブリッジ接続（Bridge接続）とは？</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ===== ヘッダー ===== -->
+
+<header>
+
+  <h1>
+
+    ブリッジ接続<br>
+
+    <span style="
+      font-size:0.55em;
+      font-weight:normal;">
+
+      （Bridge接続）
+
+    </span>
+
+  </h1>
+
+  <p>
+    ネットワーク同士を同じLANとして橋渡しする技術
+  </p>
+
+</header>
+
+<!-- ===== メイン ===== -->
+
+<div class="container">
+
+  <!-- ===== ブリッジ接続とは ===== -->
+
+  <section class="card">
+
+    <h2>ブリッジ接続とは？</h2>
+
+    <p>
+      ブリッジ接続とは、
+      複数のネットワークを
+      「橋（Bridge）」
+      のようにつなぎ、
+      同じLANとして通信できるようにする技術です。
+    </p>
+
+    <p style="margin-top:15px;">
+
+      主に、
+      有線LAN・Wi-Fi・仮想マシンなどを、
+      同じネットワークとして接続したい時に利用されます。
+
+    </p>
+
+    <div class="point-box">
+
+      <p>
+        ブリッジ接続は、
+        「ネットワーク同士を透過的につなぐ」
+        イメージに近いです。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== イメージ ===== -->
+
+  <section class="card">
+
+    <h2>まずはイメージで理解する</h2>
+
+    <p>
+      ブリッジ接続では、
+      別々の機器や通信経路を、
+      同じネットワークのように扱います。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;">
+
+      <div style="
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:18px;
+        text-align:center;">
+
+        <div style="
+          background:#fff;
+          border:1px solid #ddd;
+          border-radius:10px;
+          padding:14px 18px;
+          width:100%;
+          max-width:520px;">
+
+          PC A
+        </div>
+
+        <div style="
+          font-size:1.4em;
+          color:#666;">
+          ↓
+        </div>
+
+        <div style="
+          background:#eaf4ff;
+          border:1px solid #9fc5f8;
+          border-radius:10px;
+          padding:14px 18px;
+          width:100%;
+          max-width:520px;
+          font-weight:bold;">
+
+          ブリッジ接続
+
+        </div>
+
+        <div style="
+          font-size:1.4em;
+          color:#666;">
+          ↓
+        </div>
+
+        <div style="
+          background:#fff;
+          border:1px solid #ddd;
+          border-radius:10px;
+          padding:14px 18px;
+          width:100%;
+          max-width:520px;">
+
+          PC B
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        「別々の場所にある機器を、
+        同じLANにいるように見せる」
+        のがブリッジ接続です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== bridge意味 ===== -->
+
+  
+
+  <!-- ===== 特徴 ===== -->
+
+  
+
+  <!-- ===== NATとの違い ===== -->
+
+  <section class="card">
+
+    <h2>ブリッジ接続とNAT接続の違い</h2>
+
+    <p>
+      仮想マシンなどでは、
+      「ブリッジ接続」
+      と
+      「NAT接続」
+      がよく比較されます。
+    </p>
+
+    <div class="table-wrap">
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>項目</th>
+            <th>ブリッジ接続</th>
+            <th>NAT接続</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+
+            <td>LAN参加</td>
+
+            <td>
+              直接参加
+            </td>
+
+            <td>
+              親PC経由
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>IPアドレス</td>
+
+            <td>
+              LANから取得
+            </td>
+
+            <td>
+              内部IP
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>NAT変換</td>
+
+            <td>
+              なし
+            </td>
+
+            <td>
+              あり
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>他PCから見える</td>
+
+            <td>
+              見えやすい
+            </td>
+
+            <td>
+              隠れやすい
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        NAT接続では、
+        仮想マシンは
+        「親PCの裏側」
+        にいるイメージです。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== OSI ===== -->
+
+  
+
+  <!-- ===== MAC ===== -->
+
+  <section class="card">
+
+    <h2>MACアドレスを見て転送する</h2>
+
+    <p>
+      ブリッジは、
+      宛先MACアドレスを見て、
+      必要な方向へだけ通信を送ります。
+    </p>
+
+    <div style="
+      background:#fff4e5;
+      border:1px solid #f0c36d;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;
+      text-align:center;
+      line-height:2;">
+
+      PC A
+
+      <br>
+
+      MAC : AA-AA
+
+      <br>
+
+      ↓
+
+      <br>
+
+      Bridge
+
+      <br>
+
+      ↓
+
+      <br>
+
+      PC B
+
+      <br>
+
+      MAC : BB-BB
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        ブリッジは、
+        「どのMACアドレスがどちら側にいるか」
+        を学習して通信します。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== ルーター違い ===== -->
+
+  <section class="card">
+
+    <h2>ルーターとの違い</h2>
+
+    <p>
+      ブリッジとルーターは、
+      どちらも通信を中継しますが、
+      役割が異なります。
+    </p>
+
+    <div class="table-wrap">
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>項目</th>
+            <th>ブリッジ</th>
+            <th>ルーター</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+
+            <td>役割</td>
+
+            <td>
+              同じLANとして接続
+            </td>
+
+            <td>
+              別ネットワーク接続
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>OSI層</td>
+
+            <td>
+              L2
+            </td>
+
+            <td>
+              L3
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>NAT</td>
+
+            <td>
+              基本しない
+            </td>
+
+            <td>
+              行うことが多い
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>見る情報</td>
+
+            <td>
+              MACアドレス
+            </td>
+
+            <td>
+              IPアドレス
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        ブリッジは
+        「同じネットワークを広げる」、
+        ルーターは
+        「別ネットワーク同士をつなぐ」
+        イメージです。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== ハブ ===== -->
+
+  
+
+  <!-- ===== Wi-Fi ===== -->
+
+  
+
+  <!-- ===== 仮想化 ===== -->
+
+  <section class="card">
+
+    <h2>仮想マシンでのブリッジ接続</h2>
+
+    <p>
+      仮想マシンでは、
+      ブリッジ接続を利用すると、
+      仮想PCがLANへ直接参加できます。
+    </p>
+
+    <div style="
+      background:#fff4e5;
+      border:1px solid #f0c36d;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;
+      text-align:center;
+      line-height:2;">
+
+      仮想PC
+
+      <br>
+
+      ↓
+
+      <br>
+
+      ブリッジ接続
+
+      <br>
+
+      ↓
+
+      <br>
+
+      家庭LAN
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        仮想マシンにも、
+        家庭ルーターから
+        IPアドレスが割り当てられます。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== セキュリティ ===== -->
+
+  <section class="card">
+
+    <h2>セキュリティ上の注意点</h2>
+
+    <p>
+      ブリッジ接続では、
+      機器がLANへ直接参加するため、
+      LAN内部の他機器から見えやすくなります。
+    </p>
+
+    <p style="margin-top:15px;">
+
+      そのため、
+      ファイル共有やポート公開などを行っている場合は、
+      他PCからアクセスされる可能性があります。
+
+    </p>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>LAN内部露出</h3>
+        他PCから見えやすい
+      </div>
+
+      <div class="part-box">
+        <h3>共有注意</h3>
+        SMBなど公開
+      </div>
+
+      <div class="part-box">
+        <h3>スキャン対象</h3>
+        pingや探索
+      </div>
+
+      <div class="part-box">
+        <h3>Firewall重要</h3>
+        制御が必要
+      </div>
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        通常はルーター配下なので、
+        即座にインターネットへ
+        直接露出するわけではありません。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== メリット ===== -->
+
+  <section class="card">
+
+    <h2>ブリッジ接続のメリット</h2>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>LAN共有</h3>
+        同一ネットワーク化
+      </div>
+
+      <div class="part-box">
+        <h3>設定単純</h3>
+        NAT不要
+      </div>
+
+      <div class="part-box">
+        <h3>サーバ公開</h3>
+        直接通信しやすい
+      </div>
+
+      <div class="part-box">
+        <h3>仮想化向き</h3>
+        実機に近い
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===== デメリット ===== -->
+
+  <section class="card">
+
+    <h2>ブリッジ接続のデメリット</h2>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>LAN露出</h3>
+        他端末から見える
+      </div>
+
+      <div class="part-box">
+        <h3>Broadcast増加</h3>
+        通信範囲拡大
+      </div>
+
+      <div class="part-box">
+        <h3>設定注意</h3>
+        IP重複など
+      </div>
+
+      <div class="part-box">
+        <h3>環境依存</h3>
+        Wi-Fi制約あり
+      </div>
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        ブリッジ接続は便利ですが、
+        「LANへ直接参加する」
+        ことを理解して使うことが重要です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== まとめ ===== -->
+
+  <section class="card"
+    style="border-left:6px solid #0d6efd;">
+
+    <h2>まとめ</h2>
+
+    <p>
+      ブリッジ接続とは、
+      ネットワーク同士を
+      同じLANとして橋渡しする技術です。
+    </p>
+
+    <p style="margin-top:15px;">
+
+      主にL2（データリンク層）で動作し、
+      MACアドレスを見て通信を転送します。
+
+    </p>
+
+    <p style="margin-top:15px;">
+
+      仮想マシン・Wi-Fi中継・スイッチングハブなど、
+      現代ネットワークで幅広く利用されています。
+
+    </p>
+
+    <div class="point-box">
+
+      <p>
+        ブリッジ接続を理解すると、
+        LAN・仮想化・Wi-Fi・スイッチの仕組みが
+        非常に理解しやすくなります。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 戻る ===== -->
+
+  <div class="back">
+
+    <a href="index.html">
+      ← 用語一覧へ戻る
+    </a>
+
+  </div>
+
+</div>
+
+<!-- ===== フッター ===== -->
+
+<footer>
+  IT学習用サイト
+</footer>
+
+</body>
+</html>

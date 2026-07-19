@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ファイアウォール（Firewall）</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ===== ヘッダー ===== -->
+
+  <header>
+
+    <h1>ファイアウォール</h1>
+
+    <p>
+      ネットワークを守る「門番」
+    </p>
+
+  </header>
+
+  <!-- ===== メイン ===== -->
+
+  <div class="container">
+
+    <!-- ===== ファイアウォールとは ===== -->
+
+    <section class="card">
+
+      <h2>ファイアウォールとは？</h2>
+
+      <p>
+        <span class="red">
+          ファイアウォール（Firewall）
+        </span>
+        とは、
+        ネットワークの出入口に置かれる
+        「門番」のような存在で、
+        通過する通信を監視し、
+        許可された通信だけを通し、
+        不正な通信や攻撃を遮断するための仕組みです。
+      </p>
+
+      <p style="margin-top:15px;">
+        <span class="blue">インターネット</span> と
+        <span class="blue">社内ネットワーク</span> の境界、
+        <span class="blue">拠点間接続</span>、
+        <span class="blue">クラウド環境</span>、
+        <span class="blue">家庭用ルーター</span>
+        など、
+        さまざまな場所で使われています。
+      </p>
+
+      <div class="point-box">
+
+        <p>
+          ファイアウォールは、
+          <span class="red">
+            「通信を通すか・止めるか」
+          </span>
+          を判断するセキュリティ機能です。
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ===== ルール ===== -->
+
+    <section class="card">
+
+      <h2>どうやって通信を判断する？</h2>
+
+      <p>
+        ファイアウォールは、
+        管理者が設定した
+        <span class="red">
+          ポリシー（ルール）
+        </span>
+        に基づいて通信を制御します。
+      </p>
+
+      <div class="list">
+
+        <p>
+          ・<span class="red">IPアドレス</span><br>
+          送信元・宛先の住所情報
+        </p>
+
+        <p>
+          ・<span class="red">ポート番号</span><br>
+          80 / 443 / 22 など
+        </p>
+
+        <p>
+          ・<span class="red">プロトコル</span><br>
+          TCP / UDP など
+        </p>
+
+        <p>
+          ・<span class="blue">セッション状態</span><br>
+          通信が確立済みかどうか
+        </p>
+
+        <p>
+          ・<span class="blue">アプリケーション</span><br>
+          Web / DNS / SSH など
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ===== 種類 ===== -->
+
+    <section class="card">
+
+      <h2>ファイアウォールの種類</h2>
+
+      <div class="table-wrap">
+
+        <table>
+
+          <tr>
+            <th>種類</th>
+            <th>特徴</th>
+          </tr>
+
+          <tr>
+            <td>
+              <span class="red">
+                パケットフィルタ型
+              </span>
+            </td>
+
+            <td>
+              IPアドレスやポート番号だけで
+              通信を判断する方式
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <span class="red">
+                ステートフル型
+              </span>
+            </td>
+
+            <td>
+              通信状態（セッション）を追跡し、
+              正規通信か判断する方式
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <span class="blue">
+                アプリケーション型
+              </span>
+            </td>
+
+            <td>
+              HTTPやDNSなど、
+              通信内容まで解析する方式
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <span class="red">
+                UTM / NGFW
+              </span>
+            </td>
+
+            <td>
+              IPSやアンチウイルスなども
+              統合された多機能型
+            </td>
+          </tr>
+
+        </table>
+
+      </div>
+
+    </section>
+
+    <!-- ===== スループット ===== -->
+
+    <section class="card">
+
+      <h2>スループットとは？</h2>
+
+      <p>
+        ファイアウォールの性能は、
+        どれだけ通信を処理できるかを表す
+        <span class="red">
+          スループット
+        </span>
+        で示されます。
+      </p>
+
+      <div class="list">
+
+        <p>
+          ・<span class="red">ファイアウォールスループット</span><br>
+          基本通信の処理能力
+        </p>
+
+        <p>
+          ・<span class="blue">VPNスループット</span><br>
+          VPN暗号化時の処理能力
+        </p>
+
+        <p>
+          ・<span class="blue">IPSスループット</span><br>
+          IPS有効時の処理能力
+        </p>
+
+      </div>
+
+      <div class="warning-box">
+
+        <p>
+          セキュリティ機能を増やすほど、
+          CPU負荷が増えるため、
+          実際の速度は
+          カタログ値より低下することがあります。
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ===== なぜ必要？ ===== -->
+
+    <section class="card">
+
+      <h2>なぜ必要？</h2>
+
+      <p>
+        インターネットへ接続すると、
+        外部から不正アクセスを受ける危険があります。
+      </p>
+
+      <p style="margin-top:15px;">
+        そのため、
+        必要な通信だけを許可し、
+        危険な通信を止める
+        <span class="red">
+          セキュリティの壁
+        </span>
+        が必要になります。
+      </p>
+
+      <div class="point-box">
+
+        <p>
+          現代では、
+          ファイアウォールは
+          <span class="blue">
+            ほぼ必須のセキュリティ機能
+          </span>
+          です。
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ===== まとめ ===== -->
+
+    <section class="card">
+
+      <h2>まとめ</h2>
+
+      <p>
+        ファイアウォールは、
+        ネットワークの出入口で通信を監視し、
+        <span class="red">
+          ルールに基づいて通信を制御する仕組み
+        </span>
+        です。
+      </p>
+
+      <p style="margin-top:15px;">
+        不正アクセスや攻撃から
+        ネットワークを守るための、
+        非常に重要なセキュリティ技術です。
+      </p>
+
+    </section>
+
+    <!-- ===== 戻る ===== -->
+
+    <div class="back">
+      <a href="index.html">← 用語一覧へ戻る</a>
+    </div>
+
+  </div>
+
+  <!-- ===== フッター ===== -->
+
+  <footer>
+    IT学習用サイト
+  </footer>
+
+</body>
+</html>

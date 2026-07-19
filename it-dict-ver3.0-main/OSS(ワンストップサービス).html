@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>OSS（自動車保有関係手続のワンストップサービス）とは？</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+  .card p {
+    line-break: strict;
+    overflow-wrap: break-word;
+  }
+
+  .heading-sub {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 0.5em;
+    font-weight: normal;
+    line-height: 1.45;
+  }
+
+  .header-copy {
+    max-width: 34em;
+  }
+
+  .parts-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    width: 100%;
+    margin-top: 25px;
+  }
+
+  .parts-grid .part-box {
+    width: 100%;
+    height: 100%;
+  }
+
+  .box-small {
+    font-size: 0.9em;
+    line-height: 1.65;
+  }
+
+  .table-list {
+    display: grid;
+    gap: 4px;
+    font-size: 0.92em;
+    line-height: 1.6;
+  }
+
+  .table-list div {
+    overflow-wrap: break-word;
+  }
+
+  .diagram {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 25px;
+    margin: 25px 0;
+  }
+
+  .diagram--warm {
+    background: #fff4e5;
+    border-color: #f0c36d;
+  }
+
+  .diagram-flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    text-align: center;
+  }
+
+  .diagram-box {
+    width: 100%;
+    max-width: 560px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 14px 18px;
+    line-height: 1.7;
+  }
+
+  .diagram-box--blue {
+    background: #eaf4ff;
+    border-color: #9fc5f8;
+    font-weight: bold;
+  }
+
+  .diagram-arrow {
+    color: #666;
+    font-size: 1.4em;
+    line-height: 1;
+  }
+
+  .diagram-label {
+    display: block;
+    font-weight: bold;
+  }
+
+  .diagram-small {
+    font-size: 0.92em;
+  }
+
+  .paragraph-gap {
+    margin-top: 15px;
+  }
+
+  .summary-card {
+    border-left: 6px solid #0d6efd;
+  }
+
+  @media screen and (max-width: 768px) {
+    .heading-sub {
+      font-size: 0.58em;
+      max-width: 15em;
+    }
+
+    .header-copy {
+      max-width: 22em;
+    }
+
+    .parts-grid {
+      gap: 12px;
+    }
+
+    .box-small {
+      font-size: 0.88em;
+    }
+
+    .table-list {
+      font-size: 0.9em;
+    }
+
+    .diagram {
+      padding: 18px;
+    }
+
+    .diagram-box {
+      padding: 12px 14px;
+    }
+
+    .diagram-small {
+      font-size: 0.9em;
+    }
+  }
+</style>
+
+</head>
+
+<body>
+
+<!-- ===== ヘッダー ===== -->
+
+<header>
+
+  <h1>
+
+    OSS<br>
+
+    <span class="heading-sub">
+
+      自動車保有関係手続の<br>
+      ワンストップサービス
+
+    </span>
+
+  </h1>
+
+  <p class="header-copy">
+    車に関する行政手続きを、<br>
+    オンラインでまとめて行う仕組み
+  </p>
+
+</header>
+
+<!-- ===== メイン ===== -->
+
+<div class="container">
+
+  <!-- ===== このページで扱うOSS ===== -->
+
+  <section class="card">
+
+    <h2>このページで扱うOSS</h2>
+
+    <p>
+      ここでいう<strong>OSS</strong>は、
+      IT用語の「Open Source Software」ではありません。
+    </p>
+
+    <p class="paragraph-gap">
+
+      このページでは、
+      <strong>
+        自動車保有関係手続のワンストップサービス
+      </strong>
+      としてのOSSについて説明します。
+
+    </p>
+
+    <div class="point-box">
+
+      <p>
+        OSSとは、
+        車を買う・持つ・譲る・手放す時に必要な手続きを、
+        インターネット上でまとめて進めるための仕組みです。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== まずはイメージ ===== -->
+
+  <section class="card">
+
+    <h2>まずはイメージで理解する</h2>
+
+    <p>
+      車を持つ時や手放す時には、
+      登録、車庫証明、税金、手数料など、
+      複数の行政手続きが関係します。
+    </p>
+
+    <p class="paragraph-gap">
+
+      OSSは、
+      それらを別々の窓口で行うのではなく、
+      オンラインでまとめて進めやすくするための仕組みです。
+
+    </p>
+
+    <div class="diagram">
+
+      <div class="diagram-flow">
+
+        <div class="diagram-box">
+
+          車の購入・名義変更<br>
+          住所変更・廃車など
+
+        </div>
+
+        <div class="diagram-arrow">↓</div>
+
+        <div class="diagram-box diagram-box--blue">
+
+          OSSでオンライン申請する
+
+        </div>
+
+        <div class="diagram-arrow">↓</div>
+
+        <div class="diagram-box">
+
+          関係機関の手続きをまとめて進める
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        OSSは、
+        「車関係の行政手続きを一か所にまとめる入口」
+        のようなものです。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== OSSで扱う主な手続き ===== -->
+
+  <section class="card">
+
+    <h2>OSSで扱う主な手続き</h2>
+
+    <p>
+      普通自動車のOSSでは、
+      新車を登録する手続きだけでなく、
+      中古車の名義変更や抹消登録なども対象に含まれます。
+    </p>
+
+    <div class="table-wrap">
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>手続き</th>
+            <th>内容</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+
+            <td>新車新規登録</td>
+
+            <td>
+              新車を初めて登録する手続き
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>中古車新規登録</td>
+
+            <td>
+              一時抹消済みの中古車を再び使えるようにする手続き
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>移転登録</td>
+
+            <td>
+              売買や譲渡などによる名義変更
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>変更登録</td>
+
+            <td>
+              住所変更や氏名変更などの変更手続き
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>一時抹消登録</td>
+
+            <td>
+              車を一時的に使わない状態にする手続き
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>永久抹消登録</td>
+
+            <td>
+              解体などにより登録を完全に消す手続き
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>継続検査</td>
+
+            <td>
+              車検を受けて引き続き使用するための手続き
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        普通自動車OSSは、
+        「新車を登録するだけの仕組み」
+        ではありません。<br>
+        名義変更、住所変更、抹消登録なども含む、
+        幅広い手続きに対応しています。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 関係する手続き ===== -->
+
+  <section class="card">
+
+    <h2>OSSでまとめられる関係手続き</h2>
+
+    <p>
+      車の手続きでは、
+      1つの申請だけで完結しないことがあります。<br>
+      たとえば普通車では、次のような手続きが関係します。
+    </p>
+
+    <div class="parts-grid">
+
+      <div class="part-box">
+        <h3>検査登録</h3>
+        <div class="box-small">車を登録・変更する</div>
+      </div>
+
+      <div class="part-box">
+        <h3>車庫証明</h3>
+        <div class="box-small">保管場所を確認する</div>
+      </div>
+
+      <div class="part-box">
+        <h3>税申告</h3>
+        <div class="box-small">自動車税などを申告する</div>
+      </div>
+
+      <div class="part-box">
+        <h3>手数料納付</h3>
+        <div class="box-small">必要な費用を納付する</div>
+      </div>
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        OSSは、
+        複数の機関にまたがる手続きを、
+        できるだけ一連の流れで進めるための仕組みです。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 普通自動車OSSと軽自動車OSS ===== -->
+
+  <section class="card">
+
+    <h2><div style=" font-size:0.9em;"> 普通自動車OSSと軽自動車OSSの違い</div></h2>
+
+    <p>
+      OSSで特に注意が必要なのは、
+      <strong>普通自動車</strong>と<strong>軽自動車</strong>で、
+      対応している手続きの範囲が違うことです。
+    </p>
+
+    <div class="table-wrap">
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>区分</th>
+            <th>主な特徴</th>
+            <th>注意点</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+
+            <td>普通自動車OSS</td>
+
+            <td>
+              <div class="table-list">
+                <div>新車新規登録</div>
+                <div>中古車新規登録</div>
+                <div>移転登録・変更登録</div>
+                <div>抹消登録</div>
+                <div>継続検査など</div>
+              </div>
+            </td>
+
+            <td>
+              <div class="table-list">
+                <div>手続きごとに条件がある</div>
+                <div>
+                  すべてのケースがOSSで<br>
+                  完結するわけではない
+                </div>
+              </div>
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>軽自動車OSS</td>
+
+            <td>
+              <div class="table-list">
+                <div>主に新車に関する手続き</div>
+                <div>継続検査に対応</div>
+              </div>
+            </td>
+
+            <td>
+              <div class="table-list">
+                <div>名義変更や住所変更は要注意</div>
+                <div>
+                  普通自動車OSSと同じ感覚では<br>
+                  進められない場合がある
+                </div>
+              </div>
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        「OSSなら全部の車の手続きが同じようにできる」
+        と考えると誤解しやすいです。<br>
+        普通自動車と軽自動車では、
+        対象範囲を分けて確認する必要があります。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 軽自動車で差が出る理由 ===== -->
+
+  <section class="card">
+
+    <h2><div style=" font-size:0.9em;">なぜ軽自動車OSSは範囲が限られるのか</div></h2>
+
+    <p>
+      普通自動車と軽自動車では、
+      裏側で関係する制度や組織が異なります。<br>
+      そのため、
+      普通自動車OSSの仕組みをそのまま軽自動車に使えるわけではありません。
+    </p>
+
+    <div class="diagram diagram--warm">
+
+      <div class="diagram-flow">
+
+        <div class="diagram-box">
+          <span class="diagram-label">普通自動車</span>
+          <span class="diagram-small">
+            運輸支局・警察<br>
+            都道府県税など
+          </span>
+        </div>
+
+        <div class="diagram-arrow">↓</div>
+
+        <div class="diagram-box">
+          <span class="diagram-label">軽自動車</span>
+          <span class="diagram-small">
+            軽自動車検査協会<br>
+            市区町村税など
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="parts-grid">
+
+      <div class="part-box">
+        <h3>制度の違い</h3>
+        <div class="box-small">
+          登録制度と届出・検査の仕組みが違う
+        </div>
+      </div>
+
+      <div class="part-box">
+        <h3>管轄の違い</h3>
+        <div class="box-small">
+          関係する機関や確認先が異なる
+        </div>
+      </div>
+
+      <div class="part-box">
+        <h3>税の違い</h3>
+        <div class="box-small">
+          軽自動車税は市区町村側の事務と関係する
+        </div>
+      </div>
+
+      <div class="part-box">
+        <h3>書類確認</h3>
+        <div class="box-small">
+          所有者同意、住所証明、ナンバー変更などが絡む
+        </div>
+      </div>
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        軽自動車OSSの拡大には、
+        申請画面を作るだけでなく、
+        必要な情報を関係機関の間で電子的に確認できる仕組みが必要です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 普通車側でできていること ===== -->
+
+  
+
+  <!-- ===== メリット ===== -->
+
+  <section class="card">
+
+    <h2>OSSのメリット</h2>
+
+    <div class="parts-grid">
+
+      <div class="part-box">
+        <h3>窓口負担を減らせる</h3>
+        <div class="box-small">
+          複数の窓口を回る手間を減らしやすい
+        </div>
+      </div>
+
+      <div class="part-box">
+        <h3>オンライン申請</h3>
+        <div class="box-small">
+          インターネット上で手続きを進められる
+        </div>
+      </div>
+
+      <div class="part-box">
+        <h3>一括処理</h3>
+        <div class="box-small">
+          登録、税、手数料などをまとめて扱いやすい
+        </div>
+      </div>
+
+      <div class="part-box">
+        <h3>進捗確認</h3>
+        <div class="box-small">
+          申請状況を確認しながら進めやすい
+        </div>
+      </div>
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        OSSは、
+        車の行政手続きを効率化するための入口です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 注意点 ===== -->
+
+  <section class="card">
+
+    <h2>OSSを使う時の注意点</h2>
+
+    <p>
+      OSSは便利ですが、
+      すべての手続きやすべてのケースがオンラインで完結するわけではありません。
+    </p>
+
+    <div class="parts-grid">
+
+      <div class="part-box">
+        <h3>対象車種</h3>
+        <div class="box-small">
+          普通車か軽自動車かで範囲が違う
+        </div>
+      </div>
+
+      <div class="part-box">
+        <h3>対象手続き</h3>
+        <div class="box-small">
+          手続きによってOSS対象外の場合がある
+        </div>
+      </div>
+
+      <div class="part-box">
+        <h3>必要書類</h3>
+        <div class="box-small">
+          別送書類や紙書類が必要な場合がある
+        </div>
+      </div>
+
+      <div class="part-box">
+        <h3>交付物</h3>
+        <div class="box-small">
+          車検証・ナンバーの受け取りが関係する場合がある
+        </div>
+      </div>
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        実際に申請する前に、
+        自分の車種、地域、手続き内容がOSS対象か確認することが重要です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== よくある誤解 ===== -->
+
+  <section class="card">
+
+    <h2>よくある誤解</h2>
+
+    <div class="table-wrap">
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>誤解</th>
+            <th>正しい理解</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+
+            <td>OSSは無料ソフトのこと</td>
+
+            <td>
+              この文脈では、
+              自動車保有関係手続のワンストップサービスのこと
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>新車登録だけの仕組み</td>
+
+            <td>
+              普通自動車OSSでは、
+              名義変更や抹消登録なども含まれる
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>
+              軽自動車でも<br>
+              全部同じように使える
+            </td>
+
+            <td>
+              <div class="table-list">
+                <div>
+                  軽自動車OSSは対象範囲が限定される
+                </div>
+              </div>
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>
+              オンラインなら<br>
+              すべて完結する
+            </td>
+
+            <td>
+              <div class="table-list">
+                <div>
+                  書類提出や交付物の受け取りが必要になる
+                </div>
+              </div>
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 今後のポイント ===== -->
+
+  
+
+  <!-- ===== まとめ ===== -->
+
+  <section class="card summary-card">
+
+    <h2>まとめ</h2>
+
+    <p>
+      OSSとは、
+      自動車に関する複数の行政手続きを、
+      オンラインでまとめて進めるための
+      ワンストップサービスです。
+    </p>
+
+    <p class="paragraph-gap">
+
+      普通自動車OSSでは、
+      新車登録だけでなく、
+      中古車の名義変更、住所変更、抹消登録、継続検査など、
+      幅広い手続きに対応しています。
+
+    </p>
+
+    <p class="paragraph-gap">
+
+      一方で、
+      軽自動車OSSは普通自動車OSSより対象範囲が限定されます。<br>
+      その背景には、
+      制度、管轄、税の仕組み、必要書類の確認方法などの違いがあります。
+
+    </p>
+
+    <div class="point-box">
+
+      <p>
+        OSSを理解する時は、
+        「車の手続きをオンラインでまとめる仕組み」
+        と捉えたうえで、
+        普通自動車と軽自動車では対象範囲が違う点に注意しましょう。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 戻る ===== -->
+
+  <div class="back">
+
+    <a href="index.html">
+      ← 用語一覧へ戻る
+    </a>
+
+  </div>
+
+</div>
+
+<!-- ===== フッター ===== -->
+
+<footer>
+  IT学習用サイト
+</footer>
+
+</body>
+</html>

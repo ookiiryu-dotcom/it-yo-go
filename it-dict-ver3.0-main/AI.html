@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ===== ヘッダー ===== -->
+
+<header>
+
+  <h1>
+
+    AI
+
+    <span style="
+      display:block;
+      font-size:0.55em;
+      font-weight:normal;
+      margin-top:8px;">
+
+      <div style="font-size:0.9em;"><br>
+      人工知能と呼ばれる技術やシステムの総称</div>
+
+    </span>
+
+  </h1>
+
+  <p>
+    <span style="font-size:0.85em;">
+      ルールベース、機械学習、深層学習、生成AIなど、<br>
+      複数の方式と機能を含む広い概念
+    </span>
+  </p>
+
+</header>
+
+<!-- ===== メイン ===== -->
+
+<div class="container">
+
+  <!-- ===== AIとは ===== -->
+
+  <section class="card">
+
+    <h2>AIとは？</h2>
+
+    <p>
+      AIとは、<strong>Artificial Intelligence</strong>の略で、
+      日本語では<strong>人工知能</strong>と呼ばれます。
+      入力された情報をもとに、予測、分類、推薦、推論、文章生成、
+      画像生成など、人間の知的作業に似た処理を行う技術や
+      システムの総称です。
+    </p>
+
+    <p style="margin-top:15px;">
+      AIは、特定の1つの製品や1つの計算方法を指す言葉ではありません。
+      人が登録した知識やルールを使う方式、
+      データから規則性を学ぶ機械学習、
+      多層のニューラルネットワークを使う深層学習など、
+      複数の技術が含まれます。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;
+      text-align:center;
+      font-size:1.05em;
+      line-height:2;">
+
+      <strong>
+        入力された情報<br>
+        ↓<br>
+        AIが分析・推論・予測<br>
+        ↓<br>
+        分類・推薦・生成・判断支援などの出力
+      </strong>
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        AIは、人間そのものをコンピューター内に再現したものではありません。
+        現在実用化されている多くのAIは、
+        決められた目的や範囲の中で特定の処理を行うシステムです。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== まずはイメージ ===== -->
+
+  <section class="card">
+
+    <h2>まずはイメージで理解する</h2>
+
+    <p>
+      AIは、大量の情報を確認し、そこから特徴や関係性を見つけ、
+      新しく与えられた情報に対して結果を出す仕組みと考えると
+      分かりやすくなります。
+    </p>
+
+    <p style="margin-top:15px;">
+      例えば、猫と犬の画像を見分けるAIでは、
+      多数の画像から形、模様、輪郭などの傾向を学習し、
+      新しい画像が猫と犬のどちらに近いかを計算します。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;">
+
+      <div style="
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:18px;
+        text-align:center;">
+
+        <div style="
+          background:#fff;
+          border:1px solid #ddd;
+          border-radius:10px;
+          padding:14px 18px;
+          width:100%;
+          max-width:560px;
+          line-height:1.8;">
+
+          多数の猫と犬の画像を用意する
+
+        </div>
+
+        <div style="font-size:1.4em; color:#666;">↓</div>
+
+        <div style="
+          background:#eaf4ff;
+          border:1px solid #9fc5f8;
+          border-radius:10px;
+          padding:14px 18px;
+          width:100%;
+          max-width:560px;
+          font-weight:bold;
+          line-height:1.8;">
+
+          画像の特徴と正解の関係を学習する
+
+        </div>
+
+        <div style="font-size:1.4em; color:#666;">↓</div>
+
+        <div style="
+          background:#fff4e5;
+          border:1px solid #f0c36d;
+          border-radius:10px;
+          padding:14px 18px;
+          width:100%;
+          max-width:560px;
+          font-weight:bold;
+          line-height:1.8;">
+
+          学習済みモデルを作る
+
+        </div>
+
+        <div style="font-size:1.4em; color:#666;">↓</div>
+
+        <div style="
+          background:#fff;
+          border:1px solid #ddd;
+          border-radius:10px;
+          padding:14px 18px;
+          width:100%;
+          max-width:560px;
+          line-height:1.8;">
+
+          新しい画像を入力し、<br>
+          猫か犬かを確率などで判定する
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        AIは「猫という存在を人間と同じように理解している」とは限りません。
+        学習したデータの傾向と入力された画像の特徴を比較し、
+        猫である可能性が高いかを計算していると考える方が適切です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== なぜ必要 ===== -->
+
+  <section class="card">
+
+    <h2>なぜAIが必要なのか</h2>
+
+    <p>
+      現在の社会では、画像、文章、音声、センサー情報、取引記録など、
+      人間だけでは短時間に確認しきれない量のデータが発生しています。
+      AIは、このような大量の情報を処理し、
+      人の作業や判断を支援するために利用されます。
+    </p><br>
+
+    <div class="parts-grid">
+
+      <div class="part-box">
+        <h3>大量の情報を処理する</h3>
+        人がすべて確認することが難しいデータを、<br>
+        短時間で分析します。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>繰り返し作業を自動化する</h3>
+        分類、入力、監視、問い合わせ対応などの、<br>
+        定型的な作業を支援します。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>見つけにくい傾向を発見する</h3>
+        多数の項目の関係から、<br>
+        人が気付きにくい規則性を探します。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>将来を予測する</h3>
+        過去のデータを使い、<br>
+        売上、需要、故障などを予測します。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>利用者ごとに最適化する</h3>
+        行動や好みを分析し、<br>
+        商品、動画、音楽などを推薦します。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>新しい内容を作る</h3>
+        文章、画像、音声、動画、<br>
+        プログラムなどの作成を支援します。
+      </div>
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        AIの主な役割は、人間を完全に置き換えることではなく、
+        大量処理、自動化、予測、生成などを通して、
+        人の仕事や判断を支援することです。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 通常のプログラムとの違い ===== -->
+
+  <section class="card">
+
+    <h2><div style="font-size:0.9em;">通常のプログラムとAIの違い</div></h2>
+
+    <p>
+      通常のプログラムでは、人間が処理手順や条件を細かく決め、
+      コンピューターはその命令どおりに動きます。
+      一方、AIでは、知識やルールを組み合わせて推論したり、
+      データから判定基準を学習したりする方式があります。
+    </p>
+
+    <div class="table-wrap" style="width:100%; overflow-x:auto;">
+
+      <table style="min-width:1000px; width:100%;">
+
+        <thead>
+
+          <tr>
+            <th>区分</th>
+            <th>主な仕組み</th>
+            <th>例</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>通常のプログラム</td>
+            <td>人間が条件、処理順、出力方法を<br>
+            具体的に記述します。</td>
+            <td>気温が30度以上なら、<br>
+            「暑い」と表示する処理</td>
+          </tr>
+
+          <tr>
+            <td>ルールベースAI</td>
+            <td>多数の知識やルールを組み合わせ、<br>
+            入力された事実から結論を推論します。</td>
+            <td>症状や検査結果から、<br>
+            考えられる原因を候補として提示する</td>
+          </tr>
+
+          <tr>
+            <td>機械学習AI</td>
+            <td>学習データから、特徴と結果の関係を<br>
+            モデルとして獲得します。</td>
+            <td>過去の迷惑メールを学習し、<br>
+            新しいメールを分類する</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        単純な条件分岐を使っているだけで、
+        すべてAIと呼ばれるわけではありません。
+        一方で、機械学習を使っていなくても、
+        知識ベースと推論機構を使うシステムは
+        ルールベースAIや知識ベースAIに含まれる場合があります。
+      </p>
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        AIと通常のプログラムの間に、
+        世界共通の完全に固定された境界線があるわけではありません。
+        研究、製品説明、法令など、目的によって定義の範囲が異なる場合があります。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 主な構成要素 ===== -->
+
+  <section class="card">
+
+    <h2>AIシステムの主な構成要素</h2>
+
+    <p>
+      AIシステムは、AIモデルだけで動くわけではありません。
+      データの収集、学習、入力、出力、監視、人による確認など、
+      複数の要素を組み合わせて構成されます。
+    </p><br>
+
+    <div class="parts-grid">
+
+      <div class="part-box">
+        <h3>目的</h3>
+        何を分類・予測・生成するのか、<br>
+        AIを使う目的を定めます。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>データ</h3>
+        学習や判定に利用する、<br>
+        画像、文章、数値などの情報です。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>アルゴリズム</h3>
+        データを処理し、規則性を見つけるための、<br>
+        計算方法や手順です。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>モデル</h3>
+        学習によって調整され、<br>
+        入力から出力を求める仕組みです。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>学習環境</h3>
+        モデルを作成・更新するための、<br>
+        コンピューターやソフトウェアです。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>推論環境</h3>
+        学習済みモデルを使い、<br>
+        実際の入力に対して結果を出します。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>利用画面・API</h3>
+        人や別システムが、<br>
+        AIへ入力し結果を受け取る接点です。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>人による確認</h3>
+        出力の妥当性を確認し、<br>
+        最終判断や例外対応を行います。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>監視・改善</h3>
+        精度低下や異常を確認し、<br>
+        データやモデルを見直します。
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 基本的な流れ ===== -->
+
+  <section class="card">
+
+    <h2><div style="font-size:0.9em;">AIを作り、利用する基本的な流れ</div></h2>
+
+    <p>
+      機械学習を使うAIでは、目的を決めてデータを用意し、
+      モデルを学習させた後に、未知のデータで性能を確認します。
+      実際に導入した後も、継続的な監視と改善が必要です。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;
+      font-size:0.9em;
+      overflow-x:auto;
+      line-height:2;">
+
+      <div style="
+        min-width:680px;
+        white-space:nowrap;">
+
+        1. AIで解決したい目的と、期待する出力を決める<br>
+        2. 学習に必要なデータを収集する<br>
+        3. 誤り、重複、欠損、偏りなどを確認してデータを整える<br>
+        4. 学習用、検証用、テスト用などにデータを分ける<br>
+        5. アルゴリズムやモデルを選び、学習を行う<br>
+        6. 未知のデータを使い、精度や誤判定を評価する<br>
+        7. 実際のシステムへ組み込み、利用者へ提供する<br>
+        8. 出力、処理速度、障害、偏り、利用状況を監視する<br>
+        9. 環境やデータの変化に合わせて、再学習や設定変更を行う
+
+      </div>
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        AI開発では、学習データで高い正解率が出るだけでは不十分です。
+        学習に使っていない新しいデータでも、
+        期待した性能を維持できるか確認する必要があります。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 学習と推論 ===== -->
+
+  
+
+  <!-- ===== 主な方式 ===== -->
+
+  
+
+  <!-- ===== 分類の二軸 ===== -->
+
+  
+
+  <!-- ===== AI・機械学習・深層学習・生成AI ===== -->
+
+  
+
+  <!-- ===== 機械学習の種類 ===== -->
+
+  
+
+  <!-- ===== 生成AI ===== -->
+
+  
+
+  <!-- ===== できること ===== -->
+
+  <section class="card">
+
+    <h2>AIでできること</h2>
+
+    <p>
+      AIは、入力する情報の種類や目的に応じて、
+      さまざまな処理に利用できます。
+      ただし、実際にできる範囲はモデル、学習データ、
+      接続されているシステムなどによって異なります。
+    </p>
+
+    <div class="table-wrap" style="width:100%; overflow-x:auto;">
+
+      <table style="min-width:1000px; width:100%;">
+
+        <thead>
+
+          <tr>
+            <th>できること</th>
+            <th>内容</th>
+            <th>利用例</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>分類</td>
+            <td>入力された情報を、<br>
+            決められた種類へ分けます。</td>
+            <td>迷惑メール判定、画像分類、<br>
+            問い合わせの振り分け</td>
+          </tr>
+
+          <tr>
+            <td>予測</td>
+            <td>過去や現在のデータから、<br>
+            将来の値や発生可能性を求めます。</td>
+            <td>売上予測、需要予測、<br>
+            故障予測</td>
+          </tr>
+
+          <tr>
+            <td>異常検知</td>
+            <td>通常の傾向と異なる動きや、<br>
+            不自然なデータを見つけます。</td>
+            <td>不正利用検知、設備監視、<br>
+            サイバー攻撃の検知</td>
+          </tr>
+
+          <tr>
+            <td>認識</td>
+            <td>画像、音声、文字などから、<br>
+            対象や意味を読み取ります。</td>
+            <td>顔認証、音声入力、OCR、<br>
+            物体検出</td>
+          </tr>
+
+          <tr>
+            <td>推薦</td>
+            <td>利用履歴や傾向をもとに、<br>
+            適している候補を提示します。</td>
+            <td>商品、動画、音楽、<br>
+            ニュースのおすすめ</td>
+          </tr>
+
+          <tr>
+            <td>生成</td>
+            <td>入力された指示をもとに、<br>
+            新しい文章や画像などを作ります。</td>
+            <td>文章、画像、音声、動画、<br>
+            プログラムの生成</td>
+          </tr>
+
+          <tr>
+            <td>最適化・制御</td>
+            <td>条件に合う行動や組み合わせを探し、<br>
+            システムの動作を調整します。</td>
+            <td>配送経路、製造設備、<br>
+            ロボット制御</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 利用分野 ===== -->
+
+  
+
+  <!-- ===== メリット ===== -->
+
+  <section class="card">
+
+    <h2>メリット</h2>
+
+    <p>
+      AIを適切に利用すると、作業時間の短縮や品質の安定、
+      大量データの活用などが期待できます。
+      ただし、効果は目的、データ、導入方法によって異なります。
+    </p><br>
+
+    <div class="parts-grid">
+
+      <div class="part-box">
+        <h3>大量処理ができる</h3>
+        多数の画像や記録を、<br>
+        人より速く処理できる場合があります。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>作業時間を短縮できる</h3>
+        定型作業や下書き作成を支援し、<br>
+        人が重要な作業へ集中しやすくなります。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>24時間動作できる</h3>
+        監視や問い合わせ対応などを、<br>
+        継続して行える場合があります。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>判断材料を増やせる</h3>
+        複数のデータを分析し、<br>
+        人の判断を補助する情報を提示します。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>個別対応を行いやすい</h3>
+        利用者ごとの状況や傾向に合わせて、<br>
+        表示や提案を変えられます。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>新しい発想を支援できる</h3>
+        複数の案や表現を生成し、<br>
+        企画や創作の出発点を作れます。
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===== デメリット ===== -->
+
+  <section class="card">
+
+    <h2>デメリット・限界</h2>
+
+    <p>
+      AIは便利ですが、万能ではありません。
+      学習データ、入力内容、利用環境などに影響され、
+      誤りや偏りを含む結果を出す可能性があります。
+    </p>
+
+    <div class="table-wrap" style="width:100%; overflow-x:auto;">
+
+      <table style="min-width:1000px; width:100%;">
+
+        <thead>
+
+          <tr>
+            <th>デメリット・限界</th>
+            <th>起こり得る問題</th>
+            <th>主な対策</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>誤った結果を出す</td>
+            <td>もっともらしい誤情報や、<br>
+            誤分類を出す場合があります。</td>
+            <td>重要な内容は、<br>
+            公式資料や人の確認を通します。</td>
+          </tr>
+
+          <tr>
+            <td>データの偏りを受ける</td>
+            <td>学習データの偏りが、<br>
+            特定の人や条件への不公平につながります。</td>
+            <td>データ構成と結果を、<br>
+            複数の条件で評価します。</td>
+          </tr>
+
+          <tr>
+            <td>判断理由が分かりにくい</td>
+            <td>複雑なモデルでは、<br>
+            なぜその結果になったか説明しにくい場合があります。</td>
+            <td>説明可能な方式や、<br>
+            根拠確認の手順を用意します。</td>
+          </tr>
+
+          <tr>
+            <td>環境変化で精度が下がる</td>
+            <td>利用者、商品、攻撃手法などが変化し、<br>
+            過去のモデルが合わなくなる場合があります。</td>
+            <td>性能を監視し、<br>
+            必要に応じて再学習します。</td>
+          </tr>
+
+          <tr>
+            <td>導入・運用に費用がかかる</td>
+            <td>データ整備、計算資源、監視、<br>
+            人材などが必要になります。</td>
+            <td>目的と効果を明確にし、<br>
+            小規模な検証から始めます。</td>
+          </tr>
+
+          <tr>
+            <td>情報管理上の危険がある</td>
+            <td>入力した個人情報や機密情報が、<br>
+            外部サービスへ送信される場合があります。</td>
+            <td>利用規約、保存先、<br>
+            組織ルールを確認します。</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </section>
+
+  <!-- ===== AIの注意点 ===== -->
+
+  
+
+  <!-- ===== ハルシネーション ===== -->
+
+  
+
+  <!-- ===== 精度 ===== -->
+
+  
+
+  <!-- ===== 実務上の確認ポイント ===== -->
+
+  
+
+  <!-- ===== 導入の進め方 ===== -->
+
+  
+
+  <!-- ===== 関連技術 ===== -->
+
+  
+
+  <!-- ===== AGIとの違い ===== -->
+
+  
+
+  <!-- ===== まとめ ===== -->
+
+  <section class="card"
+    style="border-left:6px solid #0d6efd;">
+
+    <h2>まとめ</h2>
+
+    <p>
+      AIとは、コンピューターが入力された情報を分析し、
+      予測、分類、推薦、推論、生成などを行う技術や
+      システムの総称です。
+      AIは1つの方式ではなく、ルールベース、機械学習、
+      深層学習、探索・最適化など、複数の方法で実現されます。
+    </p>
+
+    <p style="margin-top:15px;">
+      現在広く利用されているAIの多くは、
+      特定の目的に合わせて作られた特化型AIです。
+      大量の情報処理や作業支援に役立つ一方で、
+      誤情報、偏り、説明の難しさ、情報漏えいなどのリスクがあります。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;
+      font-size:0.88em;
+      line-height:2;
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;">
+
+      <div style="
+        min-width:680px;
+        white-space:nowrap;">
+
+        1. AIは、予測・分類・生成・推論などを行う技術やシステムの総称<br>
+        2. AIは、人間そのものをコンピューター内に再現したものではない<br>
+        3. 通常のプログラムは、人が処理手順を具体的に記述する<br>
+        4. 機械学習を使わない、ルールベース・知識ベースAIも存在する<br>
+        5. 機械学習は、データから規則性を学ぶAIの実現方法の1つ<br>
+        6. 深層学習は、多層ニューラルネットワークを使う機械学習の一部<br>
+        7. 生成AIは、文章や画像などを生成する機能に着目した呼び方<br>
+        8. 現在主流の生成AIの多くは深層学習を利用している<br>
+        9. 学習はモデルを作る段階、推論は学習済みモデルを使う段階<br>
+        10. AIは、大量処理、自動化、予測、推薦、生成などに利用される<br>
+        11. AIの出力は、自然に見えても正しいとは限らない<br>
+        12. データの偏り、情報漏えい、著作権、責任の所在に注意する<br>
+        13. 重要な判断はAIへ任せきらず、人が確認する<br>
+        14. 実務導入では、目的、精度、費用、運用、障害時対応まで確認する
+
+      </div>
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        一言でまとめると、AIは
+        「情報をもとに予測・分類・生成・推論などを行い、
+        人の作業や判断を支援するための幅広い技術」です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 戻る ===== -->
+
+  <div class="back">
+
+    <a href="index.html">
+      ← 用語一覧へ戻る
+    </a>
+
+  </div>
+
+</div>
+
+<!-- ===== フッター ===== -->
+
+<footer>
+  IT学習用サイト
+</footer>
+
+</body>
+</html>

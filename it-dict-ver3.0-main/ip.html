@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IPアドレス</title>
+ <link rel="stylesheet" href="style.css">
+  
+</head>
+
+<body>
+
+  <!-- ===== ヘッダー ===== -->
+
+  <header>
+    <h1>IPアドレス</h1>
+    <p>ネットワーク上で使われる“住所”</p>
+  </header>
+
+  <!-- ===== メイン ===== -->
+
+  <div class="container">
+
+    <!-- ===== IPアドレスとは ===== -->
+
+    <section class="card">
+
+      <h2>IPアドレスとは？</h2>
+
+      <p>
+        IPアドレスは、
+        <span class="red">
+          ネットワーク上の住所
+        </span>
+        のようなものです。
+      </p>
+
+      <p>
+        インターネットやLANの中で、
+        「どの機器へデータを送るか」
+        を識別するために使われています。
+      </p>
+
+      <div class="point-box">
+
+        <p>
+          パソコン・スマホ・サーバーなど、
+          ネットワークに接続する機器には
+          <span class="blue">
+            それぞれ固有のIPアドレス
+          </span>
+          が割り当てられます。
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ===== IPアドレスの構造 ===== -->
+
+    <section class="card">
+
+      <h2>IPアドレスの仕組み</h2>
+
+      <p>
+        IPアドレスは、
+        数値のまとまりによって
+        所属するネットワークが分かるように設計されています。
+      </p>
+
+      <div class="list">
+
+        <p>
+          ・<span class="blue">192.168.1.0〜192.168.1.255</span><br>
+          家庭用ルーターでよく使われる範囲
+        </p>
+
+        <p>
+          ・<span class="blue">10.0.0.0〜10.255.255.255</span><br>
+          企業ネットワークで使われることが多い範囲
+        </p>
+
+        <p>
+          ・<span class="blue">203.0.113.0〜203.0.113.255</span><br>
+          特定のプロバイダへ割り当てられた範囲
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ===== ルーターとの関係 ===== -->
+
+    <section class="card">
+
+      <h2>ルーターの役割</h2>
+
+      <p>
+        ルーターは、
+        これらの
+        <span class="red">住所のまとまり</span>
+        を手がかりに通信先を判断します。
+      </p>
+
+      <div class="example-box">
+
+        <p>
+          例えばルーターは、
+        </p>
+
+        <p>
+          「このIPアドレスの範囲なら、
+          こちらのネットワークへ送ればよい」
+        </p>
+
+        <p>
+          というように、
+          通信の方向を決めています。
+        </p>
+
+      </div>
+
+      <p style="margin-top: 20px;">
+        つまり、
+        世界中のIPアドレスをすべて覚えているわけではなく、
+        <span class="blue">
+          ネットワークの構造を利用して効率よく通信
+        </span>
+        を行っています。
+      </p>
+
+    </section>
+
+    <!-- ===== IPアドレスの強み ===== -->
+
+    <section class="card">
+
+      <h2>IPアドレス方式の強み</h2>
+
+      <p>
+        IPアドレス方式の大きな強みは、
+        <span class="red">
+          住所の構造を利用して目的地へ近づく経路を選べる
+        </span>
+        点です。
+      </p>
+
+      <p>
+        この仕組みがあることで、
+        世界中の膨大なネットワーク同士が
+        効率よく接続されています。
+      </p>
+
+      <div class="point-box">
+
+        <p>
+          IPアドレスは、
+          インターネット通信を支える
+          <span class="blue">
+            基本中の基本となる仕組み
+          </span>
+          です。
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ===== 戻る ===== -->
+
+    <div class="back">
+      <a href="index.html">← 用語一覧へ戻る</a>
+    </div>
+
+  </div>
+
+  <!-- ===== フッター ===== -->
+
+  <footer>
+    IT学習用サイト
+  </footer>
+
+</body>
+</html>

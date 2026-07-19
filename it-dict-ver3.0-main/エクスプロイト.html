@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>エクスプロイト（Exploit）とは？</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ===== ヘッダー ===== -->
+
+<header>
+
+  <h1>
+
+    エクスプロイト<br>
+
+    <span style="
+      font-size:0.55em;
+      font-weight:normal;">
+
+      （Exploit）
+
+    </span>
+
+  </h1>
+
+  <p>
+    脆弱性を悪用して侵入するための仕組み
+  </p>
+
+</header>
+
+<!-- ===== メイン ===== -->
+
+<div class="container">
+
+  <!-- ===== エクスプロイトとは ===== -->
+
+  <section class="card">
+
+    <h2>エクスプロイトとは？</h2>
+
+    <p>
+      エクスプロイト（Exploit）とは、
+      ソフトウェアやシステムの
+      「脆弱性（セキュリティ上の弱点）」
+      を悪用するための
+      手法やプログラムのことです。
+    </p>
+
+    <p style="margin-top:15px;">
+
+      ソフトウェアの穴が
+      放置されていたり、
+      まだ修正されていなかったりすると、
+
+      攻撃者はエクスプロイトを利用して
+      システムへ侵入することがあります。
+
+    </p>
+
+    <div class="point-box">
+
+      <p>
+        エクスプロイトは
+        「侵入口を作る仕組み」
+        に近い存在です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== イメージ ===== -->
+
+  <section class="card">
+
+    <h2>まずは全体の流れで理解する</h2>
+
+    <p>
+      エクスプロイトは、
+      サイバー攻撃の
+      「侵入段階」
+      で使われることが多いです。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;">
+
+      <div style="
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:18px;
+        text-align:center;">
+
+        <div style="
+          background:#fff;
+          border:1px solid #ddd;
+          border-radius:10px;
+          padding:14px 18px;
+          width:100%;
+          max-width:520px;">
+
+          ① 脆弱性（システムの穴）
+        </div>
+
+        <div style="
+          font-size:1.4em;
+          color:#666;">
+          ↓
+        </div>
+
+        <div style="
+          background:#ffeaea;
+          border:1px solid #f3b3b3;
+          border-radius:10px;
+          padding:14px 18px;
+          width:100%;
+          max-width:520px;
+          font-weight:bold;
+          color:#d9534f;">
+
+          ② エクスプロイトで侵入
+
+        </div>
+
+        <div style="
+          font-size:1.4em;
+          color:#666;">
+          ↓
+        </div>
+
+        <div style="
+          background:#fff;
+          border:1px solid #ddd;
+          border-radius:10px;
+          padding:14px 18px;
+          width:100%;
+          max-width:520px;">
+
+          ③ 権限取得・内部侵入
+        </div>
+
+        <div style="
+          font-size:1.4em;
+          color:#666;">
+          ↓
+        </div>
+
+        <div style="
+          background:#fff;
+          border:1px solid #ddd;
+          border-radius:10px;
+          padding:14px 18px;
+          width:100%;
+          max-width:520px;">
+
+          ④ マルウェア実行
+        </div>
+
+        <div style="
+          font-size:1.4em;
+          color:#666;">
+          ↓
+        </div>
+
+        <div style="
+          background:#fff;
+          border:1px solid #ddd;
+          border-radius:10px;
+          padding:14px 18px;
+          width:100%;
+          max-width:520px;">
+
+          ⑤ 情報窃取・暗号化
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        エクスプロイトは、
+        「攻撃の入口」
+        として利用されるイメージです。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 脆弱性 ===== -->
+
+  <section class="card">
+
+    <h2>脆弱性とは？</h2>
+
+    <p>
+      脆弱性（ぜいじゃくせい）とは、
+      ソフトウェアやシステムに存在する
+      セキュリティ上の弱点です。
+    </p>
+
+    <p style="margin-top:15px;">
+
+      バグや設計ミスなどによって発生し、
+      攻撃者に悪用される可能性があります。
+
+    </p>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>バグ</h3>
+        プログラム不具合
+      </div>
+
+      <div class="part-box">
+        <h3>設計ミス</h3>
+        安全性不足
+      </div>
+
+      <div class="part-box">
+        <h3>入力処理不備</h3>
+        想定外動作
+      </div>
+
+      <div class="part-box">
+        <h3>更新不足</h3>
+        古いソフト利用
+      </div>
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        脆弱性は、
+        「攻撃のために作られた穴」
+        ではなく、
+
+        開発上の問題によって
+        発生することが多いです。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 関係性 ===== -->
+
+  <section class="card">
+
+    <h2>脆弱性・エクスプロイト・マルウェアの違い</h2>
+
+    <p>
+      この3つは、
+      サイバー攻撃で非常によく登場しますが、
+      役割が異なります。
+    </p>
+
+    <div class="table-wrap">
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>用語</th>
+            <th>役割</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+
+            <td>脆弱性</td>
+
+            <td>
+              システムの穴
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td style="
+              color:#d9534f;
+              font-weight:bold;">
+
+              エクスプロイト
+
+            </td>
+
+            <td>
+              穴を突く仕組み
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>マルウェア</td>
+
+            <td>
+              侵入後に悪さをする
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        「脆弱性」と
+        「それを悪用するエクスプロイト」
+        は別の概念です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 水道例 ===== -->
+
+  <section class="card">
+
+    <h2>家の鍵に例えると分かりやすい</h2>
+
+    <p>
+      エクスプロイトは、
+      「壊れた鍵を利用して侵入する」
+      イメージに近いです。
+    </p>
+
+    <div style="
+      background:#fff4e5;
+      border:1px solid #f0c36d;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;
+      text-align:center;
+      line-height:2;">
+
+          <strong>壊れた鍵</strong><br>
+          （脆弱性）
+
+      <br>
+
+      ↓
+
+      <br>
+
+          <strong>ピッキング道具</strong><br>
+          （エクスプロイト）
+
+      <br>
+
+      ↓
+
+      <br>
+
+          <strong>侵入</strong><br>
+          （攻撃成功）
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        エクスプロイトは、
+        「脆弱性を利用するための道具」
+        と考えると理解しやすいです。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== ゼロデイ ===== -->
+
+  <section class="card">
+
+    <h2>ゼロデイ攻撃とは？</h2>
+
+    <p>
+      通常は、
+      脆弱性が見つかると
+      修正プログラム（パッチ）
+      が配布されます。
+    </p>
+
+    <p style="margin-top:15px;">
+
+      しかし、
+      修正される前に
+      攻撃されるケースがあります。
+
+      これを
+      「ゼロデイ攻撃」
+      と呼びます。
+
+    </p>
+
+    <div style="
+      background:#fff4e5;
+      border:1px solid #f0c36d;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;
+      text-align:center;
+      line-height:2;">
+
+      脆弱性発見
+
+      <br>
+
+      ↓
+
+      <br>
+
+      <strong style="
+        color:#d9534f;
+        font-size:1.05em;">
+
+        修正前に攻撃
+
+      </strong>
+
+      <br>
+
+      ↓
+
+      <br>
+
+      ゼロデイ攻撃
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        ゼロデイ攻撃は、
+        「まだ十分な対策が存在しない」
+        状態で攻撃されるため、
+        特に危険です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 実際の被害 ===== -->
+
+  <section class="card">
+
+    <h2>エクスプロイトで起こる被害</h2>
+
+    <p>
+      エクスプロイトによって侵入されると、
+      様々な被害につながる可能性があります。
+    </p>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>情報漏洩</h3>
+        個人情報流出
+      </div>
+
+      <div class="part-box">
+        <h3>ランサムウェア</h3>
+        ファイル暗号化
+      </div>
+
+      <div class="part-box">
+        <h3>乗っ取り</h3>
+        管理権限奪取
+      </div>
+
+      <div class="part-box">
+        <h3>社内拡散</h3>
+        他PCへ感染
+      </div>
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        侵入後にマルウェアが実行されることで、
+        被害が拡大するケースが多いです。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 対策 ===== -->
+
+  <section class="card">
+
+    <h2>対策として重要なこと</h2>
+
+    <p>
+      エクスプロイト被害を防ぐには、
+      「脆弱性を減らす」
+      ことが重要です。
+    </p>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>OS更新</h3>
+        パッチ適用
+      </div>
+
+      <div class="part-box">
+        <h3>ソフト更新</h3>
+        古い利用回避
+      </div>
+
+      <div class="part-box">
+        <h3>EDR導入</h3>
+        異常検知
+      </div>
+
+      <div class="part-box">
+        <h3>メール注意</h3>
+        不審ファイル回避
+      </div>
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        「脆弱性を放置しない」
+        ことが、
+        最も基本的で重要な対策です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 中立性 ===== -->
+
+  <section class="card">
+
+    <h2>エクスプロイトは<br>「悪」そのものではない</h2>
+
+    <p>
+      エクスプロイトは、
+      攻撃で利用されることが多いですが、
+      技術そのものは中立的な概念です。
+    </p>
+
+    <p style="margin-top:15px;">
+
+      セキュリティ研究者は、
+      防御や検証のために
+      エクスプロイト技術を利用することがあります。
+
+    </p>
+
+    <div class="example">
+
+      <p>
+        「脆弱性を見つけ、
+        修正するため」
+        に使われる場合もあります。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== まとめ ===== -->
+
+  <section class="card"
+    style="border-left:6px solid #d9534f;">
+
+    <h2>まとめ</h2>
+
+    <p>
+      エクスプロイトとは、「脆弱性を悪用してシステムへ侵入するための手法やプログラム」 のことです。
+    </p>
+
+    <p style="margin-top:15px;">
+
+      サイバー攻撃では、「脆弱性」→「エクスプロイト」→「侵入」→「マルウェア実行」のような流れで被害が発生することがあります。
+
+    </p>
+
+    <div class="point-box">
+
+      <p>
+        エクスプロイトを理解することは、
+        現代のサイバー攻撃を理解するうえで
+        非常に重要です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 戻る ===== -->
+
+  <div class="back">
+
+    <a href="index.html">
+      ← 用語一覧へ戻る
+    </a>
+
+  </div>
+
+</div>
+
+<!-- ===== フッター ===== -->
+
+<footer>
+  IT学習用サイト
+</footer>
+
+</body>
+</html>

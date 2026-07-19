@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IDS（Intrusion Detection System）</title>
+ <link rel="stylesheet" href="style.css">
+  
+</head>
+
+<body>
+
+  <!-- ===== ヘッダー ===== -->
+
+  <header>
+    <h1>IDS<br>
+
+  <span style="
+    font-size:0.6em;
+    font-weight:normal;">
+    （Intrusion Detection System）
+  </span></h1>
+    <p>不正アクセスや攻撃を検知する監視システム</p>
+  </header>
+
+  <!-- ===== メイン ===== -->
+
+  <div class="container">
+
+    <!-- ===== IDSとは ===== -->
+
+    <section class="card">
+
+      <h2>IDSとは？</h2>
+
+      <p>
+        <span class="red">IDS（Intrusion Detection System）</span>
+        というのは、
+        ネットワークやシステム上の通信・動作を監視し、
+        <span class="red">
+          不正アクセスや攻撃の兆候を検知して通知する仕組み
+        </span>
+        です。
+      </p>
+
+      <p>
+        IDSは主に
+        <span class="blue">「検知と可視化」</span>
+        に重点を置いており、
+        <span class="blue">ログ</span>
+        や
+        <span class="blue">アラート</span>
+        を通じて管理者へ状況を知らせます。
+      </p>
+
+      <div class="warning-box">
+
+        <p>
+          IDSは
+          <span class="red">
+            通信そのものを自動で遮断しない
+          </span>
+          点が、
+          IPSとの大きな違いです。
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ===== IDSの役割 ===== -->
+
+    <section class="card">
+
+      <h2>IDSが行うこと</h2>
+
+      <div class="list">
+
+        <p>
+          ・<span class="red">不正な通信や攻撃の検知</span>
+        </p>
+
+        <p>
+          ・<span class="blue">ログの収集・保存</span>
+        </p>
+
+        <p>
+          ・<span class="blue">アラート通知</span>
+          （メールや管理コンソールへの通知など）
+        </p>
+
+        <p>
+          ・<span class="blue">可視化・分析</span>
+          （ダッシュボードやレポートで状況を把握）
+        </p>
+
+      </div>
+
+      <div class="point-box">
+
+        <p>
+          IDSは、
+          <span class="blue">
+            「攻撃を防ぐ」よりも「異常に気づく」
+          </span>
+          ことを得意としています。
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ===== 検知方式 ===== -->
+
+    <section class="card">
+
+      <h2>IDSの検知方法</h2>
+
+      <p>
+        IDSで使われる検知方法は、
+        IPSとよく似ています。
+      </p>
+
+      <div class="list">
+
+        <p>
+          ・<span class="red">シグネチャベース</span><br>
+          既知の攻撃パターンと照合して検知する方式。
+        </p>
+
+        <p>
+          ・<span class="red">アノマリーベース</span><br>
+          通常とは異なる
+          <span class="blue">異常なトラフィック</span>
+          や振る舞いを検知する方式。
+        </p>
+
+        <p>
+          ・<span class="blue">ポリシーベース</span><br>
+          定義したルールに違反する通信を検知する方式。
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ===== IDSの種類 ===== -->
+
+    <section class="card">
+
+      <h2>IDSの種類</h2>
+
+      <p>
+        IDSは、配置場所によって役割が少し変わります。
+      </p>
+
+      <div class="list">
+
+        <p>
+          ・<span class="blue">ネットワークIDS（NIDS）</span><br>
+          スイッチやルーターの近くで
+          <span class="blue">ネットワークトラフィック</span>
+          を監視するタイプ。
+        </p>
+
+        <p>
+          ・<span class="blue">ホストIDS（HIDS）</span><br>
+          サーバーや端末にエージェントを入れて、
+          <span class="blue">OSやアプリケーションのログ・動作</span>
+          を監視するタイプ。
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ===== IDSとIPS ===== -->
+
+    <section class="card">
+
+      <h2>IDSとIPSの違い</h2>
+
+      <div class="compare">
+
+        <table>
+
+          <tr>
+            <th>項目</th>
+            <th>IDS</th>
+            <th>IPS</th>
+          </tr>
+
+          <tr>
+            <td>主な役割</td>
+            <td>検知・通知</td>
+            <td>検知・遮断</td>
+          </tr>
+
+          <tr>
+            <td>通信の遮断</td>
+            <td>行わない</td>
+            <td>自動で遮断する</td>
+          </tr>
+
+          <tr>
+            <td>目的</td>
+            <td>異常の発見</td>
+            <td>攻撃の防御</td>
+          </tr>
+
+        </table>
+
+      </div>
+
+    </section>
+
+    <!-- ===== まとめ ===== -->
+
+    <section class="card">
+
+      <h2>まとめ</h2>
+
+      <p>
+        IDSは、
+        <span class="red">
+          ネットワークやシステムを監視し、
+          異常や攻撃を早期発見するための仕組み
+        </span>
+        です。
+      </p>
+
+      <p>
+        SIEMやSOCなどと組み合わせて利用されることも多く、
+        セキュリティインシデントの早期発見に役立ちます。
+      </p>
+
+      <div class="point-box">
+
+        <p>
+          IDSは、
+          <span class="blue">
+            「何が起きているかを把握するための目と耳」
+          </span>
+          のような存在です。
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ===== 戻る ===== -->
+
+    <div class="back">
+      <a href="index.html">← 用語一覧へ戻る</a>
+    </div>
+
+  </div>
+
+  <!-- ===== フッター ===== -->
+
+  <footer>
+    IT学習用サイト
+  </footer>
+
+</body>
+</html>

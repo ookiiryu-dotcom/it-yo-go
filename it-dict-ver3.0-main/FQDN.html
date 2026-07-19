@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FQDN</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ===== ヘッダー ===== -->
+
+<header>
+
+  <h1>
+
+    FQDN
+
+    <span style="
+      display:block;
+      font-size:0.55em;
+      font-weight:normal;
+      margin-top:8px;">
+
+      DNSの階層上で機器やサービスを<br>完全な名前として特定する仕組み
+
+    </span>
+
+  </h1>
+
+  <p>
+    <span style="font-size:0.85em;">
+      ホスト名とドメイン名を組み合わせ、<br>
+      Webサーバー、メールサーバー、端末などを<br>名前で識別するための基本用語
+    </span>
+  </p>
+
+</header>
+
+<!-- ===== メイン ===== -->
+
+<div class="container">
+
+  <!-- ===== FQDNとは ===== -->
+
+  <section class="card">
+
+    <h2>FQDNとは？</h2>
+
+    <p>
+      FQDNとは、<strong>Fully Qualified Domain Name</strong>の略で、
+      日本語では<strong>完全修飾ドメイン名</strong>と呼ばれます。
+      DNSの階層上で、サーバーや端末、サービスなどを
+      省略のない完全な名前として特定するための名称です。
+    </p>
+
+    <p style="margin-top:15px;">
+      たとえば、次の名前はFQDNとして使われる代表的な表記です。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;
+      text-align:center;
+      font-size:1.1em;
+      line-height:2;">
+
+      <strong>host1.example.com</strong>
+
+    </div>
+
+    <p>
+      この名前では、<strong>host1</strong>が対象となる機器やサービスを表す先頭ラベル、
+      <strong>example.com</strong>が所属するドメインを表します。
+      これらを組み合わせることで、
+      ネットワーク上の対象を名前で区別できるようになります。
+    </p>
+
+    <div class="point-box">
+
+      <p>
+        簡単に言うと、FQDNは
+        「ネットワーク上の機器やサービスを、
+        所属するドメインまで含めて表した正式な名前」です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== まずはイメージ ===== -->
+
+  <section class="card">
+
+    <h2>まずはイメージで理解する</h2>
+
+    <p>
+      FQDNは、人を「名前だけ」で呼ぶのではなく、
+      所属する会社や部署まで含めて特定する考え方に似ています。
+    </p>
+
+    <p style="margin-top:15px;">
+      たとえば「佐藤さん」だけでは同じ名前の人が複数いる可能性があります。
+      しかし「東京支社の営業部にいる佐藤さん」のように、
+      所属情報を加えると対象を特定しやすくなります。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;">
+
+      <div style="
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:18px;
+        text-align:center;">
+
+        <div style="
+          background:#fff;
+          border:1px solid #ddd;
+          border-radius:10px;
+          padding:14px 18px;
+          width:100%;
+          max-width:560px;
+          line-height:1.8;">
+
+          host1<br>
+          対象となる機器やサービスを表す名前
+
+        </div>
+
+        <div style="
+          font-size:1.4em;
+          color:#666;">
+          ＋
+        </div>
+
+        <div style="
+          background:#eaf4ff;
+          border:1px solid #9fc5f8;
+          border-radius:10px;
+          padding:14px 18px;
+          width:100%;
+          max-width:560px;
+          font-weight:bold;
+          line-height:1.8;">
+
+          example.com<br>
+          対象が所属するドメイン
+
+        </div>
+
+        <div style="
+          font-size:1.4em;
+          color:#666;">
+          ↓
+        </div>
+
+        <div style="
+          background:#fff4e5;
+          border:1px solid #f0c36d;
+          border-radius:10px;
+          padding:14px 18px;
+          width:100%;
+          max-width:560px;
+          font-weight:bold;
+          line-height:1.8;">
+
+          host1.example.com<br>
+          対象を完全な名前で特定するFQDN
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        <strong>www</strong>、<strong>mail</strong>、<strong>server1</strong>、
+        <strong>router</strong>なども先頭ラベルとして使われます。
+        これらは特別な構文ではなく、
+        機器やサービスの役割を分かりやすくするための名前です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== なぜ必要なのか ===== -->
+
+  <section class="card">
+
+    <h2>なぜFQDNが必要なのか</h2>
+
+    <p>
+      ネットワーク上の通信相手は、最終的にはIPアドレスによって識別されます。
+      しかし、IPアドレスは数字の並びであるため、
+      人が覚えたり用途を判断したりするには不便です。
+    </p>
+
+    <p style="margin-top:15px;">
+      FQDNを使うことで、通信先を意味のある名前で表せます。
+      また、IPアドレスが変更された場合でも、
+      DNSの登録を更新すれば同じFQDNを使い続けられます。
+    </p>
+
+    <div class="point-box">
+
+      <p>
+        FQDNが必要な理由は、
+        「数字のIPアドレスを人が扱いやすい名前に置き換え、
+        機器やサービスを分かりやすく識別するため」です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== ホスト名などとの違い ===== -->
+
+  <section class="card">
+
+    <h2>ホスト名・ドメイン名・URLとの違い</h2>
+
+    <p>
+      FQDNを正しく理解するには、
+      ホスト名、ドメイン名、URLとの違いを整理することが重要です。
+      これらは似た形で表示されますが、表している範囲や目的が異なります。
+    </p>
+
+    <div class="table-wrap" style="width:100%; overflow-x:auto;">
+
+      <table style="min-width:1000px; width:100%;">
+
+        <thead>
+
+          <tr>
+            <th>用語</th>
+            <th>例</th>
+            <th>意味</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>ホスト名・先頭ラベル</td>
+            <td>host1</td>
+            <td>機器やサービスを表す名前です。<br>
+            単独では所属するドメインが分からない場合があります。</td>
+          </tr>
+
+          <tr>
+            <td>ドメイン名</td>
+            <td>example.com</td>
+            <td>組織や管理範囲を表す名前です。<br>
+            DNS上では階層構造を持っています。</td>
+          </tr>
+
+          <tr>
+            <td>FQDN</td>
+            <td>host1.example.com</td>
+            <td>先頭ラベルと所属ドメインを組み合わせ、<br>
+            対象を完全な名前として表します。</td>
+          </tr>
+
+          <tr>
+            <td>URL</td>
+            <td>https://host1.example.com/page</td>
+            <td>通信方式、FQDN、パスなどを組み合わせ、<br>
+            Web上の場所や資源を表します。</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        <strong>host1.example.com</strong>はFQDNです。
+        一方、<strong>https://host1.example.com/page</strong>は、
+        HTTPSという通信方式やページの場所まで含むURLです。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 主な構成要素 ===== -->
+
+  <section class="card">
+
+    <h2>FQDNの主な構成要素</h2>
+
+    <p>
+      FQDNは、ドットで区切られた複数のラベルから構成されます。
+      右側へ進むほどDNS階層の上位になり、
+      左側へ進むほど対象を細かく特定する名前になります。
+    </p><br>
+
+    <div class="parts-grid">
+
+      <div class="part-box">
+        <h3>先頭ラベル</h3>
+        host1、www、mailなど、<br>
+        機器やサービスを表す部分です。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>第2レベルのラベル</h3>
+        exampleのように、<br>
+        TLDの直下にある名前です。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>トップレベルドメイン</h3>
+        com、jp、netなど、<br>
+        ルート直下にあるドメインです。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>ドット</h3>
+        DNSの階層を区切る記号です。<br>
+        ラベル同士の境界を表します。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>ルート</h3>
+        DNS階層の最上位です。<br>
+        厳密な表記では末尾のドットで表します。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>サブドメイン</h3>
+        sales.example.comのように、<br>
+        ドメインをさらに分けた名前です。
+      </div>
+
+    </div>
+
+
+
+      
+
+    <div class="point-box">
+
+      <p>
+        <strong>example</strong>だけをドメイン名と考えるのではなく、
+        <strong>example.com</strong>全体が1つのドメイン名であると理解すると、
+        FQDNの構造を整理しやすくなります。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 名前解決の仕組み ===== -->
+
+  <section class="card">
+
+    <h2><div style=" font-size:0.9em;">FQDNがIPアドレスに変換される仕組み</div></h2>
+
+    <p>
+      コンピューターは、FQDNそのものを使って通信するのではなく、
+      DNSによってFQDNに対応するIPアドレスを調べてから通信します。
+      この処理を<strong>名前解決</strong>と呼びます。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;">
+
+      <div style="
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:18px;
+        text-align:center;">
+
+        <div style="
+          background:#fff;
+          border:1px solid #ddd;
+          border-radius:10px;
+          padding:14px 18px;
+          width:100%;
+          max-width:560px;
+          line-height:1.8;">
+
+          利用者がFQDNを指定<br>
+          host1.example.com
+
+        </div>
+
+        <div style="
+          font-size:1.4em;
+          color:#666;">
+          ↓
+        </div>
+
+        <div style="
+          background:#eaf4ff;
+          border:1px solid #9fc5f8;
+          border-radius:10px;
+          padding:14px 18px;
+          width:100%;
+          max-width:560px;
+          font-weight:bold;
+          line-height:1.8;">
+
+          DNSへ問い合わせ<br>
+          対応するIPアドレスを確認
+
+        </div>
+
+        <div style="
+          font-size:1.4em;
+          color:#666;">
+          ↓
+        </div>
+
+        <div style="
+          background:#fff4e5;
+          border:1px solid #f0c36d;
+          border-radius:10px;
+          padding:14px 18px;
+          width:100%;
+          max-width:560px;
+          font-weight:bold;
+          line-height:1.8;">
+
+          IPアドレスを取得<br>
+          例：192.0.2.10
+
+        </div>
+
+        <div style="
+          font-size:1.4em;
+          color:#666;">
+          ↓
+        </div>
+
+        <div style="
+          background:#fff;
+          border:1px solid #ddd;
+          border-radius:10px;
+          padding:14px 18px;
+          width:100%;
+          max-width:560px;
+          line-height:1.8;">
+
+          取得したIPアドレスへ通信<br>
+          Web、メール、管理接続などを実行
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        FQDNは住所録に登録された名前、
+        DNSは名前から住所を調べる案内係、
+        IPアドレスは実際の配送先住所にあたります。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 主な表記と種類 ===== -->
+
+  
+
+  <!-- ===== できること ===== -->
+
+  <section class="card">
+
+    <h2>FQDNを使ってできること</h2>
+
+    <p>
+      FQDNは、単に名前を付けるだけの仕組みではありません。
+      Web、メール、証明書、ファイアウォール、社内システムなど、
+      多くのネットワーク設定で共通の識別名として使われます。
+    </p>
+
+    <div class="table-wrap" style="width:100%; overflow-x:auto;">
+
+      <table style="min-width:1000px; width:100%;">
+
+        <thead>
+
+          <tr>
+            <th>できること</th>
+            <th>内容</th>
+            <th>利用例</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>通信先を名前で指定する</td>
+            <td>IPアドレスではなく、<br>
+            人が理解しやすい名前で接続先を指定できます。</td>
+            <td>www.example.comへ<br>
+            Webブラウザで接続します。</td>
+          </tr>
+
+          <tr>
+            <td>IPアドレス変更の影響を抑える</td>
+            <td>DNSの登録を変更することで、<br>
+            同じFQDNを継続して利用できます。</td>
+            <td>サーバー移行後も<br>
+            利用者は同じ名前で接続できます。</td>
+          </tr>
+
+          <tr>
+            <td>証明書の対象を識別する</td>
+            <td>HTTPSなどで使用する証明書に、<br>
+            接続先のFQDNを登録できます。</td>
+            <td>証明書の名前と<br>
+            アクセス先が一致するか確認します。</td>
+          </tr>
+
+          <tr>
+            <td>通信許可先を指定する</td>
+            <td>ファイアウォールやプロキシで、<br>
+            接続を許可するFQDNを指定できます。</td>
+            <td>更新サーバーや<br>
+            クラウドサービスへの通信を許可します。</td>
+          </tr>
+
+          <tr>
+            <td>役割ごとに名前を分ける</td>
+            <td>Web、メール、管理用など、<br>
+            用途ごとに分かりやすい名前を付けられます。</td>
+            <td>www、mail、adminなどの<br>
+            ラベルを使い分けます。</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </section>
+
+  <!-- ===== メリット ===== -->
+
+  <section class="card">
+
+    <h2>メリット</h2>
+
+    <p>
+      FQDNを使う最大のメリットは、
+      通信先を人が理解しやすい名前で管理できることです。
+      IPアドレスと名前を分離できるため、
+      システム変更にも対応しやすくなります。
+    </p><br>
+
+    <div class="parts-grid">
+
+      <div class="part-box">
+        <h3>覚えやすい</h3>
+        数字のIPアドレスより、<br>
+        用途が分かる名前で管理できます。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>識別しやすい</h3>
+        所属ドメインまで含むため、<br>
+        対象を明確に区別できます。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>IP変更に対応しやすい</h3>
+        DNSの登録を変更すれば、<br>
+        同じ名前を使い続けられます。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>役割を表現できる</h3>
+        www、mail、vpnなど、<br>
+        用途に応じた名前を付けられます。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>設定を統一しやすい</h3>
+        証明書やファイアウォールなどで、<br>
+        共通の識別名として利用できます。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>階層的に管理できる</h3>
+        組織、部署、用途などに分けて、<br>
+        名前空間を整理できます。
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===== デメリット ===== -->
+
+  <section class="card">
+
+    <h2>デメリット</h2>
+
+    <p>
+      FQDNは便利ですが、
+      DNSが正しく動作していることを前提とする仕組みです。
+      DNS設定の誤りや障害があると、
+      IP通信が可能でもFQDNでは接続できない場合があります。
+    </p>
+
+    <div class="table-wrap" style="width:100%; overflow-x:auto;">
+
+      <table style="min-width:1000px; width:100%;">
+
+        <thead>
+
+          <tr>
+            <th>デメリット</th>
+            <th>内容</th>
+            <th>考え方</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>DNSに依存する</td>
+            <td>DNSサーバーへ問い合わせできないと、<br>
+            FQDNからIPアドレスを取得できません。</td>
+            <td>通信障害時は、<br>
+            DNSとIP通信を分けて確認します。</td>
+          </tr>
+
+          <tr>
+            <td>設定ミスの影響が大きい</td>
+            <td>誤ったIPアドレスや名前を登録すると、<br>
+            多くの利用者が接続できなくなる場合があります。</td>
+            <td>変更前後のレコード確認と、<br>
+            反映時間の考慮が必要です。</td>
+          </tr>
+
+          <tr>
+            <td>反映に時間がかかる場合がある</td>
+            <td>DNSキャッシュが残っていると、<br>
+            変更前の情報が一時的に使われることがあります。</td>
+            <td>TTLを確認し、<br>
+            切り替え計画を立てます。</td>
+          </tr>
+
+          <tr>
+            <td>名前設計が必要</td>
+            <td>命名規則が統一されていないと、<br>
+            用途や管理者が分かりにくくなります。</td>
+            <td>組織全体で、<br>
+            分かりやすい命名規則を決めます。</td>
+          </tr>
+
+          <tr>
+            <td>証明書との不一致が起きる</td>
+            <td>接続先FQDNと証明書の名前が異なると、<br>
+            ブラウザなどで警告が表示されます。</td>
+            <td>証明書に登録された名前と、<br>
+            実際の接続先を一致させます。</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 注意点 ===== -->
+
+  
+
+  <!-- ===== ゾーンファイルの注意 ===== -->
+
+  
+
+  <!-- ===== 関連技術 ===== -->
+
+  
+
+  <!-- ===== 実務上の確認ポイント ===== -->
+
+  
+
+  <!-- ===== まとめ ===== -->
+
+  <section class="card"
+    style="border-left:6px solid #0d6efd;">
+
+    <h2>まとめ</h2>
+
+    <p>
+      FQDNとは、DNSの階層上で機器やサービスを完全な名前として特定するための
+      完全修飾ドメイン名です。
+      一般的には、先頭ラベルと所属するドメイン名を組み合わせた
+      <strong>host1.example.com</strong>のような形で表します。
+    </p>
+
+    <p style="margin-top:15px;">
+      FQDNを使うことで、
+      数字のIPアドレスを人が理解しやすい名前で扱えるようになります。
+      DNSがFQDNとIPアドレスを対応付けることで、
+      Web、メール、管理システムなどへ名前で接続できます。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;
+      font-size:0.88em;
+      line-height:2;
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;">
+
+      <div style="
+        min-width:680px;
+        white-space:nowrap;">
+
+        1. FQDNは、ネットワーク上の対象を完全な名前で特定する仕組み<br>
+        2. host1.example.comのように、先頭ラベルとドメイン名を組み合わせる<br>
+        3. example.com全体がドメイン名で、comはトップレベルドメイン<br>
+        4. DNSによってFQDNがIPアドレスへ変換される<br>
+        5. FQDNとURLは異なり、URLには通信方式やパスも含まれる<br>
+        6. 厳密な絶対形式では、host1.example.com.のように末尾ドットを付ける<br>
+        7. 末尾ドットがない完全な名前も、一般的にはFQDNとして扱われる<br>
+        8. PQDNは、host1のように後半のドメインを省略した相対的な名前<br>
+        9. ゾーンファイルでは末尾ドットの有無による誤設定に注意する<br>
+        10. 実務では、DNS、キャッシュ、証明書、通信制御を分けて確認する
+
+      </div>
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        一言でまとめると、FQDNは
+        「機器やサービスの名前に所属ドメインを加え、
+        ネットワーク上で対象を完全に特定するための正式な名前」です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 戻る ===== -->
+
+  <div class="back">
+
+    <a href="index.html">
+      ← 用語一覧へ戻る
+    </a>
+
+  </div>
+
+</div>
+
+<!-- ===== フッター ===== -->
+
+<footer>
+  IT学習用サイト
+</footer>
+
+</body>
+</html>
