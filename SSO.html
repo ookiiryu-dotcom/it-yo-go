@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SSO（シングルサインオン）とは？</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+  <h1>
+    SSO<br>
+    <span style="
+      font-size:0.55em;
+      font-weight:normal;">
+      （シングルサインオン）
+    </span>
+  </h1>
+
+  <p>
+    一度のログインで<br>
+    複数サービスを利用できる認証の仕組み
+  </p>
+
+</header>
+
+<div class="container">
+
+  <section class="card">
+
+    <h2>SSOとは？</h2>
+
+    <p>
+      SSOとは、
+      Single Sign-On
+      の略で、
+      一度ログインするだけで、
+      複数のシステムやサービスを
+      再ログインなしで利用できる仕組みです。
+    </p>
+
+    <p style="margin-top:15px;">
+      会社で使うメール、
+      社内ポータル、
+      勤怠システム、
+      経費精算システム、
+      Microsoft 365、
+      Salesforceなどを、
+      1回の認証で利用できるようにします。
+    </p>
+
+    <div class="point-box">
+      <p>
+        SSOは、
+        「ログインを楽にする仕組み」
+        であり、
+        同時に
+        「認証を一元管理する仕組み」
+        でもあります。
+      </p>
+    </div>
+
+  </section>
+
+  <section class="card">
+
+    <h2>まずは全体像で理解する</h2>
+
+    <p>
+      SSOを使うと、
+      利用者は最初に認証基盤へログインし、
+      その後は連携サービスを利用できます。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;">
+
+      <div style="
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:18px;
+        text-align:center;">
+
+        <div style="
+          background:#fff;
+          border:1px solid #ddd;
+          border-radius:10px;
+          padding:14px 18px;
+          width:100%;
+          max-width:520px;">
+          利用者
+        </div>
+
+        <div style="font-size:1.4em;color:#666;">↓</div>
+
+        <div style="
+          background:#eaf4ff;
+          border:1px solid #9fc5f8;
+          border-radius:10px;
+          padding:14px 18px;
+          width:100%;
+          max-width:520px;
+          font-weight:bold;">
+          SSO基盤・IdP
+        </div>
+
+        <div style="font-size:1.4em;color:#666;">↓</div>
+
+        <div style="
+          background:#fff4e5;
+          border:1px solid #f0c36d;
+          border-radius:10px;
+          padding:14px 18px;
+          width:100%;
+          max-width:520px;
+          font-weight:bold;">
+          認証済み情報を発行
+        </div>
+
+        <div style="font-size:1.4em;color:#666;">↓</div>
+
+        <div style="
+          background:#fff;
+          border:1px solid #ddd;
+          border-radius:10px;
+          padding:14px 18px;
+          width:100%;
+          max-width:520px;">
+          メール・勤怠・ポータル・SaaS
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="example">
+      <p>
+        会社の受付で本人確認を一度済ませると、
+        館内の複数の部屋に入れるイメージです。
+      </p>
+    </div>
+
+  </section>
+
+  
+
+  
+
+  <section class="card">
+
+    <h2>IdPとは？</h2>
+
+    <p>
+      IdPとは、
+      Identity Provider
+      の略で、
+      認証を担当する中心的なシステムです。
+    </p>
+
+    <p style="margin-top:15px;">
+      SSOでは、
+      各サービスが直接パスワードを確認するのではなく、
+      IdPが本人確認を担当します。
+    </p><div style="line-height:1;"><br></div> 
+
+    <div class="parts-grid"> 
+
+      <div class="part-box">
+        <h3>Microsoft Entra ID</h3>
+        Microsoft系の認証基盤
+      </div><div style="line-height:1;"><br></div> 
+
+      <div class="part-box">
+        <h3>Okta</h3>
+        SSO・ID管理サービス
+      </div><div style="line-height:1;"><br></div> 
+
+      <div class="part-box">
+        <h3>Google Cloud Identity</h3>
+        Google系のID管理
+      </div><div style="line-height:1;"><br></div> 
+
+      <div class="part-box">
+        <h3>Active Directory連携</h3>
+        社内IDとの連携
+      </div>
+
+    </div>
+
+    <div class="example">
+      <p>
+        IdPは、
+        認証の世界における
+        「入口の受付」
+        のような存在です。
+      </p>
+    </div>
+
+  </section>
+
+  
+
+  <section class="card">
+
+    <h2>SSOで使われる主な技術</h2>
+
+    <p>
+      SSOでは、
+      IdPと各サービスが安全に認証情報をやり取りするために、
+      複数の技術が使われます。
+    </p>
+
+    <div class="table-wrap">
+
+      <table>
+        <thead>
+          <tr>
+            <th>用語</th>
+            <th>意味</th>
+            <th>主な用途</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>SAML</td>
+            <td>認証結果をサービスへ渡す仕組み</td>
+            <td>企業向けSaaSのSSO</td>
+          </tr>
+
+          <tr>
+            <td>OAuth 2.0</td>
+            <td>アクセス権限を委任する仕組み</td>
+            <td>API連携・外部アプリ連携</td>
+          </tr>
+
+          <tr>
+            <td>OpenID Connect</td>
+            <td>OAuth 2.0をログイン用途に<br>拡張した仕組み</td>
+            <td>クラウドサービスのログイン</td>
+          </tr>
+
+          <tr>
+            <td>JWT</td>
+            <td>認証情報を含むトークン形式</td>
+            <td>Web認証・API認証</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </section>
+
+  <section class="card">
+
+    <h2>トークンとは？</h2>
+
+    <p>
+      SSOでは、
+      各サービスへ毎回パスワードを送るわけではありません。
+    </p>
+
+    <p style="margin-top:15px;">
+      代わりに、
+      認証済みであることを示す
+      「トークン」
+      を使います。
+    </p>
+
+    <div style="
+      background:#fff4e5;
+      border:1px solid #f0c36d;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;
+      text-align:center;
+      line-height:2;">
+
+      ログイン成功
+
+      <br>
+
+      ↓
+
+      <br>
+
+      <strong>
+        トークン発行
+      </strong>
+
+      <br>
+
+      ↓
+
+      <br>
+
+      サービスへ提示
+
+      <br>
+
+      ↓
+
+      <br>
+
+      利用許可
+
+    </div>
+
+    <div class="point-box">
+      <p>
+        トークンは、
+        「このユーザーは認証済みです」
+        と示す証明書のようなものです。
+      </p>
+    </div>
+
+  </section>
+
+  
+
+  <section class="card">
+
+    <h2>セッションとは？</h2>
+
+    <p>
+      セッションとは、
+      ログイン後に維持される
+      「ログイン中の状態」
+      のことです。
+    </p>
+
+    <p style="margin-top:15px;">
+      セッションの有効期間は、
+      製品や会社のポリシーによって異なります。
+      社内システムでは数時間から1日程度、
+      一般的なWebサービスでは数日から数週間維持される場合もあります。
+    </p>
+
+    <div class="example">
+      <p>
+        セキュリティが厳しい環境では、
+        一定時間操作がない場合に
+        再ログインを求める設計にします。
+      </p>
+    </div>
+
+  </section>
+
+  <section class="card">
+
+    <h2>SSOのメリット</h2>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>ログインが楽</h3>
+        何度も入力しなくてよい
+      </div>
+
+      <div class="part-box">
+        <h3><div style=" font-size:0.9em;"> パスワード管理削減</div></h3>
+        覚える数が減る
+      </div>
+
+      <div class="part-box">
+        <h3>認証管理の一元化</h3>
+        ID管理をまとめられる
+      </div>
+
+      <div class="part-box">
+        <h3>退職者対応</h3>
+        一括で利用停止しやすい
+      </div>
+
+    </div>
+
+    <div class="point-box">
+      <p>
+        管理者視点では、
+        「誰が、どのサービスへ、どの条件で入れるか」
+        を集中管理できる点が重要です。
+      </p>
+    </div>
+
+  </section>
+
+  <section class="card">
+
+    <h2>SSOのデメリット</h2>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>IdP依存</h3>
+        <div style=" font-size:0.9em;"> 認証基盤停止の影響が大きい</div>
+      </div>
+
+      <div class="part-box">
+        <h3>リスク集中</h3>
+        1つのIDが狙われやすい
+      </div>
+
+      <div class="part-box">
+        <h3>連携が複雑</h3>
+        SaaSごとに設定が必要
+      </div>
+
+      <div class="part-box">
+        <h3>既存セッション</h3>
+        <div style=" font-size:0.9em;"> 即時停止できない場合がある</div>
+      </div>
+
+    </div>
+
+    <div class="example">
+      <p>
+        SSOは便利ですが、
+        認証を集約するため、
+        認証基盤の保護が非常に重要になります。
+      </p>
+    </div>
+
+  </section>
+
+  
+
+  
+
+  
+
+  <section class="card">
+
+    <h2>ゼロトラストとの関係</h2>
+
+    <p>
+      昔の考え方では、
+      一度ログインに成功すると、
+      その後は一定時間信用する設計が一般的でした。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;
+      text-align:center;
+      line-height:2;">
+
+      昔
+
+      <br>
+
+      ↓
+
+      <br>
+
+      ログイン成功
+
+      <br>
+
+      ↓
+
+      <br>
+
+      <strong style="color:#0d6efd;">
+        信用する
+      </strong>
+
+    </div>
+
+    <p>
+      ゼロトラストでは、
+      ログイン後も端末状態、場所、リスク、
+      アクセス先などを継続的に確認します。
+    </p>
+
+    <div style="
+      background:#fff4e5;
+      border:1px solid #f0c36d;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;
+      text-align:center;
+      line-height:2;">
+
+      現在
+
+      <br>
+
+      ↓
+
+      <br>
+
+      ログイン成功
+
+      <br>
+
+      ↓
+
+      <br>
+
+      <strong>
+        継続監視・再評価
+      </strong>
+
+      <br>
+
+      ↓
+
+      <br>
+
+      必要なら遮断
+
+    </div>
+
+    <div class="point-box">
+      <p>
+        SSOは、
+        ゼロトラスト認証基盤の入口として
+        重要な役割を持ちます。
+      </p>
+    </div>
+
+  </section>
+
+  
+
+  <section class="card"
+    style="border-left:6px solid #0d6efd;">
+
+    <h2>まとめ</h2>
+
+    <p>
+      SSOとは、
+      一度のログインで複数のサービスを利用できる仕組みです。
+    </p>
+
+    <p style="margin-top:15px;">
+      ただし本質は、
+      単にログインを楽にすることではなく、
+      認証、権限、MFA、退職者対応、監査を
+      一元管理することにあります。
+    </p>
+
+    <p style="margin-top:15px;">
+      現代では、
+      SSOはMFA、セッション失効、CAE、
+      ゼロトラストと組み合わせて使われます。
+    </p>
+
+    <div class="point-box">
+      <p>
+        SSOを理解すると、
+        クラウド認証、ゼロトラスト、SASE、ZTNAなどの考え方が
+        つながって見えるようになります。
+      </p>
+    </div>
+
+  </section>
+
+  <div class="back">
+
+    <a href="index.html">
+      ← 用語一覧へ戻る
+    </a>
+
+  </div>
+
+</div>
+
+<footer>
+  IT学習用サイト
+</footer>
+
+</body>
+</html>

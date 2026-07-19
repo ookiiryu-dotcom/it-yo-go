@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SLO（Service Level Objective）とは？</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ===== ヘッダー ===== -->
+
+<header>
+
+  <h1>
+
+    SLO<br>
+
+    <span style="
+      font-size:0.55em;
+      font-weight:normal;">
+
+      （Service Level Objective）
+
+    </span>
+
+  </h1>
+
+  <p>
+    サービス品質の「目標値」を定義する仕組み
+  </p>
+
+</header>
+
+<!-- ===== メイン ===== -->
+
+<div class="container">
+
+  <!-- ===== SLOとは ===== -->
+
+  <section class="card">
+
+    <h2>SLOとは？</h2>
+
+    <p>
+      SLOとは、
+      サービス品質について
+      「どの程度の品質を目指すか」
+      を数値で定義した目標のことです。
+    </p>
+
+    <p style="margin-top:15px;">
+
+      Service Level Objective の略で、
+      日本語では
+      「サービスレベル目標」
+      と呼ばれます。
+
+    </p>
+
+    <div class="point-box">
+
+      <p>
+        SLOは、
+        システム運用やSRE（Site Reliability Engineering）で
+        非常に重要な考え方です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 何を決めるのか ===== -->
+
+  <section class="card">
+
+    <h2>SLOでは何を決める？</h2>
+
+    <p>
+      SLOでは、
+      サービス品質について
+      「どれくらい達成できれば良いか」
+      を具体的な数値で定義します。
+    </p>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>稼働率</h3>
+        99.9%動く
+      </div>
+
+      <div class="part-box">
+        <h3>応答速度</h3>
+        99%を1秒以内
+      </div>
+
+      <div class="part-box">
+        <h3>エラー率</h3>
+        1%未満
+      </div>
+
+      <div class="part-box">
+        <h3>成功率</h3>
+        99.95%以上
+      </div>
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        「速い」「安定している」
+        のような曖昧な表現ではなく、
+        数値として品質を定義するのが特徴です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== SLI・SLO・SLA ===== -->
+
+  <section class="card">
+
+    <h2>SLI・SLO・SLA の関係</h2>
+
+    <p>
+      SLOは、
+      SLIやSLAとセットで使われることが多いです。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:10px;
+      padding:22px;
+      margin:25px 0;
+      line-height:2;
+      text-align:center;">
+
+      <strong style="font-size:1.05em;">
+        SLI
+      </strong>
+
+      <br>
+
+      実際の測定値
+
+      <br><br>
+
+      ↓
+
+      <br><br>
+
+      <strong style="
+        color:#2b579a;
+        font-size:1.1em;">
+
+        SLO
+
+      </strong>
+
+      <br>
+
+      目標値
+
+      <br><br>
+
+      ↓
+
+      <br><br>
+
+      <strong style="font-size:1.05em;">
+        SLA
+      </strong>
+
+      <br>
+
+      契約・保証
+
+    </div>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>SLI</h3>
+        実際の品質測定
+      </div>
+
+      <div class="part-box">
+        <h3>SLO</h3>
+        目標値を決定
+      </div>
+
+      <div class="part-box">
+        <h3>SLA</h3>
+        顧客への保証
+      </div>
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        SLOは、
+        「どこまでの品質を維持するか」
+        を決める中心的な役割を持っています。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== SLOの具体例 ===== -->
+
+  <section class="card">
+
+    <h2>SLOの具体例</h2>
+
+    <p>
+      実際のサービスでは、
+      以下のようなSLOが設定されます。
+    </p>
+
+    <div style="
+      overflow-x:auto;
+      margin-top:20px;">
+
+      <table style="
+        width:100%;
+        border-collapse:collapse;
+        min-width:520px;">
+
+        <tr style="
+          background:#2b579a;
+          color:white;">
+
+          <th style="padding:12px;border:1px solid #ddd;">
+            項目
+          </th>
+
+          <th style="padding:12px;border:1px solid #ddd;">
+            SLO例
+          </th>
+
+        </tr>
+
+        <tr>
+
+          <td style="padding:12px;border:1px solid #ddd;">
+            稼働率
+          </td>
+
+          <td style="padding:12px;border:1px solid #ddd;">
+            月間99.9%以上
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td style="padding:12px;border:1px solid #ddd;">
+            API応答速度
+          </td>
+
+          <td style="padding:12px;border:1px solid #ddd;">
+            99%を1秒以内
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td style="padding:12px;border:1px solid #ddd;">
+            エラー率
+          </td>
+
+          <td style="padding:12px;border:1px solid #ddd;">
+            0.1%未満
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td style="padding:12px;border:1px solid #ddd;">
+            ログイン成功率
+          </td>
+
+          <td style="padding:12px;border:1px solid #ddd;">
+            99.95%以上
+          </td>
+
+        </tr>
+
+      </table>
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        「全部の通信を絶対成功させる」
+        のではなく、
+        「どこまでを許容するか」
+        を決めるのがSLOの特徴です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== パーセンタイル ===== -->
+
+  <section class="card">
+
+    <h2>なぜ「99%を1秒以内」のように書く？</h2>
+
+    <p>
+      現実のシステムでは、
+      すべての通信を
+      完全に同じ速度で処理することは困難です。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:10px;
+      padding:20px;
+      margin:25px 0;
+      line-height:2;
+      text-align:center;">
+
+      ❌
+
+      <br>
+
+      すべての通信を
+      1秒以内
+
+      <br><br>
+
+      ⭣
+
+      <br><br>
+
+      ⭕
+
+      <br>
+
+      99%の通信を
+      1秒以内
+
+    </div>
+
+    <p>
+      一時的なネットワーク遅延や、
+      アクセス集中などを考慮し、
+      「何%を達成するか」
+      という割合で定義することが一般的です。
+    </p>
+
+    <div class="point-box">
+
+      <p>
+        SLOでは、
+        「100%完璧」
+        を目指すのではなく、
+        現実的な品質目標を設定します。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== エラーバジェット ===== -->
+
+  <section class="card">
+
+    <h2>エラーバジェットとは？</h2>
+
+    <p>
+      SLOでは、
+      「どれだけ失敗を許容するか」
+      も重要になります。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:10px;
+      padding:22px;
+      margin:25px 0;
+      line-height:2;
+      text-align:center;">
+
+      SLO
+
+      <br>
+
+      99.9%
+
+      <br><br>
+
+      ↓
+
+      <br><br>
+
+      許容失敗率
+
+      <br>
+
+      0.1%
+
+    </div>
+
+    <p>
+      この「許容される失敗量」を
+      エラーバジェットと呼びます。
+    </p>
+
+    <div class="example">
+
+      <p>
+        エラーバジェットを使うことで、
+        「安定性」
+        と
+        「開発速度」
+        のバランスを取れるようになります。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== なぜ重要？ ===== -->
+
+  <section class="card">
+
+    <h2>なぜSLOが重要？</h2>
+
+    <p>
+      SLOを決めることで、
+      チーム全体で
+      品質基準を共有できるようになります。
+    </p>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>品質の見える化</h3>
+        数値で管理できる
+      </div>
+
+      <div class="part-box">
+        <h3>優先順位</h3>
+        障害対応を判断しやすい
+      </div>
+
+      <div class="part-box">
+        <h3>開発との両立</h3>
+        改善速度を維持
+      </div>
+
+      <div class="part-box">
+        <h3>共通基準</h3>
+        チーム認識を統一
+      </div>
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        SLOは、
+        単なる監視指標ではなく、
+        「どこまで品質を守るか」
+        を決める運用基準でもあります。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== Operational KPI ===== -->
+
+  <section class="card">
+
+    <h2>MTTRなどはSLOと同じ？</h2>
+
+    <p>
+      「30分以内に復旧する」
+      のような目標は、
+      運用品質の指標として扱われることがあります。
+    </p>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>ユーザー品質</h3>
+        可用性・速度など
+      </div>
+
+      <div class="part-box">
+        <h3>運用品質</h3>
+        MTTR・対応速度など
+      </div>
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        実務では
+        「Operational SLO」
+        と呼ぶ場合もありますが、
+        Google SREでは
+        ユーザー体験SLOと
+        分けて考えることが多いです。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== ウィンドウ期間 ===== -->
+
+  
+
+  <!-- ===== レストラン例 ===== -->
+
+  <section class="card">
+
+    <h2>レストランで例えると</h2>
+
+    <p>
+      SLOは、
+      レストランのサービス品質に
+      例えると分かりやすいです。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:10px;
+      padding:22px;
+      margin:25px 0;
+      line-height:2;">
+
+      <strong>SLI</strong>
+
+      <br>
+
+      実際の提供時間は8分
+
+      <br><br>
+
+      <strong>SLO</strong>
+
+      <br>
+
+      95%を10分以内に提供
+
+      <br><br>
+
+      <strong>SLA</strong>
+
+      <br>
+
+      15分以上なら返金
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        SLOは、
+        「どの程度の品質を維持するか」
+        を決める基準です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== まとめ ===== -->
+
+  <section class="card"
+    style="border-left:6px solid #2b579a;">
+
+    <h2>まとめ</h2>
+
+    <p>
+      SLOとは、
+      サービス品質の
+      「目標値」
+      を定義する仕組みです。
+    </p>
+
+    <p style="margin-top:15px;">
+
+      SLOでは、
+      可用性や応答速度などを
+      数値で定義し、
+      「どれだけ品質を維持するか」
+      を管理します。
+
+    </p>
+
+    <div class="point-box">
+
+      <p>
+        SLOは、
+        単なる監視指標ではなく、
+        「安定性」
+        と
+        「開発速度」
+        のバランスを取るための
+        重要な考え方です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 戻る ===== -->
+
+  <div class="back">
+
+    <a href="index.html">
+      ← 用語一覧へ戻る
+    </a>
+
+  </div>
+
+</div>
+
+<!-- ===== フッター ===== -->
+
+<footer>
+  IT学習用サイト
+</footer>
+
+</body>
+</html>

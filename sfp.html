@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SFPポートについて</title>
+
+ <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ===== ヘッダー ===== -->
+
+  <header>
+    <h1>SFPポートについて</h1>
+    <p>ネットワーク機器を柔軟に拡張するための仕組み</p>
+  </header>
+
+  <!-- ===== メイン ===== -->
+
+  <div class="container">
+
+    <!-- ===== SFPポートとは ===== -->
+
+    <section class="card">
+
+      <h2>SFPポートとは？</h2>
+
+      <p>
+        SFPポートとは、
+        ネットワーク機器に用意された
+        <span class="red">
+          拡張スロット
+        </span>
+        のことです。
+      </p>
+
+      <p>
+        ここへ
+        <span class="blue">SFPモジュール</span>
+        を挿し替えることで、
+        光ファイバー・LANケーブル・10Gbps通信など、
+        必要な接続方式へ自由に切り替えられます。
+      </p>
+
+      <div class="point-box">
+
+        <p>
+          SFPポート自体は、
+          <span class="blue">
+            “共通の受け口”
+          </span>
+          であり、
+          実際の用途は
+          <span class="red">
+            挿すモジュールによって決まります。
+          </span>
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ===== 通信の仕組み ===== -->
+
+    <section class="card">
+
+      <h2>通信の仕組み</h2>
+
+      <p>
+        SFPモジュールを挿したあとのケーブルは、
+        その規格に対応した相手側機器へ接続されます。
+      </p>
+
+      <div class="list">
+
+        <p>
+          ・光で通信するなら、相手側も光対応
+        </p>
+
+        <p>
+          ・10G通信なら、相手側も10G対応
+        </p>
+
+        <p>
+          ・RJ45モジュールなら、相手は通常のLANポートでもOK
+        </p>
+
+      </div>
+
+      <div class="warning-box">
+
+        <p>
+          基本的には、
+          <span class="red">
+            両端が同じ規格
+          </span>
+          で揃っていないと通信できません。
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ===== SFPとRJ45 ===== -->
+
+    <section class="card">
+
+      <h2>SFPポートでもLAN接続できる？</h2>
+
+      <p>
+        相手側が必ずSFPポートである必要はありません。
+      </p>
+
+      <p>
+        例えば、
+        <span class="blue">
+          SFP-RJ45モジュール
+        </span>
+        を使えば、
+        相手は普通のLANポートでも問題ありません。
+      </p>
+
+      <div class="point-box">
+
+        <p>
+          つまり、
+          SFPポートは
+          <span class="red">
+            「何を挿すか」で用途が変わる
+          </span>
+          柔軟な仕組みです。
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ===== 通信速度 ===== -->
+
+    <section class="card">
+
+      <h2>SFPシリーズの通信速度</h2>
+
+      <div class="table-wrap">
+
+        <table>
+
+          <tr>
+            <th>規格</th>
+            <th>最大速度</th>
+          </tr>
+
+          <tr>
+            <td>SFP</td>
+            <td>最大1Gbps</td>
+          </tr>
+
+          <tr>
+            <td>SFP+</td>
+            <td>最大10Gbps</td>
+          </tr>
+
+          <tr>
+            <td>SFP28</td>
+            <td>最大25Gbps</td>
+          </tr>
+
+        </table>
+
+      </div>
+
+      <div class="warning-box">
+
+        <p>
+          ポート自体の能力が上限になるため、
+          <span class="red">
+            10GのSFP+モジュールを1GのSFPポートへ挿しても、
+            10G通信にはなりません。
+          </span>
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ===== なぜ必要？ ===== -->
+
+    <section class="card">
+
+      <h2>SFPポートが存在する理由</h2>
+
+      <p>
+        SFPポートが存在する理由は、
+        <span class="red">
+          機器本体を買い替えずに、
+          接続方式を後から変更できるようにするため
+        </span>
+        です。
+      </p>
+
+      <div class="list">
+
+        <p>
+          ・光通信へ変更したい
+        </p>
+
+        <p>
+          ・10G通信へアップグレードしたい
+        </p>
+
+        <p>
+          ・長距離通信へ対応したい
+        </p>
+
+      </div>
+
+      <p>
+        このような場合でも、
+        モジュールを差し替えるだけで対応できます。
+      </p>
+
+    </section>
+
+    <!-- ===== まとめ ===== -->
+
+    <section class="card">
+
+      <h2>まとめ</h2>
+
+      <p>
+        SFPポートは、
+        <span class="red">
+          SFP規格の範囲で用途を自由に変更できる
+          “柔軟な拡張スロット”
+        </span>
+        です。
+      </p>
+
+      <p>
+        モジュール交換だけで
+        接続方式や通信速度を変更できるため、
+        ネットワーク機器を長く使えるようにする
+        重要な仕組みとなっています。
+      </p>
+
+      <div class="point-box">
+
+        <p>
+          「本体はそのまま、
+          中身だけ交換して機能を変える」
+          というのが、
+          SFPポート最大の特徴です。
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ===== 戻る ===== -->
+
+    <div class="back">
+      <a href="index.html">← 用語一覧へ戻る</a>
+    </div>
+
+  </div>
+
+  <!-- ===== フッター ===== -->
+
+  <footer>
+    IT学習用サイト
+  </footer>
+
+</body>
+</html>

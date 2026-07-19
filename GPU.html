@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GPU（Graphics Processing Unit）</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ===== ヘッダー ===== -->
+
+  <header>
+
+    <h1>GPU<br>
+
+  <span style="
+    font-size:0.6em;
+    font-weight:normal;">
+    （Graphics Processing Unit）
+  </span></h1>
+
+    <p>
+      映像処理や大量計算を高速で行うための装置
+    </p>
+
+  </header>
+
+  <!-- ===== メイン ===== -->
+
+  <div class="container">
+
+    <!-- ===== GPUとは ===== -->
+
+    <div class="card">
+
+      <h2>GPUとは？</h2>
+
+      <p>
+        <span class="highlight">
+          GPU（Graphics Processing Unit）
+        </span>
+        とは、
+        映像処理や大量の計算を高速に行うための部品です。
+      </p>
+
+      <p style="margin-top:15px;">
+        もともとは
+        <span class="blue">ゲームの映像描画</span>
+        のために発展しましたが、
+        現在ではAI、動画編集、科学計算など、
+        さまざまな分野で活躍しています。
+      </p>
+
+      <div class="point-box">
+
+        <p>
+          GPUは
+          「同じ種類の計算を大量に同時処理する」
+          ことが得意です。
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- ===== CPUとの違い ===== -->
+
+    <div class="card">
+
+      <h2>CPUとの違い</h2>
+
+      <p>
+        パソコンには
+        <span class="highlight">CPU</span>
+        という部品もあります。
+      </p>
+
+      <p style="margin-top:15px;">
+        CPUはパソコン全体を管理する「頭脳」のような存在で、
+        アプリ実行やWindowsの動作、
+        複雑な判断処理を担当しています。
+      </p>
+
+      <div class="table-wrap">
+
+        <table>
+
+          <tr>
+            <th>項目</th>
+            <th>CPU</th>
+            <th>GPU</th>
+          </tr>
+
+          <tr>
+            <td>得意な処理</td>
+            <td>複雑な判断</td>
+            <td>大量の単純計算</td>
+          </tr>
+
+          <tr>
+            <td>構造</td>
+            <td>少数の高性能コア</td>
+            <td>大量の計算コア</td>
+          </tr>
+
+          <tr>
+            <td>役割</td>
+            <td>PC全体の管理</td>
+            <td>映像・AI計算</td>
+          </tr>
+
+          <tr>
+            <td>イメージ</td>
+            <td>少人数の超優秀な社員</td>
+            <td>大人数で一気に作業するチーム</td>
+          </tr>
+
+        </table>
+
+      </div>
+
+    </div>
+
+    <!-- ===== なぜGPUが必要か ===== -->
+
+    <div class="card">
+
+      <h2>なぜGPUが必要なのか</h2>
+
+      <p>
+        ゲーム画面は、
+        無数の
+        <span class="highlight">ピクセル</span>
+        で作られています。
+      </p>
+
+      <p style="margin-top:15px;">
+        フルHD画面だけでも
+        約207万個のピクセルが存在し、
+        GPUはそれぞれに対して
+        色や明るさ、光や影などを
+        毎秒何十回も計算しています。
+      </p>
+
+      <div class="example">
+
+        <p>
+          もしCPUだけで処理しようとすると、
+          計算量が多すぎてゲームが重くなってしまいます。
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- ===== GPUの内部構造 ===== -->
+
+    <div class="card">
+
+      <h2>GPUの内部構造</h2>
+
+      <p>
+        GPUの中には、
+        小さな計算用コアが大量に入っています。
+      </p>
+
+      <div class="flow">
+
+        <div class="flow-box">
+          大量の計算コア
+        </div>
+
+        <div class="flow-box">
+          並列処理
+        </div>
+
+        <div class="flow-box">
+          高速演算
+        </div>
+
+        <div class="flow-box">
+          映像生成
+        </div>
+
+      </div>
+
+      <div class="point-box">
+
+        <p>
+          CPUが数個〜十数個程度のコアなのに対して、
+          GPUは数千個規模のコアを持つこともあります。
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- ===== VRAM ===== -->
+
+    <div class="card">
+
+      <h2>VRAMとは？</h2>
+
+      <p>
+        GPUには、
+        <span class="highlight">VRAM</span>
+        という専用メモリがあります。
+      </p>
+
+      <p style="margin-top:15px;">
+        VRAMには、
+        画像データやテクスチャ、
+        3Dモデルなどが保存されます。
+      </p>
+
+      <div class="structure">
+
+        <span>VRAM</span><br>
+        ↓<br>
+
+        <span>画像データ保存</span><br>
+        ↓<br>
+
+        <span>GPUで高速処理</span><br>
+        ↓<br>
+
+        <span>モニターへ表示</span>
+
+      </div>
+
+    </div>
+
+    <!-- ===== シェーダ ===== -->
+
+    <div class="card">
+
+      <h2>シェーダとは？</h2>
+
+      <p>
+        ゲームでは、
+        光の反射、水面の揺れ、
+        影の形など、
+        非常に多くの計算が行われています。
+      </p>
+
+      <p style="margin-top:15px;">
+        これらは
+        <span class="highlight">
+          シェーダ
+        </span>
+        と呼ばれる小さなプログラムによって処理されています。
+      </p>
+
+      <div class="flow">
+
+        <div class="flow-box">
+          光の計算
+        </div>
+
+        <div class="flow-box">
+          影の生成
+        </div>
+
+        <div class="flow-box">
+          水面表現
+        </div>
+
+        <div class="flow-box">
+          3D描画
+        </div>
+
+      </div>
+
+      <div class="example">
+
+        <p>
+          GPUはシェーダを大量並列で実行することで、
+          美しい3D映像をリアルタイム表示しています。
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- ===== AIとGPU ===== -->
+
+    <div class="card">
+
+      <h2>AIとGPU</h2>
+
+      <p>
+        近年GPUが特に注目されている理由の一つが
+        <span class="highlight">AI</span>
+        です。
+      </p>
+
+      <p style="margin-top:15px;">
+        AIでは、
+        大量の掛け算や足し算を繰り返します。
+      </p>
+
+      <div class="point-box">
+
+        <p>
+          GPUは大量の計算を同時に処理できるため、
+          AIや機械学習と非常に相性が良いのです。
+        </p>
+
+      </div>
+
+      <div class="flow">
+
+        <div class="flow-box">
+          画像生成AI
+        </div>
+
+        <div class="flow-box">
+          機械学習
+        </div>
+
+        <div class="flow-box">
+          動画生成
+        </div>
+
+        <div class="flow-box">
+          音声認識
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ===== 発熱 ===== -->
+
+    <div class="card">
+
+      <h2>GPUの発熱と冷却</h2>
+
+      <p>
+        GPUは非常に大きな計算を高速で行うため、
+        多くの電力を消費し、
+        大量の熱を発生させます。
+      </p>
+
+      <div class="flow">
+
+        <div class="flow-box">
+          高負荷計算
+        </div>
+
+        <div class="flow-box">
+          電力消費
+        </div>
+
+        <div class="flow-box">
+          発熱
+        </div>
+
+        <div class="flow-box">
+          冷却装置
+        </div>
+
+      </div>
+
+      <div class="example">
+
+        <p>
+          高性能GPUには、
+          大型ファン、
+          ヒートシンク、
+          水冷装置などが搭載されることがあります。
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- ===== 活躍分野 ===== -->
+
+    <div class="card">
+
+      <h2>GPUが使われる分野</h2>
+
+      <div class="parts">
+
+        <div class="part-box">
+          <h3>ゲーム</h3>
+          高画質3D描画
+        </div>
+
+        <div class="part-box">
+          <h3>AI</h3>
+          機械学習・生成AI
+        </div>
+
+        <div class="part-box">
+          <h3>動画編集</h3>
+          エンコード高速化
+        </div>
+
+        <div class="part-box">
+          <h3>科学研究</h3>
+          シミュレーション計算
+        </div>
+
+        <div class="part-box">
+          <h3>天気予報</h3>
+          大規模計算
+        </div>
+
+        <div class="part-box">
+          <h3>スーパーコンピュータ</h3>
+          超高速演算
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ===== まとめ ===== -->
+
+    <div class="card">
+
+      <h2>まとめ</h2>
+
+      <p>
+        GPUは、
+        <span class="highlight">
+          大量の計算を同時に高速処理するための装置
+        </span>
+        です。
+      </p>
+
+      <p style="margin-top:15px;">
+        もともとはゲーム向け技術でしたが、
+        現在ではAI、動画編集、科学研究など、
+        幅広い分野で重要な役割を持っています。
+      </p>
+
+      <div class="point-box">
+
+        <p>
+          現代のコンピューター技術において、
+          GPUは欠かせない存在になっています。
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- ===== 戻る ===== -->
+
+    <div class="back">
+      <a href="index.html">← 用語一覧へ戻る</a>
+    </div>
+
+  </div>
+
+  <!-- ===== フッター ===== -->
+
+  <footer>
+    IT学習用サイト
+  </footer>
+
+</body>
+</html>

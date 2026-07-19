@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VLAN（Virtual LAN）とは？</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ===== ヘッダー ===== -->
+
+<header>
+
+  <h1>
+
+    VLAN
+
+    <br>
+
+    <span style="
+      font-size:0.55em;
+      font-weight:normal;">
+
+      （Virtual LAN）
+
+    </span>
+
+  </h1>
+
+  <p>
+    1台の物理ネットワークを論理的に分割する技術
+  </p>
+
+</header>
+
+<!-- ===== メイン ===== -->
+
+<div class="container">
+
+  <!-- ===== VLANとは ===== -->
+
+  <section class="card">
+
+    <h2>VLANとは？</h2>
+
+    <p>
+
+      VLAN
+      （Virtual LAN）
+      とは、
+
+      1台の物理ネットワークを、
+      論理的に複数のネットワークへ分割する技術です。
+
+    </p>
+
+    <p style="margin-top:15px;">
+
+      通常、
+      同じスイッチへ接続された端末は、
+      同じネットワークとして扱われます。
+
+    </p>
+
+    <p style="margin-top:15px;">
+
+      しかしVLANを利用すると、
+      同じスイッチを使用していても、
+      部署ごとや用途ごとに
+      別々のネットワークとして分離できます。
+
+    </p>
+
+    <div class="point-box">
+
+      <p>
+
+        VLANは
+
+        「ネットワークの中に
+        仮想的な壁を作る技術」
+
+        と考えると理解しやすいです。
+
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== イメージ ===== -->
+
+  <section class="card">
+
+    <h2>まずはイメージで理解する</h2>
+
+    <p>
+
+      VLANは、
+      同じスイッチの中に
+      仮想的な仕切りを作り、
+
+      別々のネットワークとして
+      動作させる仕組みです。
+
+    </p>
+
+<div style="
+  background:#f8f9fa;
+  border:1px solid #ddd;
+  border-radius:12px;
+  padding:25px;
+  margin:25px 0;">
+
+  <div style="
+    text-align:center;
+    margin-bottom:15px;
+    font-weight:bold;
+    color:#666;">
+
+    物理的には1台のスイッチ
+
+  </div>
+
+  <div style="
+    border:2px solid #666;
+    border-radius:12px;
+    overflow:hidden;
+    max-width:600px;
+    margin:auto;
+    background:#fff;">
+
+    <!-- VLAN10 -->
+
+    <div style="
+      background:#eaf4ff;
+      padding:18px;
+      border-bottom:1px solid #ccc;">
+
+      <strong>
+        仮想ネットワーク①（営業部）
+      </strong>
+
+      <div style="
+        margin-top:12px;
+        text-align:center;">
+
+        PC-A　　PC-B
+
+      </div>
+
+    </div>
+
+    <!-- VLAN20 -->
+
+    <div style="
+      background:#e8f8ee;
+      padding:18px;
+      border-bottom:1px solid #ccc;">
+
+      <strong>
+        仮想ネットワーク②（開発部）
+      </strong>
+
+      <div style="
+        margin-top:12px;
+        text-align:center;">
+
+        PC-C　　PC-D
+
+      </div>
+
+    </div>
+
+    <!-- VLAN30 -->
+
+    <div style="
+      background:#fff4e5;
+      padding:18px;">
+
+      <strong>
+        仮想ネットワーク③（経理部）
+      </strong>
+
+      <div style="
+        margin-top:12px;
+        text-align:center;">
+
+        PC-E
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div style="
+    text-align:center;
+    margin-top:18px;
+    color:#666;">
+
+    スイッチ内部に仮想的な壁を作り、
+    ネットワークを分割する
+
+  </div>
+
+</div>
+
+    <div class="example">
+
+      <p>
+
+        VLANを設定すると、
+
+        「同じスイッチにつながっている」
+
+        ことと
+
+        「同じネットワークに所属している」
+
+        ことが別になります。
+
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== VLANなし ===== -->
+
+  
+
+  <!-- ===== VLANあり ===== -->
+
+  
+
+  <!-- ===== VLANが必要な理由 ===== -->
+
+  <section class="card">
+
+    <h2>なぜVLANが必要なのか？</h2>
+
+    <p>
+
+      VLANは、
+      ネットワークを整理し、
+      セキュリティや通信効率を向上させるために利用されます。
+
+    </p>
+
+    <div class="parts">
+
+      <div class="part-box">
+
+        <h3>通信分離</h3>
+
+        部署ごとに分割
+
+      </div>
+
+      <div class="part-box">
+
+        <h3>セキュリティ</h3>
+
+        不要なアクセス防止
+
+      </div>
+
+      <div class="part-box">
+
+        <h3>Broadcast削減</h3>
+
+        通信効率向上
+
+      </div>
+
+      <div class="part-box">
+
+        <h3>管理容易</h3>
+
+        配線変更不要
+
+      </div>
+
+    </div>
+
+    <div class="example">
+
+      <p>
+
+        物理的にスイッチを分けなくても、
+        設定だけでネットワークを分割できます。
+
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== VLAN ID ===== -->
+
+  <section class="card">
+
+    <h2>VLAN IDとは？</h2>
+
+    <p>
+
+      VLANには、
+      VLAN IDという番号を割り当てます。
+
+    </p>
+
+    <p style="margin-top:15px;">
+
+      スイッチはこの番号を利用して、
+      どのネットワークへ所属するかを判断します。
+
+    </p>
+
+    <div class="table-wrap">
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>VLAN ID</th>
+            <th>用途例</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+
+            <td>10</td>
+            <td>営業部</td>
+
+          </tr>
+
+          <tr>
+
+            <td>20</td>
+            <td>開発部</td>
+
+          </tr>
+
+          <tr>
+
+            <td>30</td>
+            <td>経理部</td>
+
+          </tr>
+
+          <tr>
+
+            <td>100</td>
+            <td>来客用Wi-Fi</td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+
+        同じVLAN IDへ所属する端末同士が、
+        同じネットワークとして通信できます。
+
+      </p>
+
+    </div>
+
+  </section>
+
+    <!-- ===== アクセスポート ===== -->
+
+  
+
+  <!-- ===== VLAN内通信 ===== -->
+
+  
+
+  <!-- ===== VLAN間通信不可 ===== -->
+
+  
+
+  <!-- ===== トランクポート ===== -->
+
+  
+
+  <!-- ===== なぜ必要か ===== -->
+
+  <section class="card">
+
+    <h2>なぜトランクポートが必要なのか？</h2>
+
+    <p>
+
+      VLANごとにケーブルを分けると、
+      配線数が増えてしまいます。
+
+    </p>
+
+    <div style="
+      background:#fff4e5;
+      border:1px solid #f0c36d;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;
+      text-align:center;
+      line-height:2;">
+
+      Switch A
+
+      <br>
+
+      （VLAN10）
+
+      <br>
+
+      （VLAN20）
+
+      <br>
+
+      （VLAN30）
+
+      <br>
+
+      ↓
+
+      <br>
+
+      Switch B
+
+      <br><br>
+
+      ケーブル3本必要
+
+    </div>
+
+    <p>
+
+      VLAN数が増えるほど、
+      配線も増加します。
+
+    </p>
+
+  </section>
+
+  <!-- ===== トランク効果 ===== -->
+
+  
+
+  <!-- ===== IEEE802.1Q ===== -->
+
+  
+
+    <!-- ===== VLAN間通信 ===== -->
+
+  
+
+  <!-- ===== VLAN間通信の仕組み ===== -->
+
+  
+
+  <!-- ===== Inter-VLAN Routing ===== -->
+
+  
+
+  <!-- ===== L2スイッチとL3スイッチ ===== -->
+
+  <section class="card">
+
+    <h2>L2スイッチとL3スイッチの違い</h2>
+
+    <p>
+
+      VLANを学ぶと、
+      L2スイッチとL3スイッチの違いがよく登場します。
+
+    </p>
+
+    <div class="table-wrap">
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>項目</th>
+            <th>L2スイッチ</th>
+            <th>L3スイッチ</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+
+            <td>VLAN分離</td>
+            <td>〇</td>
+            <td>〇</td>
+
+          </tr>
+
+          <tr>
+
+            <td>VLAN間通信</td>
+            <td>×</td>
+            <td>〇</td>
+
+          </tr>
+
+          <tr>
+
+            <td>見る情報</td>
+            <td>MACアドレス</td>
+            <td>IPアドレス</td>
+
+          </tr>
+
+          <tr>
+
+            <td>OSI層</td>
+            <td>L2</td>
+            <td>L3</td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+
+        VLANを作るだけならL2スイッチで十分ですが、
+        VLAN間通信にはL3機能が必要になります。
+
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== ブロードキャストドメイン ===== -->
+
+  <section class="card">
+
+    <h2>VLANとブロードキャストドメインの関係</h2>
+
+    <p>
+
+      VLANの本質は、
+      ブロードキャストドメインを分割することにあります。
+
+    </p>
+
+    <p style="margin-top:15px;">
+
+      ブロードキャストとは、
+      ネットワーク内の全端末へ送信される通信のことです。
+
+    </p>
+
+    <div style="
+      background:#fff4e5;
+      border:1px solid #f0c36d;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;
+      text-align:center;
+      line-height:2;">
+
+      VLANなし
+
+      <br><br>
+
+      PC-A → 全員へ送信
+
+      <br>
+
+      PC-B → 全員へ送信
+
+      <br>
+
+      PC-C → 全員へ送信
+
+    </div>
+
+    <p>
+
+      VLANを利用すると、
+      ブロードキャストがVLAN内部だけに限定されます。
+
+    </p>
+
+    <div style="
+      background:#eaf4ff;
+      border:1px solid #9fc5f8;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;
+      text-align:center;
+      line-height:2;">
+
+      VLAN10 → VLAN10内だけ
+
+      <br>
+
+      VLAN20 → VLAN20内だけ
+
+      <br>
+
+      VLAN30 → VLAN30内だけ
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+
+        VLANによって通信範囲を小さくできるため、
+        ネットワーク効率が向上します。
+
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== メリット ===== -->
+
+  <section class="card">
+
+    <h2>VLANのメリット</h2>
+
+    <div class="parts">
+
+      <div class="part-box">
+
+        <h3>セキュリティ向上</h3>
+
+        部署ごとに分離
+
+      </div>
+
+      <div class="part-box">
+
+        <h3>通信効率向上</h3>
+
+        Broadcast削減
+
+      </div>
+
+      <div class="part-box">
+
+        <h3>柔軟な構成</h3>
+
+        配線変更不要
+
+      </div>
+
+      <div class="part-box">
+
+        <h3>管理しやすい</h3>
+
+        設定変更のみ
+
+      </div>
+
+    </div>
+
+    <div class="example">
+
+      <p>
+
+        ネットワーク構成を変更する際も、
+        ケーブル工事を行わずに対応できる場合があります。
+
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== デメリット ===== -->
+
+  <section class="card">
+
+    <h2>VLANのデメリット</h2>
+
+    <div class="parts">
+
+      <div class="part-box">
+
+        <h3>設計が必要</h3>
+
+        VLAN分割計画
+
+      </div>
+
+      <div class="part-box">
+
+        <h3>設定ミス注意</h3>
+
+        通信障害原因
+
+      </div>
+
+      <div class="part-box">
+
+        <h3>L3機器必要</h3>
+
+        VLAN間通信
+
+      </div>
+
+      <div class="part-box">
+
+        <h3>障害調査複雑</h3>
+
+        確認箇所増加
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===== VLANでよく出る用語 ===== -->
+
+  
+
+  <!-- ===== まとめ ===== -->
+
+  <section class="card"
+    style="border-left:6px solid #0d6efd;">
+
+    <h2>まとめ</h2>
+
+    <p>
+
+      VLANとは、
+      1台の物理ネットワークを
+      論理的に複数のネットワークへ分割する技術です。
+
+    </p>
+
+    <p style="margin-top:15px;">
+
+      アクセスポートで端末を接続し、
+      トランクポートで複数VLANを運び、
+      IEEE 802.1QによってVLAN情報を識別します。
+
+    </p>
+
+    <p style="margin-top:15px;">
+
+      また、
+      VLAN間通信にはL3スイッチやルーターが必要であり、
+      ブロードキャストドメインの分割によって
+      セキュリティや通信効率の向上を実現しています。
+
+    </p>
+
+    <div class="point-box">
+
+      <p>
+
+        VLANを理解すると、
+        企業ネットワーク設計や
+        スイッチの仕組みが非常に理解しやすくなります。
+
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 戻る ===== -->
+
+  <div class="back">
+
+    <a href="index.html">
+      ← 用語一覧へ戻る
+    </a>
+
+  </div>
+
+</div>
+
+<!-- ===== フッター ===== -->
+
+<footer>
+
+  IT学習用サイト
+
+</footer>
+
+</body>
+</html>

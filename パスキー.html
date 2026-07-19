@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>パスキー（Passkey）とは？</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ===== ヘッダー ===== -->
+
+<header>
+
+  <h1>
+
+    パスキー
+
+    <br>
+
+    <span style="
+      font-size:0.55em;
+      font-weight:normal;">
+
+      （Passkey）
+
+    </span>
+
+  </h1>
+
+  <p>
+    パスワードに代わる次世代の認証方式
+  </p>
+
+</header>
+
+<!-- ===== メイン ===== -->
+
+<div class="container">
+
+  <!-- ここに全sectionを入れる -->
+
+<!-- ===== パスキーとは ===== -->
+
+<section class="card">
+
+<h2>パスキーとは？</h2>
+
+<p>
+パスキー（Passkey）は、
+パスワードの代わりに利用できる
+新しい認証方式です。
+</p>
+
+<p style="margin-top:15px;">
+
+ログイン時に、
+
+指紋認証
+
+顔認証
+
+PINコード
+
+などを利用して本人確認を行います。
+
+</p>
+
+<div class="point-box">
+
+<p>
+
+パスキーは
+「覚える秘密の文字列」
+ではなく、
+
+「自分の端末を使った本人確認」
+
+によってログインする仕組みです。
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ===== イメージ ===== -->
+
+<section class="card">
+
+<h2>まずはイメージで理解する</h2>
+
+<p>
+
+パスワード認証では、
+ユーザーが秘密の文字列を入力します。
+
+一方パスキーでは、
+端末自身が本人確認を行います。
+
+</p>
+
+<div style="
+background:#f8f9fa;
+border:1px solid #ddd;
+border-radius:12px;
+padding:25px;
+margin:25px 0;">
+
+<div style="
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:18px;
+text-align:center;">
+
+<div style="
+background:#fff;
+border:1px solid #ddd;
+border-radius:10px;
+padding:14px 18px;
+width:100%;
+max-width:520px;">
+
+ログインしたいサイト
+
+</div>
+
+<div style="font-size:1.4em;">
+↓
+</div>
+
+<div style="
+background:#eaf4ff;
+border:1px solid #9fc5f8;
+border-radius:10px;
+padding:14px 18px;
+width:100%;
+max-width:520px;
+font-weight:bold;">
+
+Face ID・指紋認証・PIN
+
+</div>
+
+<div style="font-size:1.4em;">
+↓
+</div>
+
+<div style="
+background:#fff;
+border:1px solid #ddd;
+border-radius:10px;
+padding:14px 18px;
+width:100%;
+max-width:520px;">
+
+ログイン完了
+
+</div>
+
+</div>
+
+</div>
+
+<div class="example">
+
+<p>
+
+スマホのロック解除と
+ほぼ同じ感覚でログインできます。
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ===== パスワードとの違い ===== -->
+
+<section class="card">
+
+<h2>パスワードとの違い</h2>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+<th>項目</th>
+<th>パスワード</th>
+<th>パスキー</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>覚える必要</td>
+<td>ある</td>
+<td>ほぼ不要</td>
+</tr>
+
+<tr>
+<td>入力</td>
+<td>手入力</td>
+<td>生体認証等</td>
+</tr>
+
+<tr>
+<td>フィッシング耐性</td>
+<td>弱い</td>
+<td>強い</td>
+</tr>
+
+<tr>
+<td>漏洩リスク</td>
+<td>高い</td>
+<td>低い</td>
+</tr>
+
+<tr>
+<td>使い回し</td>
+<td>発生しやすい</td>
+<td>発生しない</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<div class="point-box">
+
+<p>
+
+パスキー最大の特徴は、
+「秘密情報をサーバーへ送らない」
+ことです。
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ===== 仕組み ===== -->
+
+<section class="card">
+
+<h2>パスキーの仕組み</h2>
+
+<p>
+
+パスキーは、
+
+公開鍵暗号方式
+
+という技術を利用しています。
+
+</p>
+
+<p style="margin-top:15px;">
+
+アカウント作成時に、
+
+公開鍵
+
+秘密鍵
+
+というペアが生成されます。
+
+</p>
+
+<div style="
+background:#fff4e5;
+border:1px solid #f0c36d;
+border-radius:12px;
+padding:25px;
+margin:25px 0;
+text-align:center;
+line-height:2;">
+
+サービス側
+
+<br>
+
+↓
+
+<br>
+
+公開鍵を保存
+
+<br><br>
+
+ユーザー端末
+
+<br>
+
+↓
+
+<br>
+
+秘密鍵を保存
+
+</div>
+
+</section>
+
+<!-- ===== 公開鍵と秘密鍵 ===== -->
+
+<section class="card">
+
+<h2>公開鍵と秘密鍵</h2>
+
+<p>
+
+公開鍵と秘密鍵は、
+必ずセットで利用されます。
+
+</p>
+
+<div class="parts">
+
+<div class="part-box">
+
+<h3>公開鍵</h3>
+
+サービス側に保存
+
+</div>
+
+<div class="part-box">
+
+<h3>秘密鍵</h3>
+
+端末内だけに保存
+
+</div>
+
+<div class="part-box">
+
+<h3>公開鍵</h3>
+
+外部公開可能
+
+</div>
+
+<div class="part-box">
+
+<h3>秘密鍵</h3>
+
+外へ出ない
+
+</div>
+
+</div>
+
+<div class="point-box">
+
+<p>
+
+ログイン時も、
+秘密鍵そのものが
+サーバーへ送信されることはありません。
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ===== なぜ安全なのか ===== -->
+
+<section class="card">
+
+<h2>なぜ安全なのか？</h2>
+
+<p>
+
+従来のパスワード認証では、
+
+サーバーに保存された情報が
+漏洩すると悪用される可能性があります。
+
+</p>
+
+<p style="margin-top:15px;">
+
+しかしパスキーでは、
+秘密鍵が利用者の端末から外へ出ません。
+
+</p>
+
+<div class="example">
+
+<p>
+
+攻撃者がサービスへ侵入しても、
+
+ユーザーの秘密鍵は
+盗めない仕組みになっています。
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ===== 公開鍵漏洩 ===== -->
+
+
+
+<!-- ===== ログインの流れ ===== -->
+
+
+
+<!-- ===== OS間利用 ===== -->
+
+
+
+<!-- ===== QRコード認証 ===== -->
+
+
+
+<!-- ===== 近接確認 ===== -->
+
+<section class="card">
+
+  <h2>なぜスマホとPCが近くにある必要があるのか？</h2>
+
+  <p>
+
+    多くのパスキー実装では、
+    セキュリティ向上のため、
+
+    スマホとPCが
+    実際に近くにあることを確認します。
+
+  </p>
+
+  <p style="margin-top:15px;">
+
+    これにより、
+
+    遠く離れた場所にある端末を使って
+    不正ログインされるリスクを減らしています。
+
+  </p>
+
+  <div class="point-box">
+
+    <p>
+
+      QRコードを読むだけではなく、
+
+      「そのスマホが本当に近くにあるか」
+
+      も確認されることがあります。
+
+    </p>
+
+  </div>
+
+</section>
+
+<!-- ===== 生体情報 ===== -->
+
+
+
+<!-- ===== 同期 ===== -->
+
+
+
+<!-- ===== 利用サービス ===== -->
+
+
+<!-- ===== メリット ===== -->
+
+<section class="card">
+
+  <h2>パスキーのメリット</h2>
+
+  <div class="parts">
+
+    <div class="part-box">
+      <h3>覚えなくてよい</h3>
+      パスワード不要
+    </div>
+
+    <div class="part-box">
+      <h3>フィッシング対策</h3>
+      偽サイトに強い
+    </div>
+
+    <div class="part-box">
+      <h3>漏洩しにくい</h3>
+      秘密鍵が外へ出ない
+    </div>
+
+    <div class="part-box">
+      <h3>入力不要</h3>
+      ログインが速い
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ===== デメリット ===== -->
+
+<section class="card">
+
+  <h2>パスキーのデメリット</h2>
+
+  <div class="parts">
+
+    <div class="part-box">
+      <h3>対応状況</h3>
+      非対応サービスあり
+    </div>
+
+    <div class="part-box">
+      <h3>端末依存</h3>
+      復旧設定が重要
+    </div>
+
+    <div class="part-box">
+      <h3>理解が難しい</h3>
+      仕組みが新しい
+    </div>
+
+    <div class="part-box">
+      <h3>移行途中</h3>
+      パスワード併用も多い
+    </div>
+
+  </div>
+
+  <div class="example">
+
+    <p>
+
+      パスキーは非常に便利ですが、
+
+      復旧用メールアドレスや電話番号の設定も
+      忘れないことが重要です。
+
+    </p>
+
+  </div>
+
+</section>
+
+<!-- ===== まとめ ===== -->
+
+<section class="card"
+style="border-left:6px solid #0d6efd;">
+
+  <h2>まとめ</h2>
+
+  <p>
+
+    パスキーは、
+    パスワードの代わりとなる
+    次世代の認証方式です。
+
+  </p>
+
+  <p style="margin-top:15px;">
+
+    公開鍵暗号方式を利用し、
+    秘密鍵を端末内だけに保持することで、
+    高い安全性を実現しています。
+
+  </p>
+
+  <p style="margin-top:15px;">
+
+    また、
+    QRコード認証やクラウド同期により、
+    異なるOS間でも便利に利用できます。
+
+  </p>
+
+  <div class="point-box">
+
+    <p>
+
+      パスキーは
+
+      「覚える認証」
+
+      から
+
+      「持っている端末で本人確認する認証」
+
+      へ変える技術です。
+
+    </p>
+
+  </div>
+
+</section>
+
+
+  <!-- ===== 戻る ===== -->
+
+  <div class="back">
+
+    <a href="index.html">
+
+      ← 用語一覧へ戻る
+
+    </a>
+
+  </div>
+
+</div>
+
+<!-- ===== フッター ===== -->
+
+<footer>
+
+  IT学習用サイト
+
+</footer>
+
+</body>
+</html>

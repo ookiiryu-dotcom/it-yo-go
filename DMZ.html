@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DMZ（DeMilitarized Zone）とは？</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ===== ヘッダー ===== -->
+
+<header>
+
+  <h1>
+
+    DMZ<br>
+
+    <span style="
+      font-size:0.55em;
+      font-weight:normal;">
+
+      （DeMilitarized Zone）
+
+    </span>
+
+  </h1>
+
+  <p>
+    外部公開サーバーを社内ネットワークから分離する仕組み
+  </p>
+
+</header>
+
+<!-- ===== メイン ===== -->
+
+<div class="container">
+
+  <!-- ===== DMZとは ===== -->
+
+  <section class="card">
+
+    <h2>DMZとは？</h2>
+
+    <p>
+      DMZとは、
+      インターネットからアクセスされる機器を、
+      社内ネットワーク（LAN）とは別の場所へ分離して配置する仕組みです。
+    </p>
+
+    <p style="margin-top:15px;">
+
+      正式名称は
+      「DeMilitarized Zone（非武装地帯）」で、
+      セキュリティ分野では
+      外部公開用ネットワーク領域を指します。
+
+    </p>
+
+    <div class="point-box">
+
+      <p>
+        外部へ公開するサーバーを
+        直接社内LANへ置かず、
+        「中間エリア」へ分離することで、
+        万が一攻撃されても
+        社内への侵入を防ぎやすくします。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== なぜ必要？ ===== -->
+
+  <section class="card">
+
+    <h2>なぜDMZが必要なの？</h2>
+
+    <p>
+      Webサーバーなどを
+      社内LANへ直接置いてしまうと、
+      サーバー侵害時に
+      社内PCや重要データへ
+      攻撃が広がる危険があります。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:10px;
+      padding:20px;
+      margin:25px 0;
+      text-align:center;
+      line-height:2;">
+
+      インターネット
+
+      <br>
+
+      ↓
+
+      <br>
+
+      Webサーバー
+
+      <br>
+
+      ↓
+
+      <br>
+
+      社内LAN
+
+    </div>
+
+    <p>
+      そこでDMZを挟み、
+      外部公開機器を分離します。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:10px;
+      padding:20px;
+      margin:25px 0;
+      text-align:center;
+      line-height:2;">
+
+      インターネット
+
+      <br>
+
+      ↓
+
+      <br>
+
+      DMZ
+
+      <br>
+
+      ↓
+
+      <br>
+
+      社内LAN
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        DMZは、
+        「攻撃される可能性が高い機器」を
+        社内から隔離することで、
+        被害を局所化する役割を持っています。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== DMZに置くもの ===== -->
+
+  <section class="card">
+
+    <h2>DMZに置かれる機器</h2>
+
+    <p>
+      DMZには、
+      外部からアクセスされる必要がある機器が置かれます。
+    </p>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>Webサーバー</h3>
+        Webサイト公開
+      </div>
+
+      <div class="part-box">
+        <h3>メールサーバー</h3>
+        メール受信
+      </div>
+
+      <div class="part-box">
+        <h3>DNSサーバー</h3>
+        名前解決
+      </div>
+
+      <div class="part-box">
+        <h3>VPN装置</h3>
+        外部接続受付
+      </div>
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        「外部公開が必要なもの」はDMZ、
+        「重要データ」は社内LAN、
+        という分離が基本です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== DMZ構成 ===== -->
+
+  <section class="card">
+
+    <h2>DMZの構成</h2>
+
+    <p>
+      DMZには、
+      代表的な2つの構成があります。
+    </p>
+
+    <h3 style="margin-top:25px;">
+      1台構成（3本足構成）
+    </h3>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:10px;
+      padding:20px;
+      margin:20px 0;
+      text-align:center;
+      line-height:2;">
+
+      インターネット
+
+      <br>
+
+      ↓
+
+      <br>
+
+      ファイアウォール
+
+      <br>
+      <span style="margin-left:1.1cm;">
+
+        ├ DMZ
+
+     </span>
+
+      <br>
+
+       社内LAN
+
+    </div>
+
+    <p>
+      1台のファイアウォールで、
+      外部・DMZ・社内LANを分離する構成です。
+    </p>
+
+    <h3 style="margin-top:35px;">
+      2台構成（背中合わせ構成）
+    </h3>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:10px;
+      padding:20px;
+      margin:20px 0;
+      text-align:center;
+      line-height:2;">
+
+      インターネット
+
+      <br>
+
+      ↓
+
+      <br>
+
+      外側FW
+
+      <br>
+
+      ↓
+
+      <br>
+
+      DMZ
+
+      <br>
+
+      ↓
+
+      <br>
+
+      内側FW
+
+      <br>
+
+      ↓
+
+      <br>
+
+      社内LAN
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        2台構成では、
+        仮に外側FWが突破されても、
+        内側FWが第2の防御壁として機能します。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== DMZの重要ポイント ===== -->
+
+  <section class="card">
+
+    <h2>DMZ運用の重要ポイント</h2>
+
+    <p>
+      DMZは
+      「安全地帯」ではなく、
+      「攻撃される前提の領域」
+      として扱われます。
+    </p>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>通信制限</h3>
+        必要通信のみ許可
+      </div>
+
+      <div class="part-box">
+        <h3>ログ監視</h3>
+        不審通信を監視
+      </div>
+
+      <div class="part-box">
+        <h3>更新管理</h3>
+        脆弱性対策
+      </div>
+
+      <div class="part-box">
+        <h3>最小権限</h3>
+        権限を絞る
+      </div>
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        「DMZを作れば安心」ではなく、
+        継続的な監視や運用管理が重要です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 現代のセキュリティ ===== -->
+
+  <section class="card">
+
+    <h2>現代のDMZとセキュリティ</h2>
+
+    <p>
+      現代では、
+      DMZだけで完全防御できるわけではありません。
+    </p>
+
+    <p style="margin-top:15px;">
+
+      近年の攻撃では、
+      サーバー侵害後に
+      ネットワーク内部を横移動
+      （Lateral Movement）
+      するケースが増えています。
+
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:10px;
+      padding:20px;
+      margin:25px 0;
+      text-align:center;
+      line-height:2;">
+
+      インターネット
+
+      <br>
+
+      ↓
+
+      <br>
+
+      WAF
+
+      <br>
+
+      ↓
+
+      <br>
+
+      DMZ
+
+      <br>
+
+      ↓
+
+      <br>
+
+      社内LAN
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        現代では、
+        DMZに加えて
+        WAF（Web Application Firewall）、
+        ゼロトラスト、
+        横移動対策などを
+        組み合わせる構成が重要視されています。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 家庭用DMZ ===== -->
+
+  <section class="card">
+
+    <h2>家庭用ルーターの「DMZホスト」とは？</h2>
+
+    <p>
+      家庭用ルーターにも
+      「DMZホスト」
+      という機能がありますが、
+      企業DMZとは意味が少し異なります。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:10px;
+      padding:20px;
+      margin:25px 0;
+      text-align:center;
+      line-height:2;">
+
+      外部通信
+
+      <br>
+
+      ↓
+
+      <br>
+
+      ルーター
+
+      <br>
+
+      ↓
+
+      <br>
+
+      特定PCへ全部転送
+
+    </div>
+
+    <p>
+      多くの家庭用DMZホストでは、
+      未処理通信を
+      特定端末へそのまま転送します。
+    </p>
+
+    <div class="point-box">
+
+      <p>
+        家庭用DMZホストは
+        「安全な隔離エリア」ではなく、
+        インターネットへ
+        ほぼ直接さらされる状態に近いため、
+        非常に注意が必要です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 家庭用DMZのリスク ===== -->
+
+  <section class="card">
+
+    <h2>家庭用DMZのリスク</h2>
+
+    <p>
+      家庭用DMZホストへ
+      普段使いPCを設定すると、
+      外部から直接攻撃を受けやすくなります。
+    </p>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>マルウェア感染</h3>
+        外部攻撃増加
+      </div>
+
+      <div class="part-box">
+        <h3>脆弱性悪用</h3>
+        OS欠陥を狙われる
+      </div>
+
+      <div class="part-box">
+        <h3>不正アクセス</h3>
+        外部侵入リスク
+      </div>
+
+      <div class="part-box">
+        <h3>情報漏洩</h3>
+        データ流出危険
+      </div>
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        特に、
+        OS更新不足や弱いパスワードは、
+        攻撃対象になりやすいため危険です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== UPnP ===== -->
+
+  <section class="card">
+
+    <h2>UPnPとの関係</h2>
+
+    <p>
+      家庭用では、
+      DMZの代わりに
+      「UPnP」
+      が使われることもあります。
+    </p>
+
+    <p style="margin-top:15px;">
+
+      UPnPは、
+      機器が自動でポート開放を要求できる仕組みです。
+
+    </p>
+
+    <div class="point-box">
+
+      <p>
+        便利な反面、
+        マルウェアなどが
+        勝手にポート開放を行う危険もあり、
+        セキュリティとのバランスが重要です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 現代の代替手段 ===== -->
+
+  
+
+  <!-- ===== まとめ ===== -->
+
+  <section class="card"
+    style="border-left:6px solid #2b579a;">
+
+    <h2>まとめ</h2>
+
+    <p>
+      DMZは、
+      外部公開サーバーを
+      社内ネットワークから分離し、
+      被害を局所化するための重要な仕組みです。
+    </p>
+
+    <p style="margin-top:15px;">
+
+      現代では、
+      DMZ単体だけでなく、
+      WAF、
+      ゼロトラスト、
+      横移動対策などを組み合わせた
+      多層防御が重要視されています。
+
+    </p>
+
+    <div class="point-box">
+
+      <p>
+        また家庭用DMZホストは、
+        企業DMZとは異なり、
+        「外部通信をほぼ直接受ける仕組み」
+        に近いため、
+        安易な利用には注意が必要です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 戻る ===== -->
+
+  <div class="back">
+
+    <a href="index.html">
+      ← 用語一覧へ戻る
+    </a>
+
+  </div>
+
+</div>
+
+<!-- ===== フッター ===== -->
+
+<footer>
+  IT学習用サイト
+</footer>
+
+</body>
+</html>

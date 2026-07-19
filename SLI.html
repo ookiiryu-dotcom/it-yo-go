@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SLI（Service Level Indicator）とは？</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ===== ヘッダー ===== -->
+
+<header>
+
+  <h1>
+
+    SLI<br>
+
+    <span style="
+      font-size:0.55em;
+      font-weight:normal;">
+
+      （Service Level Indicator）
+
+    </span>
+
+  </h1>
+
+  <p>
+    サービス品質を「数値」で測定する仕組み
+  </p>
+
+</header>
+
+<!-- ===== メイン ===== -->
+
+<div class="container">
+
+  <!-- ===== SLIとは ===== -->
+
+  <section class="card">
+
+    <h2>SLIとは？</h2>
+
+    <p>
+      SLIとは、
+      サービスの状態や品質を
+      「どれくらい良いか」
+      「どれくらい正常か」
+      を数値で測定する指標のことです。
+    </p>
+
+    <p style="margin-top:15px;">
+
+      Service Level Indicator の略で、
+      日本語では
+      「サービスレベル指標」
+      と呼ばれます。
+
+    </p>
+
+    <div class="point-box">
+
+      <p>
+        SLIは、
+        システム運用やSRE（Site Reliability Engineering）で
+        非常に重要な考え方です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== なぜ必要？ ===== -->
+
+  <section class="card">
+
+    <h2>なぜSLIが必要？</h2>
+
+    <p>
+      システム品質を、
+      「なんとなく速い」
+      「なんとなく安定している」
+      のような曖昧な感覚だけで判断すると、
+      チームごとに認識がズレてしまいます。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:10px;
+      padding:22px;
+      margin:25px 0;
+      line-height:2;
+      text-align:center;">
+
+      ❌
+
+      <br>
+
+      「最近ちょっと重い気がする」
+
+      <br><br>
+
+      ⭣
+
+      <br><br>
+
+      ⭕
+
+      <br>
+
+      「99%の通信が1秒以内」
+
+    </div>
+
+    <p>
+      SLIを使うことで、
+      サービス品質を
+      客観的な数値として把握できるようになります。
+    </p>
+
+    <div class="example">
+
+      <p>
+        「速い」「安定している」
+        を数値化して、
+        チーム全体で共通認識を持てるようにするのがSLIです。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 何を測る？ ===== -->
+
+  <section class="card">
+
+    <h2>SLIでは何を測る？</h2>
+
+    <p>
+      SLIでは、
+      ユーザー体験に関係する品質を
+      数値で測定します。
+    </p>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>応答速度</h3>
+        ページ表示の速さ
+      </div>
+
+      <div class="part-box">
+        <h3>可用性</h3>
+        サービスが使える割合
+      </div>
+
+      <div class="part-box">
+        <h3>エラー率</h3>
+        通信失敗の割合
+      </div>
+
+      <div class="part-box">
+        <h3>成功率</h3>
+        正常完了した割合
+      </div>
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        SLIは、
+        「システム側が見たい数字」
+        ではなく、
+        「ユーザーが困る品質低下」
+        を測ることが重要です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 具体例 ===== -->
+
+  <section class="card">
+
+    <h2>SLIの具体例</h2>
+
+    <p>
+      実際のサービスでは、
+      以下のようなSLIが使われます。
+    </p>
+
+    <div style="
+      overflow-x:auto;
+      margin-top:20px;">
+
+      <table style="
+        width:100%;
+        border-collapse:collapse;
+        min-width:540px;">
+
+        <tr style="
+          background:#2b579a;
+          color:white;">
+
+          <th style="padding:12px;border:1px solid #ddd;">
+            SLI
+          </th>
+
+          <th style="padding:12px;border:1px solid #ddd;">
+            測定内容
+          </th>
+
+        </tr>
+
+        <tr>
+
+          <td style="padding:12px;border:1px solid #ddd;">
+            レスポンス時間
+          </td>
+
+          <td style="padding:12px;border:1px solid #ddd;">
+            ページ表示の速さ
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td style="padding:12px;border:1px solid #ddd;">
+            可用性
+          </td>
+
+          <td style="padding:12px;border:1px solid #ddd;">
+            サービス稼働率
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td style="padding:12px;border:1px solid #ddd;">
+            エラー率
+          </td>
+
+          <td style="padding:12px;border:1px solid #ddd;">
+            API失敗割合
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td style="padding:12px;border:1px solid #ddd;">
+            ログイン成功率
+          </td>
+
+          <td style="padding:12px;border:1px solid #ddd;">
+            ログイン成功割合
+          </td>
+
+        </tr>
+
+      </table>
+
+    </div>
+
+  </section>
+
+  <!-- ===== SLI・SLO・SLA ===== -->
+
+  <section class="card">
+
+    <h2>SLI・SLO・SLA の関係</h2>
+
+    <p>
+      SLIは、
+      SLOやSLAとセットで利用されます。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:10px;
+      padding:22px;
+      margin:25px 0;
+      line-height:2;
+      text-align:center;">
+
+      <strong style="
+        color:#2b579a;
+        font-size:1.1em;">
+
+        SLI
+
+      </strong>
+
+      <br>
+
+      実際の品質を測定
+
+      <br><br>
+
+      ↓
+
+      <br><br>
+
+      <strong style="font-size:1.05em;">
+        SLO
+      </strong>
+
+      <br>
+
+      目標値を定義
+
+      <br><br>
+
+      ↓
+
+      <br><br>
+
+      <strong style="font-size:1.05em;">
+        SLA
+      </strong>
+
+      <br>
+
+      契約・保証
+
+    </div>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>SLI</h3>
+        実際の測定値
+      </div>
+
+      <div class="part-box">
+        <h3>SLO</h3>
+        品質目標
+      </div>
+
+      <div class="part-box">
+        <h3>SLA</h3>
+        顧客契約
+      </div>
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        SLIは、
+        SLOやSLAの土台になる
+        「実際の品質データ」
+        を提供します。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== レストラン例 ===== -->
+
+  <section class="card">
+
+    <h2>レストランで例えると</h2>
+
+    <p>
+      SLIは、
+      レストランのサービス品質に
+      例えると分かりやすいです。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:10px;
+      padding:22px;
+      margin:25px 0;
+      line-height:2;">
+
+      <strong>SLI</strong>
+
+      <br>
+
+      実際の提供時間は8分
+
+      <br><br>
+
+      <strong>SLO</strong>
+
+      <br>
+
+      95%を10分以内に提供
+
+      <br><br>
+
+      <strong>SLA</strong>
+
+      <br>
+
+      15分以上なら返金
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        SLIは、
+        「実際にどれくらいの品質だったか」
+        を測る役割を持っています。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== ユーザー視点 ===== -->
+
+  <section class="card">
+
+    <h2>なぜ「ユーザー視点」が重要？</h2>
+
+    <p>
+      SLIでは、
+      システム内部の状態よりも、
+      「ユーザーが困るかどうか」
+      を重視します。
+    </p>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>CPU使用率</h3>
+        高くても気づかない
+      </div>
+
+      <div class="part-box">
+        <h3>ページ表示10秒</h3>
+        ユーザーは困る
+      </div>
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        重要なのは、
+        「サーバが忙しいか」
+        ではなく、
+        「ユーザー体験が悪化したか」
+        です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 複数SLI ===== -->
+
+  
+
+  <!-- ===== Golden Signals ===== -->
+
+  <section class="card">
+
+    <h2>Golden Signalsとは？</h2>
+
+    <p>
+      Google SREでは、
+      特に重要な4つの観点として
+      「Golden Signals」
+      がよく使われます。
+    </p>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>Latency</h3>
+        遅延
+      </div>
+
+      <div class="part-box">
+        <h3>Traffic</h3>
+        通信量
+      </div>
+
+      <div class="part-box">
+        <h3>Errors</h3>
+        エラー
+      </div>
+
+      <div class="part-box">
+        <h3>Saturation</h3>
+        リソース逼迫
+      </div>
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        実務では、
+        これらを組み合わせて
+        サービス状態を把握することが多いです。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 非同期処理 ===== -->
+
+  
+
+  <!-- ===== SLIは変化する ===== -->
+
+  
+
+  <!-- ===== Observability ===== -->
+
+  <section class="card">
+
+    <h2>監視（Monitoring）との違い</h2>
+
+    <p>
+      現代のシステムでは、
+      単純な監視だけでは
+      問題原因を把握しきれない場合があります。
+    </p>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>Monitoring</h3>
+        既知の問題を検知
+      </div>
+
+      <div class="part-box">
+        <h3>Observability</h3>
+        未知の問題を理解
+      </div>
+
+    </div>
+
+    <p style="margin-top:18px;">
+
+      特にマイクロサービス環境では、
+      サービス間通信や遅延追跡など、
+      より高度な観測が必要になります。
+
+    </p>
+
+    <div class="point-box">
+
+      <p>
+        SLIは、
+        Observabilityの中でも
+        「ユーザー品質をどう測るか」
+        に強く関係しています。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== なぜ重要？ ===== -->
+
+  
+
+  <!-- ===== レベル構造 ===== -->
+
+  
+
+  <!-- ===== まとめ ===== -->
+
+  <section class="card"
+    style="border-left:6px solid #2b579a;">
+
+    <h2>まとめ</h2>
+
+    <p>
+      SLIとは、
+      サービス品質を
+      数値で測定するための指標です。
+    </p>
+
+    <p style="margin-top:15px;">
+
+      応答速度や成功率などを測定し、
+      「ユーザーが実際にどう感じるか」
+      を把握するために利用されます。
+
+    </p>
+
+    <p style="margin-top:15px;">
+
+      またSLIは、
+      一度決めたら終わりではなく、
+      サービスやユーザー価値の変化に合わせて
+      継続的に改善・再設計されます。
+
+    </p>
+
+    <div class="point-box">
+
+      <p>
+        SLIは、
+        単なる監視指標ではなく、
+        「変化し続けるユーザー価値を観測し、
+        改善し続けるための指標体系」
+        と言えます。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 戻る ===== -->
+
+  <div class="back">
+
+    <a href="index.html">
+      ← 用語一覧へ戻る
+    </a>
+
+  </div>
+
+</div>
+
+<!-- ===== フッター ===== -->
+
+<footer>
+  IT学習用サイト
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MACアドレス</title>
+
+ <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ===== ヘッダー ===== -->
+
+  <header>
+    <h1>MACアドレス</h1>
+    <p>ネットワーク機器を識別するための番号</p>
+  </header>
+
+  <!-- ===== メイン ===== -->
+
+  <div class="container">
+
+    <!-- ===== MACアドレスとは ===== -->
+
+    <section class="card">
+
+      <h2>MACアドレスとは？</h2>
+
+      <p>
+        MACアドレスとは、
+        ネットワーク機器に割り当てられた
+        <span class="red">
+          “固有の識別番号”
+        </span>
+        であり、
+        機器そのものを見分けるための情報です。
+      </p>
+
+      <p>
+        パソコンやスマートフォン、
+        プリンターなど、
+        ネットワークへ接続する機器には
+        必ず存在します。
+      </p>
+
+      <div class="point-box">
+
+        <p>
+          MACアドレスは、
+          <span class="blue">
+            機器の「指紋」
+          </span>
+          のような役割を持っています。
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ===== 特徴 ===== -->
+
+    <section class="card">
+
+      <h2>MACアドレスの特徴</h2>
+
+      <p>
+        MACアドレスは、
+        基本的にはネットワークカードへ
+        書き込まれており、
+        通常は変わりません。
+      </p>
+
+      <div class="warning-box">
+
+        <p>
+          ただし最近のOSでは、
+          プライバシー保護のために
+          <span class="red">
+            ランダムなMACアドレス
+          </span>
+          を使う機能が標準化されています。
+        </p>
+
+      </div>
+
+      <p style="margin-top: 20px;">
+        そのため、
+        「絶対に変わらない番号」
+        というわけではなく、
+        技術的には変更することも可能です。
+      </p>
+
+    </section>
+
+    <!-- ===== MACアドレスの役割 ===== -->
+
+    <section class="card">
+
+      <h2>MACアドレスの役割</h2>
+
+      <p>
+        MACアドレスは、
+        <span class="red">
+          同じネットワーク内
+        </span>
+        で、
+        データをどの機器へ届けるかを判断するために使われます。
+      </p>
+
+      <div class="list">
+
+        <p>
+          ・パソコンAからプリンターへデータ送信
+        </p>
+
+        <p>
+          ・スマホからWi-Fiルーターへ通信
+        </p>
+
+        <p>
+          ・LAN内の機器同士の通信
+        </p>
+
+      </div>
+
+      <div class="point-box">
+
+        <p>
+          MACアドレスが機能するのは、
+          <span class="blue">
+            同一ネットワーク内
+          </span>
+          に限られています。
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ===== ルーターを越えると ===== -->
+
+    <section class="card">
+
+      <h2>ルーターを越えると？</h2>
+
+      <p>
+        ルーターを越えると、
+        MACアドレスは必ず書き換えられます。
+      </p>
+
+      <p>
+        そのため、
+        インターネット全体へ向けて
+        MACアドレスだけで通信することはできません。
+      </p>
+
+      <div class="warning-box">
+
+        <p>
+          もしMACアドレスだけで通信しようとすると、
+          世界中のルーターが
+          「目的のMACアドレスがどこにいるか」
+          を常に把握し続けなければならず、
+          現実的ではありません。
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ===== IPアドレスとの関係 ===== -->
+
+    <section class="card">
+
+      <h2>IPアドレスとの違い</h2>
+
+      <p>
+        そこで必要になるのが
+        <a href="ip.html">IPアドレス</a>
+        です。
+      </p>
+
+      <p>
+        IPアドレスは、
+        ネットワーク上の
+        <span class="red">“住所”</span>
+        として機能し、
+        どの経路を通れば目的地へ届くのかを判断します。
+      </p>
+
+      <div class="table-wrap">
+
+        <table>
+
+          <tr>
+            <th>項目</th>
+            <th>MACアドレス</th>
+            <th>IPアドレス</th>
+          </tr>
+
+          <tr>
+            <td>役割</td>
+            <td>機器そのものを識別</td>
+            <td>通信先の住所を示す</td>
+          </tr>
+
+          <tr>
+            <td>使用範囲</td>
+            <td>同一ネットワーク内</td>
+            <td>インターネット全体</td>
+          </tr>
+
+          <tr>
+            <td>特徴</td>
+            <td>機器固有の番号</td>
+            <td>ネットワーク構造を表す</td>
+          </tr>
+
+        </table>
+
+      </div>
+
+    </section>
+
+    <!-- ===== まとめ ===== -->
+
+    <section class="card">
+
+      <h2>まとめ</h2>
+
+      <p>
+        MACアドレスとIPアドレスは、
+        どちらか一方だけでは不十分です。
+      </p>
+
+      <p>
+        それぞれが異なる役割を担うことで、
+        <span class="red">
+          安定した通信と柔軟なネットワーク運用
+        </span>
+        が可能になっています。
+      </p>
+
+      <div class="point-box">
+
+        <p>
+          MACアドレスは
+          <span class="blue">「機器そのもの」</span>、
+          IPアドレスは
+          <span class="blue">「通信先の住所」</span>
+          を表しています。
+        </p>
+
+      </div>
+
+    </section>
+    
+        <!-- ===== 関連用語 ===== -->
+
+    <section class="card">
+
+      <h2>関連用語</h2>
+
+      <p>
+        <a href="ip.html">・IPアドレス</a>
+      </p>
+      
+    </section>
+
+    <!-- ===== 戻る ===== -->
+
+    <div class="back">
+      <a href="index.html">← 用語一覧へ戻る</a>
+    </div>
+
+  </div>
+
+  <!-- ===== フッター ===== -->
+
+  <footer>
+    IT学習用サイト
+  </footer>
+
+</body>
+</html>

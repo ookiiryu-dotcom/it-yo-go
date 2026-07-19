@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SOC（Security Operation Center）とは？</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ===== ヘッダー ===== -->
+
+<header>
+
+  <h1>
+
+    SOC<br>
+
+    <span style="
+      font-size:0.55em;
+      font-weight:normal;">
+
+      （Security Operation Center）
+
+    </span>
+
+  </h1>
+
+  <p>
+    サイバー攻撃を継続的に監視・検知・分析する
+    <br>
+    セキュリティ監視組織
+  </p>
+
+</header>
+
+<!-- ===== メイン ===== -->
+
+<div class="container">
+
+  <!-- ===== SOCとは ===== -->
+
+  <section class="card">
+
+    <h2>SOCとは？</h2>
+
+    <p>
+      SOC（ソック）とは、
+      ネットワーク・サーバー・PC・クラウドなどを継続的に監視し、
+      サイバー攻撃や不正アクセスを検知・分析・対応する組織です。
+    </p>
+
+    <p style="margin-top:15px;">
+
+      正式名称は
+      「Security Operation Center」
+      です。
+
+    </p>
+
+    <div class="point-box">
+
+      <p>
+        SOCは、
+        「サイバー攻撃を監視する専門チーム」
+        のような存在です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== イメージ ===== -->
+
+  <section class="card">
+
+    <h2>まずはイメージで理解する</h2>
+
+    <p>
+      SOCは、
+      社内の様々な機器や通信を監視し、
+      異常がないかを確認しています。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;">
+
+      <div style="
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:18px;
+        text-align:center;">
+
+        <div style="
+          background:#fff;
+          border:1px solid #ddd;
+          border-radius:10px;
+          padding:14px 18px;
+          width:100%;
+          max-width:520px;">
+
+          インターネット
+
+        </div>
+
+        <div style="
+          font-size:1.4em;
+          color:#666;">
+          ↓
+        </div>
+
+        <div style="
+          background:#fff;
+          border:1px solid #ddd;
+          border-radius:10px;
+          padding:18px;
+          width:100%;
+          max-width:520px;">
+
+          社内ネットワーク<br>
+          PC・サーバー・Wi-Fi・クラウド
+
+        </div>
+
+        <div style="
+          font-size:1.4em;
+          color:#666;">
+          ↓ ログ・通信情報
+        </div>
+
+        <div style="
+          background:#eaf4ff;
+          border:1px solid #9fc5f8;
+          border-radius:10px;
+          padding:18px;
+          width:100%;
+          max-width:520px;
+          font-weight:bold;">
+
+          SOC<br>
+
+          ・24時間監視する場合もある<br>
+          ・異常検知<br>
+          ・分析<br>
+          ・初動対応
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        SOCは、
+        「社内システムを見守る監視センター」
+        のようなイメージです。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== Security Operation Center ===== -->
+
+  
+
+  <!-- ===== 監視対象 ===== -->
+
+  <section class="card">
+
+    <h2>SOCは何を監視している？</h2>
+
+    <p>
+      SOCは、
+      様々な機器やサービスからログを集めて監視します。
+    </p>
+
+    <div class="table-wrap">
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>監視対象</th>
+            <th>例</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+
+            <td>PC</td>
+
+            <td>
+              マルウェア感染
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>サーバー</td>
+
+            <td>
+              不正ログイン
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>ファイアウォール</td>
+
+            <td>
+              攻撃通信
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>クラウド</td>
+
+            <td>
+              アカウント乗っ取り
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>メール</td>
+
+            <td>
+              フィッシング攻撃
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        SOCは、
+        「どこかで異常な動きが起きていないか」
+        を常に監視しています。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== ログ ===== -->
+
+  <section class="card">
+
+    <h2>ログを監視している</h2>
+
+    <p>
+      SOCの中心になるのが
+      「ログ監視」
+      です。
+    </p>
+
+    <p style="margin-top:15px;">
+
+      ログとは、
+      機器やシステムが記録する
+      「動作履歴」
+      のことです。
+
+    </p>
+
+    <div style="
+      background:#1e1e1e;
+      color:#e6e6e6;
+      border-radius:12px;
+      padding:22px;
+      margin:25px 0;
+      line-height:2;
+      font-family:monospace;">
+
+      03:01 ログイン成功<br>
+      03:02 海外IPからアクセス<br>
+      03:02 大量ダウンロード<br>
+      03:03 管理者権限取得
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        SOCは、
+        ログの中から
+        「攻撃らしい動き」
+        を探しています。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== SOCの仕事 ===== -->
+
+  <section class="card">
+
+    <h2>SOCの主な仕事</h2>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>監視</h3>
+        ログや通信を監視
+      </div>
+
+      <div class="part-box">
+        <h3>検知</h3>
+        攻撃を発見
+      </div>
+
+      <div class="part-box">
+        <h3>分析</h3>
+        本当に攻撃か確認
+      </div>
+
+      <div class="part-box">
+        <h3>対応</h3>
+        初動対応や通知
+      </div>
+
+    </div>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;
+      text-align:center;
+      line-height:2;">
+
+      ログ監視
+
+      <br>
+
+      ↓
+
+      <br>
+
+      異常検知
+
+      <br>
+
+      ↓
+
+      <br>
+
+      分析
+
+      <br>
+
+      ↓
+
+      <br>
+
+      通知・初動対応
+
+    </div>
+
+  </section>
+
+  <!-- ===== 検知 ===== -->
+
+  
+
+  <!-- ===== SIEM ===== -->
+
+  
+
+  <!-- ===== 対応 ===== -->
+
+  
+
+  <!-- ===== 外部委託 ===== -->
+
+  
+
+  <!-- ===== SOC必要理由 ===== -->
+
+  <section class="card">
+
+    <h2>なぜSOCが必要なの？</h2>
+
+    <p>
+      現代では、
+      クラウド・VPN・テレワークなどが増え、
+      「侵入されないこと」
+      だけでは守り切れなくなっています。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;
+      text-align:center;
+      line-height:2;">
+
+      昔
+
+      <br>
+
+      ↓
+
+      <br>
+
+      境界防御中心
+
+      <br><br>
+
+      現在
+
+      <br>
+
+      ↓
+
+      <br>
+
+      侵入されても早く検知
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        SOCは、
+        「侵入される前提」
+        の時代で重要性が高まっています。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== NOC違い ===== -->
+
+  <section class="card">
+
+    <h2>NOCとの違い</h2>
+
+    <p>
+      SOCと似た言葉に
+      「NOC」
+      があります。
+    </p>
+
+    <div class="table-wrap">
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>項目</th>
+            <th>SOC</th>
+            <th>NOC</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+
+            <td>正式名称</td>
+
+            <td>
+              Security Operation Center
+            </td>
+
+            <td>
+              Network Operation Center
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>目的</td>
+
+            <td>
+              セキュリティ監視
+            </td>
+
+            <td>
+              ネットワーク監視
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>監視内容</td>
+
+            <td>
+              攻撃・不正アクセス
+            </td>
+
+            <td>
+              回線障害・通信品質
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </section>
+
+  <!-- ===== CSIRT違い ===== -->
+
+  
+
+  <!-- ===== メリット ===== -->
+
+  <section class="card">
+
+    <h2>SOC導入のメリット</h2>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>早期発見</h3>
+        攻撃を早く検知
+      </div>
+
+      <div class="part-box">
+        <h3>被害軽減</h3>
+        拡大防止
+      </div>
+
+      <div class="part-box">
+        <h3>継続監視</h3>
+        常時確認
+      </div>
+
+      <div class="part-box">
+        <h3>専門分析</h3>
+        高度な調査
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===== デメリット ===== -->
+
+  <section class="card">
+
+    <h2>SOC導入の課題</h2>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>コスト</h3>
+        人員・機器必要
+      </div>
+
+      <div class="part-box">
+        <h3>専門知識</h3>
+        高度スキル必要
+      </div>
+
+      <div class="part-box">
+        <h3>誤検知</h3>
+        不要アラート
+      </div>
+
+      <div class="part-box">
+        <h3>24時間負荷</h3>
+        運用負担大
+      </div>
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        SOCは非常に重要ですが、
+        継続運用には人材やコストが必要になります。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== まとめ ===== -->
+
+  <section class="card"
+    style="border-left:6px solid #0d6efd;">
+
+    <h2>まとめ</h2>
+
+    <p>
+      SOCとは、
+      サイバー攻撃を継続的に監視し、
+      検知・分析・対応するセキュリティ監視組織です。
+    </p>
+
+    <p style="margin-top:15px;">
+
+      ログ監視やSIEMを利用しながら、
+      不正アクセスやマルウェアなどを検知します。
+
+    </p>
+
+    <p style="margin-top:15px;">
+
+      また、
+      実際の運用では、
+      MDR・外部委託・CSIRT連携など、
+      様々な形態があります。
+
+    </p>
+
+    <div class="point-box">
+
+      <p>
+        SOCを理解すると、
+        現代セキュリティ運用の考え方が
+        非常に理解しやすくなります。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 戻る ===== -->
+
+  <div class="back">
+
+    <a href="index.html">
+      ← 用語一覧へ戻る
+    </a>
+
+  </div>
+
+</div>
+
+<!-- ===== フッター ===== -->
+
+<footer>
+  IT学習用サイト
+</footer>
+
+</body>
+</html>

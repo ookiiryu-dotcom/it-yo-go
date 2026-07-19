@@ -1,0 +1,310 @@
+[
+  {
+    "term": "IT",
+    "link": "IT.html"
+  },
+  {
+    "term": "ICT",
+    "link": "ICT.html"
+  },
+  {
+    "term": "IoT",
+    "link": "IoT.html"
+  },
+  {
+    "term": "VPN",
+    "link": "vpn.html"
+  },
+  {
+    "term": "IPアドレス",
+    "link": "ip.html"
+  },
+  {
+    "term": "DNS",
+    "link": "dns.html"
+  },
+  {
+    "term": "SFPポート",
+    "link": "sfp.html"
+  },
+ {
+    "term": "MACアドレス",
+    "link": "MACアドレス.html"
+  },
+   {
+    "term": "アクセスポイント",
+    "link": "AP.html"
+  },
+ {
+    "term": "スイッチ",
+   "link": "スイッチ.html"
+  },
+ {
+    "term": "ルーター",
+   "link": "ルーター.html"
+  },
+ {
+    "term": "UTM",
+   "link": "UTM.html"
+  },
+   {
+    "term": "ファイアウォール（Firewall）",
+   "link": "ファイアウォール（Firewall）.html"
+  },
+     {
+    "term": "IPS",
+   "link": "IPS.html"
+  },
+   {
+    "term": "IDS",
+   "link": "IDS.html"
+  },
+   {
+    "term": "パソコン(PC)",
+   "link": "パソコン(PC).html"
+  },
+   {
+    "term": "AD<br><span style='font-size: 0.9em;'>(アクティブディレクトリ)</span><br/>",
+   "link": "AD(アクティブディレクトリ).html"
+    },
+   {
+    "term": "GPU",
+   "link": "GPU.html"
+  },
+   {
+    "term": "RPA",
+   "link": "RPA.html"
+  },
+  {
+    "term": "CPU",
+   "link": "CPU.html"
+  },
+  {
+    "term": "DRAM",
+   "link": "DRAM.html"
+  },
+  {
+    "term": "アクチュエーター（Actuator）",
+   "link": "アクチュエーター（Actuator）.html"
+  },
+  {
+    "term": "HTML",
+   "link": "HTML.html"
+  },
+  {
+    "term": "NFC",
+   "link": "NFC.html"
+  },
+  {
+    "term": "ISP(プロバイダ）",
+   "link": "ISP(プロバイダ）.html"
+  },
+  {
+    "term": "ZTNA",
+   "link": "ZTNA.html"
+  },
+  {
+    "term": "Bitcoin(ビットコイン)",
+   "link": "Bitcoin(ビットコイン).html"
+  },
+  {
+    "term": "回線",
+   "link": "回線.html"
+  },
+  {
+   "term": "ONU",
+   "link": "ONU.html"
+  }, 
+  {
+   "term": "DMZ",
+   "link": "DMZ.html"
+  },
+  {
+   "term": "SLA",
+   "link": "SLA.html"
+  },
+  {
+   "term": "SLO",
+   "link": "SLO.html"
+  },
+  {
+   "term": "SLI",
+   "link": "SLI.html"
+  },
+  {
+   "term": "bps",
+   "link": "bps.html"
+  },
+  {
+   "term": "半導体",
+   "link": "半導体.html"
+  },
+  {
+   "term": "エクスプロイト",
+   "link": "エクスプロイト.html"
+  },
+  {
+   "term": "シンクライアント",
+   "link": "シンクライアント.html"
+  },
+  {
+   "term": "ブリッジ接続",
+   "link": "ブリッジ接続.html"
+  },
+  {
+   "term": "MCP",
+   "link": "MCP.html"
+  },
+  {
+   "term": "SOC",
+   "link": "SOC.html"
+  },
+  {
+   "term": "EDR",
+   "link": "EDR.html"
+  },
+  {
+   "term": "レプリケーション",
+   "link": "レプリケーション.html"
+  },
+  {
+   "term": "定義ファイル",
+   "link": "定義ファイル.html"
+  },
+  {
+   "term": "パスキー",
+   "link": "パスキー.html"
+  },
+  {
+   "term": "VLAN",
+   "link": "VLAN.html"
+  },
+  {
+   "term": "NDA",
+   "link": "NDA.html"
+  },
+  {
+   "term": "イーサネット(Ethernet)",
+   "link": "イーサネット(Ethernet).html"
+  },
+  {
+   "term": "NIC",
+   "link": "NIC.html"
+  },
+  {
+   "term": "ブロックチェーン",
+   "link": "ブロックチェーン.html"
+  },
+  {
+   "term": "ハウジング",
+   "link": "ハウジング.html"
+  },
+  {
+   "term": "ホスティング",
+   "link": "ホスティング.html"
+  },
+  {
+   "term": "ドメインコントローラー",
+   "link": "ドメインコントローラー.html"
+  },
+  {
+   "term": "光クロスコネクト",
+   "link": "光クロスコネクト.html"
+  },
+  {
+   "term": "APサーバー",
+   "link": "APサーバー.html"
+  },
+  {
+   "term": "SSO",
+   "link": "SSO.html"
+  },
+  {
+   "term": "WAF",
+   "link": "WAF.html"
+  },
+  {
+   "term": "SIP",
+   "link": "SIP.html"
+  },
+  {
+   "term": "LLM",
+   "link": "LLM.html"
+  },
+  {
+   "term": "bot(ボット)",
+   "link": "bot(ボット).html"
+  },
+  {
+   "term": "クロスコネクト",
+   "link": "クロスコネクト.html"
+  },
+  {
+   "term": "OSS<br>(ワンストップサービス)",
+   "link": "OSS(ワンストップサービス).html"
+  },
+  {
+   "term": "RAID",
+   "link": "RAID.html"
+  },
+  {
+   "term": "MAP-E",
+   "link": "MAP-E.html"
+  },
+  {
+   "term": "仮想ブラウザ",
+   "link": "仮想ブラウザ.html"
+  },
+  {
+   "term": "CDR",
+   "link": "CDR.html"
+  },
+  {
+   "term": "デジタル・フォレンジック",
+   "link": "デジタル・フォレンジック.html"
+  },
+  {
+   "term": "パケット",
+   "link": "パケット.html"
+  },
+  {
+   "term": "リバースプロキシ",
+   "link": "リバースプロキシ.html"
+  },
+  {
+   "term": "FQDN",
+   "link": "FQDN.html"
+  },
+  {
+   "term": "画像鮮明化",
+   "link": "画像鮮明化.html"
+  },
+  {
+   "term": "AI",
+   "link": "AI.html"
+  },
+  {
+   "term": "OCR",
+   "link": "OCR.html"
+  },
+  {
+   "term": "HTTP",
+   "link": "HTTP.html"
+  },
+  {
+   "term": "HTTPS",
+   "link": "HTTPS.html"
+  },
+  {
+   "term": "EPP",
+   "link": "EPP.html"
+  },
+  {
+   "term": "XDR",
+   "link": "XDR.html"
+  },
+  {
+   "term": "CUDA",
+   "link": "CUDA.html"
+  }
+]

@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>クロスコネクトとは？</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ===== ヘッダー ===== -->
+
+<header>
+
+  <h1>
+    クロスコネクト<br>
+    <span style="font-size:0.55em; font-weight:normal;">
+      （Cross Connect）
+    </span>
+  </h1>
+
+  <p>
+    データセンター内で設備同士を直接つなぐ物理接続
+  </p>
+
+</header>
+
+<!-- ===== メイン ===== -->
+
+<div class="container">
+
+  <!-- ===== 対象範囲 ===== -->
+
+  <section class="card">
+
+    <h2>このページで扱うクロスコネクト</h2>
+
+    <p>
+      クロスコネクトという言葉は、分野によって意味が少し変わることがあります。
+    </p>
+    <p>      このページでは、電話設備や音響設備ではなく、
+      <strong>データセンターやITインフラにおけるクロスコネクト</strong>
+      を扱います。
+    </p>
+
+    <div class="point-box">
+
+      <p>
+        ここでのクロスコネクトは、
+        「データセンターの中で、ラックや通信設備を物理ケーブルで直接つなぐこと」
+        と考えると分かりやすいです。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== クロスコネクトとは ===== -->
+
+  <section class="card">
+
+    <h2>クロスコネクトとは？</h2>
+
+    <p>
+      クロスコネクトとは、主にデータセンター内で、
+      自社ラック・通信キャリアの設備・クラウド接続ポート・他社設備などを、
+      <strong>専用の物理ケーブルで直接つなぐこと</strong>
+      です。
+    </p>
+
+    <p style="margin-top:15px;">
+      かなり簡単に言うと、クロスコネクトは
+      <strong>「データセンターの中で行う専用の直結配線」</strong>
+      です。
+    </p>
+
+    <div class="point-box">
+
+      <p>
+        インターネット全体の話ではなく、
+        データセンター内の物理的な接続部分の話です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== イメージ ===== -->
+
+  <section class="card">
+
+    <h2>まずはイメージで理解する</h2>
+
+    <p>
+      データセンターを大きな建物として考えると分かりやすいです。
+    </p>
+    <p>      クロスコネクトは、その建物の中で
+      「自分の部屋」と「相手の部屋」を専用ケーブルでつなぐようなものです。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;">
+
+      <div style="
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:16px;
+        text-align:center;">
+
+        <div style="
+          background:#fff;
+          border:1px solid #ddd;
+          border-radius:10px;
+          padding:14px 18px;
+          width:100%;
+          max-width:520px;">
+
+          自社ラック
+
+        </div>
+
+        <div style="font-size:1.4em; color:#666;">
+          ↓
+        </div>
+
+        <div style="
+          background:#eaf4ff;
+          border:1px solid #9fc5f8;
+          border-radius:10px;
+          padding:14px 18px;
+          width:100%;
+          max-width:520px;
+          font-weight:bold;">
+
+          クロスコネクト<br>
+          <span style="font-size:0.9em; font-weight:normal;">
+            データセンター内の専用ケーブル接続
+          </span>
+
+        </div>
+
+        <div style="font-size:1.4em; color:#666;">
+          ↓
+        </div>
+
+        <div style="
+          background:#fff;
+          border:1px solid #ddd;
+          border-radius:10px;
+          padding:14px 18px;
+          width:100%;
+          max-width:520px;">
+
+          通信キャリア設備<br>
+          クラウド接続ポート<br>
+          他社ラック
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        「同じデータセンターの中で、目的の相手の設備まで直接つなぐ近道」
+        と考えると理解しやすいです。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 建物の中と外 ===== -->
+
+  <section class="card">
+
+    <h2>大事なのは「建物の中」と「外」を<br>分けること</h2>
+
+    <p>
+      クロスコネクトを理解するうえで重要なのは、
+      <strong>データセンターの中の話</strong>
+      と
+      <strong>データセンターの外へ出る話</strong>
+      を分けることです。
+    </p>
+
+    <div style="
+      background:#fff4e5;
+      border:1px solid #f0c36d;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;
+      text-align:center;
+      line-height:2;">
+
+      <strong>【データセンターの中】</strong>
+
+      <br>
+
+      自社ラック
+
+      <br>
+
+      ↓
+
+      <br>
+
+      <strong style="color:#0d6efd;">
+        クロスコネクト
+      </strong>
+
+      <br>
+
+      ↓
+
+      <br>
+
+      キャリアラック・クラウド接続ポート
+
+      <br><br>
+
+      <span style="color:#666;">
+        ここから外の世界へ
+      </span>
+
+      <br>
+
+      ↓
+
+      <br>
+
+      専用線・閉域網・クラウド接続など
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        クロスコネクトは「建物の中の物理接続」、
+        専用線・VPN・クラウド接続は「建物の外へ通信するための経路やサービス」
+        と考えると混乱しにくくなります。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 何のために使う ===== -->
+
+  
+
+  <!-- ===== クラウド接続との関係 ===== -->
+
+  <section class="card">
+
+    <h2>クラウド接続との関係</h2>
+
+    <p>
+      クロスコネクトとクラウド接続は、同じ種類の言葉ではありません。
+    </p>
+    <p>      クロスコネクトは
+      <strong>データセンター内の物理接続</strong>
+      であり、クラウド接続は
+      <strong>AWS・Azure・Google Cloudなどへ接続するためのサービスや仕組み</strong>
+      です。
+    </p>
+
+    <div class="table-wrap">
+
+      <table>
+
+        <thead>
+
+          <tr>
+            <th>用語</th>
+            <th>位置づけ</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>クロスコネクト</td>
+            <td>データセンター内で物理ケーブルをつなぐ手段</td>
+          </tr>
+
+          <tr>
+            <td>クラウド接続</td>
+            <td>クラウドへ専用的・閉域的につなぐサービスや仕組み</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;
+      text-align:center;
+      line-height:2;">
+
+      自社ラック
+
+      <br>
+
+      ↓
+
+      <br>
+
+      <strong style="color:#0d6efd;">
+        クロスコネクト
+      </strong>
+
+      <br>
+
+      ↓
+
+      <br>
+
+      クラウド接続ポート
+
+      <br>
+
+      ↓
+
+      <br>
+
+      AWSなどのクラウド
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        クロスコネクトはクラウド接続そのものではなく、
+        クラウド接続を成立させるために使われる
+        「データセンター内の物理的なつなぎ目」
+        と考えると分かりやすいです。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== パッチパネルとの関係 ===== -->
+
+  <section class="card">
+
+    <h2>パッチパネルとの関係</h2>
+
+    <p>
+      パッチパネルは、ケーブルを整理・中継・管理するための物理設備です。
+    </p>
+    <p>      
+      一方、クロスコネクトは
+      「どことどこを直接つなぐか」
+      という接続の考え方やサービスを指します。
+    </p>
+
+    <p style="margin-top:15px;">
+      つまり、パッチパネルとクロスコネクトは対立するものではありません。
+    </p>
+
+    <p>実際のクロスコネクトの途中に、パッチパネルが使われることがあります。</p>
+
+    <div style="
+      background:#fff4e5;
+      border:1px solid #f0c36d;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;
+      text-align:center;
+      line-height:2;">
+
+      自社ラック
+
+      <br>
+
+      ↓
+
+      <br>
+
+      パッチパネル
+
+      <br>
+
+      ↓
+
+      <br>
+
+      <strong style="color:#0d6efd;">
+        クロスコネクト用の配線
+      </strong>
+
+      <br>
+
+      ↓
+
+      <br>
+
+      パッチパネル
+
+      <br>
+
+      ↓
+
+      <br>
+
+      相手側ラック・キャリア設備
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        パッチパネルは「配線を整理する設備」、
+        クロスコネクトは「相手設備へ直接つなぐ接続」
+        と分けて考えると整理しやすいです。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 他の接続との違い ===== -->
+
+  <section class="card">
+
+    <h2><div style=" font-size:0.8em;"> インターネット接続・VPN・専用線との違い</div></h2>
+
+    <p>
+      クロスコネクトと他の接続方式を比べるときは、
+      「データセンターの中の話か、外へ出る話か」
+      で整理すると分かりやすいです。
+    </p>
+
+    <div class="table-wrap">
+
+      <table>
+
+        <thead>
+
+          <tr>
+            <th>区分</th>
+            <th>用語</th>
+            <th>内容</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>中の話</td>
+            <td>クロスコネクト</td>
+            <td>ラックや設備同士を物理ケーブルで直接つなぐ</td>
+          </tr>
+
+          <tr>
+            <td>中の話</td>
+            <td>パッチパネル</td>
+            <td>ケーブルを整理・中継する設備</td>
+          </tr>
+
+          <tr>
+            <td>外の話</td>
+            <td>インターネット接続</td>
+            <td>公共インターネットへ出る接続</td>
+          </tr>
+
+          <tr>
+            <td>外の話</td>
+            <td>VPN</td>
+            <td>インターネットなどの上に暗号化トンネルを作る仕組み</td>
+          </tr>
+
+          <tr>
+            <td>外の話</td>
+            <td>専用線</td>
+            <td>拠点間などを専用回線でつなぐサービス</td>
+          </tr>
+
+          <tr>
+            <td>外の話</td>
+            <td>クラウド接続</td>
+            <td>クラウドへ専用的・閉域的につなぐサービス</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <div class="point-box">
+
+      <p>
+        クロスコネクトは「外へ出る通信サービスそのもの」ではなく、
+        その通信サービスにつながるための
+        「データセンター内の物理接続」
+        です。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== メリット ===== -->
+
+  <section class="card">
+
+    <h2>クロスコネクトのメリット</h2>
+
+    <p>
+      クロスコネクトを使うことで、
+      データセンター内の設備同士を直接つなぎ、
+      通信の品質や構成の自由度を高めることができます。
+    </p>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>低遅延</h3>
+        近い設備同士を直接接続
+      </div>
+
+      <div class="part-box">
+        <h3>安定通信</h3>
+        専用的な経路を作りやすい
+      </div>
+
+      <div class="part-box">
+        <h3>閉域接続</h3>
+        公共インターネットを<br>避けやすい
+      </div>
+
+      <div class="part-box">
+        <h3>拡張性</h3>
+        キャリアやクラウドと<br>接続しやすい
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 注意点 ===== -->
+
+  <section class="card">
+
+    <h2>クロスコネクトの注意点</h2>
+
+    <p>
+      クロスコネクトは便利ですが、
+      申し込めばどこにでも自由につなげるものではありません。
+    </p>
+    <p>データセンター側の設備、接続先の事業者、ポートの種類、ケーブル種別などを確認する必要があります。</p>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>場所の制約</h3>
+        同じ施設内での接続が基本
+      </div>
+
+      <div class="part-box">
+        <h3>接続先確認</h3>
+        相手設備が必要
+      </div>
+
+      <div class="part-box">
+        <h3>ケーブル種別</h3>
+        光・LANなどを確認
+      </div>
+
+      <div class="part-box">
+        <h3>費用</h3>
+        初期費用や月額費用が発生
+      </div>
+
+    </div>
+
+    <div class="example">
+
+      <p>
+        たとえば、クラウド接続をしたい場合は、
+        データセンター内に対象クラウドへつながる接続ポートや、
+        対応する通信事業者の設備が必要になります。
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ===== まとめ ===== -->
+
+  <section class="card" style="border-left:6px solid #0d6efd;">
+
+    <h2>まとめ</h2>
+
+    <p>
+      クロスコネクトとは、
+      データセンター内で自社ラック・通信キャリア・クラウド接続ポート・他社設備などを
+      物理ケーブルで直接つなぐことです。
+    </p>
+
+    <p style="margin-top:15px;">
+      最も重要なのは、
+      クロスコネクトを
+      <strong>「データセンターの中の物理接続」</strong>
+      として理解することです。
+    </p>
+
+    <p style="margin-top:15px;">
+      専用線・VPN・クラウド接続は、
+      データセンターの外へ通信するための経路やサービスです。
+      クロスコネクトは、それらに接続するための
+      「建物内のつなぎ目」
+      として使われることがあります。
+    </p>
+
+    <div class="point-box">
+
+      <p>
+        クロスコネクトを一言で言うと、
+        「データセンターの中で、目的の相手設備へ直接つなぐ専用ケーブル接続」
+        です。
+      </p>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ===== 戻る ===== -->
+
+  <div class="back">
+
+    <a href="index.html">
+      ← 用語一覧へ戻る
+    </a>
+
+  </div>
+
+</div>
+
+<!-- ===== フッター ===== -->
+
+<footer>
+  IT学習用サイト
+</footer>
+
+</body>
+</html>

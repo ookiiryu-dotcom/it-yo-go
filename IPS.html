@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IPS（Intrusion Prevention System）</title>
+ <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <!-- ===== ヘッダー ===== -->
+
+  <header>
+    <h1>IPS<br>
+
+  <span style="
+    font-size:0.6em;
+    font-weight:normal;">
+    （Intrusion Prevention System）
+  </span></h1>
+    <p>攻撃を検知し、自動で防御するセキュリティシステム</p>
+  </header>
+
+  <!-- ===== メイン ===== -->
+
+  <div class="container">
+
+    <!-- ===== IPSとは ===== -->
+
+    <section class="card">
+
+      <h2>IPSとは？</h2>
+
+      <p>
+        <span class="red">IPS（Intrusion Prevention System）</span>
+        とは、
+        ネットワーク上の通信を監視し、
+        <span class="red">
+          不正な通信や攻撃を検知して、
+          自動的に遮断・防御する仕組み
+        </span>
+        です。
+      </p>
+
+      <p>
+        <span class="blue">ファイアウォール</span>
+        が主に「許可・拒否のルール」に基づいて通信を制御するのに対して、
+        IPSは
+        <span class="blue">攻撃パターン</span>
+        や
+        <span class="blue">異常な振る舞い</span>
+        を検知し、
+        <span class="red">
+          リアルタイムにブロック
+        </span>
+        することを目的としています。
+      </p>
+
+      <div class="point-box">
+
+        <p>
+          IDSが
+          <span class="blue">「異常に気づく」</span>
+          仕組みなら、
+          IPSは
+          <span class="red">「その場で止める」</span>
+          仕組みです。
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ===== IPSの役割 ===== -->
+
+    <section class="card">
+
+      <h2>IPSが行うこと</h2>
+
+      <div class="list">
+
+        <p>
+          ・<span class="red">攻撃の検知</span><br>
+          既知のシグネチャや振る舞いから不正通信を見つける
+        </p>
+
+        <p>
+          ・<span class="red">攻撃の遮断</span><br>
+          不正なパケットやセッションを強制的に切断する
+        </p>
+
+        <p>
+          ・<span class="blue">ログ記録</span><br>
+          検知・遮断したイベントを記録する
+        </p>
+
+        <p>
+          ・<span class="blue">アラート通知</span><br>
+          管理者へ通知する
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ===== 検知方法 ===== -->
+
+    <section class="card">
+
+      <h2>IPSの検知方法</h2>
+
+      <p>
+        IPSでは、
+        攻撃を発見するために複数の検知方法が使われます。
+      </p>
+
+      <div class="list">
+
+        <p>
+          ・<span class="red">シグネチャベース</span><br>
+          既知の攻撃パターン（シグネチャ）と通信内容を照合して検知する方式。
+        </p>
+
+        <p>
+          ・<span class="red">アノマリーベース</span><br>
+          通常とは異なる
+          <span class="blue">異常なトラフィック</span>
+          や振る舞いを検知する方式。
+        </p>
+
+        <p>
+          ・<span class="blue">ポリシーベース</span><br>
+          あらかじめ定義したルールに違反する通信を検知する方式。
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ===== 配置 ===== -->
+
+    <section class="card">
+
+      <h2>IPSの配置方法</h2>
+
+      <p>
+        IPSは、
+        ネットワークのどこに配置するかも重要です。
+      </p>
+
+      <div class="list">
+
+        <p>
+          ・<span class="red">インライン（経路上）配置</span><br>
+          通信の通り道に直接挟み込み、
+          <span class="red">不正な通信を即座に遮断</span>
+          できる。
+        </p>
+
+        <p>
+          ・<span class="blue">ミラーポート監視</span><br>
+          スイッチのミラーポートからトラフィックを受け取り、
+          監視中心に使う構成。
+        </p>
+
+      </div>
+
+      <div class="warning-box">
+
+        <p>
+          IPSはリアルタイムで通信を止めるため、
+          ネットワークの重要な位置に設置されます。
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ===== IDSとの違い ===== -->
+
+    <section class="card">
+
+      <h2>IDSとIPSの違い</h2>
+
+      <div class="table-wrap">
+
+        <table>
+
+          <tr>
+            <th>項目</th>
+            <th>IDS</th>
+            <th>IPS</th>
+          </tr>
+
+          <tr>
+            <td>主な役割</td>
+            <td>検知・通知</td>
+            <td>検知・遮断</td>
+          </tr>
+
+          <tr>
+            <td>通信の遮断</td>
+            <td>行わない</td>
+            <td>自動で遮断する</td>
+          </tr>
+
+          <tr>
+            <td>目的</td>
+            <td>異常の発見</td>
+            <td>攻撃の防御</td>
+          </tr>
+
+        </table>
+
+      </div>
+
+    </section>
+
+    <!-- ===== 最近のIPS ===== -->
+
+    <section class="card">
+
+      <h2>最近のIPS</h2>
+
+      <p>
+        最近では、
+        <span class="red">
+          IPS機能は次世代ファイアウォール（NGFW）やUTMに統合
+        </span>
+        されていることが多く、
+        単体製品としてではなく、
+        <span class="blue">
+          統合セキュリティ機能の一部
+        </span>
+        として利用されるケースが増えています。
+      </p>
+
+      <div class="point-box">
+
+        <p>
+          現代のネットワークセキュリティでは、
+          IPSは非常に重要な防御機能の一つです。
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ===== まとめ ===== -->
+
+    <section class="card">
+
+      <h2>まとめ</h2>
+
+      <p>
+        IPSは、
+        <span class="red">
+          攻撃を検知するだけでなく、
+          その場で止めることに重点を置いた仕組み
+        </span>
+        です。
+      </p>
+
+      <p>
+        ネットワークをリアルタイムに防御するための
+        重要なセキュリティコンポーネントとして、
+        多くの企業や組織で利用されています。
+      </p>
+
+    </section>
+
+    <!-- ===== 戻る ===== -->
+
+    <div class="back">
+      <a href="index.html">← 用語一覧へ戻る</a>
+    </div>
+
+  </div>
+
+  <!-- ===== フッター ===== -->
+
+  <footer>
+    IT学習用サイト
+  </footer>
+
+</body>
+</html>

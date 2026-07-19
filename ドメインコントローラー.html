@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ドメインコントローラー（Domain Controller）とは？</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+  <h1>
+    ドメインコントローラー<br>
+    <span style="font-size:0.55em;font-weight:normal;">
+      （Domain Controller）
+    </span>
+  </h1>
+
+  <p>
+    ユーザー・PC・権限・ログイン認証を<br>
+    中央で管理する企業ネットワークの認証サーバー
+  </p>
+
+</header>
+
+<div class="container">
+
+  <section class="card">
+
+    <h2>ドメインコントローラーとは？</h2>
+
+    <p>
+      ドメインコントローラーとは、
+      企業ネットワーク内で、
+      ユーザー、パスワード、PC、アクセス権限、ログイン認証などを
+      中央で管理するサーバーです。
+    </p>
+
+    <p style="margin-top:15px;">
+      一般的には、
+      MicrosoftのActive Directoryという仕組みを動かすサーバーとして使われます。
+      社員がPCへログインするときや、
+      ファイルサーバーへアクセスするときに、
+      「この人は誰か」「何を使ってよいか」を確認します。
+    </p>
+
+    <div class="point-box">
+      <p>
+        ドメインコントローラーの本質は、
+        「会社全体のユーザー認証と権限管理を、
+        1か所でまとめて管理する仕組み」
+        です。
+      </p>
+    </div>
+
+  </section>
+
+  <section class="card">
+
+    <h2>まずはイメージで理解する</h2>
+
+    <p>
+      会社では、多くの社員PC、サーバー、共有フォルダ、プリンターなどを
+      まとめて管理する必要があります。
+      
+    </p>
+    <p>それぞれのPCで個別にユーザーを作ると、管理が非常に大変です。</p><br>
+
+    <div class="parts-grid">
+
+      <div class="part-box">
+        <h3>社員</h3>
+        IDとパスワードでPCへログインする
+      </div><br>
+
+      <div class="part-box">
+        <h3>社員PC</h3>
+        ドメインコントローラーへ認証を依頼する
+      </div><br>
+
+      <div class="part-box">
+        <h3>ドメインコントローラー</h3>
+        本人確認と権限確認を行う
+      </div><br>
+
+      <div class="part-box">
+        <h3>社内システム</h3>
+        許可されたユーザーだけが利用できる
+      </div>
+
+    </div>
+
+    <div class="example">
+      <p>
+        「会社の入館管理センター」のように、
+        誰が入れるか、どこまで使えるかを確認する役割です。
+      </p>
+    </div>
+
+  </section>
+
+  
+
+  <section class="card">
+
+    <h2>Active Directoryとの関係</h2>
+
+    <p>
+      ドメインコントローラーは、
+      Active Directory、略してADという仕組みを提供するサーバーです。
+    </p>
+
+    <p style="margin-top:15px;">
+      Active Directoryは、
+      ユーザー、PC、グループ、権限などの情報を保存する
+      ディレクトリサービスです。
+    </p>
+
+    <div class="table-wrap">
+
+      <table>
+        <thead>
+          <tr>
+            <th>用語</th>
+            <th>役割</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Active Directory</td>
+            <td>ユーザーやPC、権限情報を管理する仕組み</td>
+          </tr>
+          <tr>
+            <td>ドメイン</td>
+            <td>同じルールで管理される範囲</td>
+          </tr>
+          <tr>
+            <td>ドメインコントローラー</td>
+            <td>Active Directoryを動かす認証・管理サーバー</td>
+          </tr>
+          <tr>
+            <td>グループポリシー</td>
+            <td>PCやユーザーへ設定を一括配布する仕組み</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </section>
+
+  <section class="card">
+
+    <h2>ドメインコントローラーの主な役割</h2>
+
+    <p>
+      ドメインコントローラーは、
+      単にログインを確認するだけではありません。
+      企業ネットワーク全体の認証と管理に関わります。
+    </p><br>
+
+    <div class="parts-grid">
+
+      <div class="part-box">
+        <h3>ログイン認証</h3>
+        IDとパスワードを確認して本人か判断する
+      </div><br>
+
+      <div class="part-box">
+        <h3>ユーザー管理</h3>
+        社員アカウントの追加、変更、停止を行う
+      </div><br>
+
+      <div class="part-box">
+        <h3>アクセス権管理</h3>
+        誰がどのフォルダやシステムを使えるか制御する
+      </div><br>
+
+      <div class="part-box">
+        <h3>PC管理</h3>
+        会社のPCをドメインに参加させて管理する
+      </div><br>
+
+      <div class="part-box">
+        <h3>ポリシー配布</h3>
+        セキュリティ設定やWindows設定を一括適用する
+      </div><br>
+
+      <div class="part-box">
+        <h3>認証基盤</h3>
+        社内サービスを利用するための信頼の土台になる
+      </div>
+
+    </div>
+
+  </section>
+
+  
+
+  
+
+  <section class="card">
+
+    <h2>グループポリシーでできること</h2>
+
+    <p>
+      グループポリシー、略してGPOを使うと、
+      ドメイン参加しているPCやユーザーに対して、
+      設定を一括で適用できます。
+    </p><br>
+
+    <div class="parts-grid">
+
+      <div class="part-box">
+        <h3>USB制限</h3>
+        USBメモリ利用を制限する
+      </div><br>
+
+      <div class="part-box">
+        <h3>パスワードルール</h3>
+        複雑さや有効期限を設定する
+      </div><br>
+
+      <div class="part-box">
+        <h3>画面ロック</h3>
+        一定時間で自動ロックする
+      </div><br>
+
+      <div class="part-box">
+        <h3>ソフト配布</h3>
+        必要なソフトを自動展開する
+      </div><br>
+
+      <div class="part-box">
+        <h3>Windows設定</h3>
+        操作制限や表示設定を統一する
+      </div><br>
+
+      <div class="part-box">
+        <h3>セキュリティ強化</h3>
+        社内ルールを端末へ反映する
+      </div>
+
+    </div>
+
+    <div class="example">
+      <p>
+        PCが100台、1000台あっても、
+        中央からルールを配布できるのが大きなメリットです。
+      </p>
+    </div>
+
+  </section>
+
+  <section class="card">
+
+    <h2>なぜ複数台のDCが必要なのか</h2>
+
+    <p>
+      ドメインコントローラーは認証基盤の中心です。
+ 
+    </p>
+    <p>1台だけで運用すると、その1台が停止したときにログインや認証へ大きな影響が出ます。</p>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>1台だけ</h3>
+        故障時に認証できない<br>可能性がある
+      </div>
+
+      <div class="part-box">
+        <h3>複数台</h3>
+        片方が停止しても<br>別のDCで認証できる
+      </div>
+
+      <div class="part-box">
+        <h3>拠点分散</h3>
+        拠点ごとに近いDCを使える
+      </div>
+
+      <div class="part-box">
+        <h3>可用性向上</h3>
+        システム停止リスクを<br>下げられる
+      </div>
+
+    </div>
+
+    <div class="point-box">
+      <p>
+        ドメインコントローラーは重要度が高いため、
+        実運用では複数台で冗長化することが一般的です。
+      </p>
+    </div>
+
+  </section>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <section class="card">
+
+    <h2>ID同期の注意点</h2>
+
+    <p>
+      オンプレミスADとEntra IDを同期すると、
+      ユーザー管理が便利になります。
+    </p>
+    <p>
+      しかし、同期は便利である一方、
+      片方の環境の問題がもう片方へ影響するリスクもあります。
+    </p>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>便利な点</h3>
+        <div style=" font-size:0.9em;"> 同じアカウントで<br>社内とクラウドを使いやすい</div>
+      </div>
+
+      <div class="part-box">
+        <h3>注意点</h3>
+        誤設定や侵害が同期で<br>広がる可能性がある
+      </div>
+
+      <div class="part-box">
+        <h3>対策</h3>
+        MFA、条件付きアクセス、特権管理を使う
+      </div>
+
+      <div class="part-box">
+        <h3>考え方</h3>
+        同期は便利だが、<br>信頼境界の設計が重要
+      </div>
+
+    </div>
+
+    <div class="example">
+      <p>
+        「同期できるから安全」ではなく、
+        「同期するからこそ防御設計が必要」
+        と考えることが大切です。
+      </p>
+    </div>
+
+  </section>
+
+  
+
+  <section class="card">
+
+    <h2>ドメインコントローラーのメリット</h2>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>中央管理</h3>
+        ユーザーやPCをまとめて<br>管理できる
+      </div>
+
+      <div class="part-box">
+        <h3>運用効率</h3>
+        個別PCごとの設定作業を<br>減らせる
+      </div>
+
+      <div class="part-box">
+        <h3>権限統制</h3>
+        誰が何を使えるか<br>管理しやすい
+      </div>
+
+      <div class="part-box">
+        <h3>一括設定</h3>
+        GPOでセキュリティ設定を配布できる
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="card">
+
+    <h2>ドメインコントローラーのデメリット</h2>
+
+    <div class="parts">
+
+      <div class="part-box">
+        <h3>専門知識</h3>
+        ADや認証の知識が<br>必要になる
+      </div>
+
+      <div class="part-box">
+        <h3>重要度が高い</h3>
+        侵害されると<br>影響範囲が大きい
+      </div>
+
+      <div class="part-box">
+        <h3>冗長化が必要</h3>
+        1台だけだと<br>障害時のリスクが高い
+      </div>
+
+      <div class="part-box">
+        <h3>同期管理</h3>
+        複数DCやクラウド連携では整合性管理が必要
+      </div>
+
+    </div>
+
+    <div class="example">
+      <p>
+        ドメインコントローラーは便利ですが、
+        企業認証の中心だからこそ、
+        障害対策とセキュリティ対策が非常に重要です。
+      </p>
+    </div>
+
+  </section>
+
+  
+
+  
+
+  
+
+  <section class="card" style="border-left:6px solid #0d6efd;">
+
+    <h2>まとめ</h2>
+
+    <p>
+      ドメインコントローラーとは、
+      企業ネットワークにおいて、
+      ユーザー、PC、権限、ログイン認証を中央管理するサーバーです。
+    </p>
+
+    <p style="margin-top:15px;">
+      Active Directoryを使って、
+      社員アカウント、部署グループ、アクセス権、PC設定などを管理します。
+    </p>
+
+    <p style="margin-top:15px;">
+      実運用では、
+      障害に備えて複数台のDCを用意し、
+      マルチマスター複製によってAD情報を同期します。
+    </p>
+
+    <p style="margin-top:15px;">
+      現代では、
+      Entra IDとのハイブリッド構成やゼロトラストの考え方とも関係し、
+      社内だけでなくクラウド時代のID管理にもつながっています。
+    </p>
+
+    <div class="point-box">
+      <p>
+        ドメインコントローラーは、
+        「会社のユーザー認証と権限管理を支える中心的なサーバー」
+        です。
+        これを理解すると、
+        Active Directory、Entra ID、ゼロトラスト、企業ネットワークの理解が深まります。
+      </p>
+    </div>
+
+  </section>
+
+  <div class="back">
+    <a href="index.html">
+      ← 用語一覧へ戻る
+    </a>
+  </div>
+
+</div>
+
+<footer>
+  IT学習用サイト
+</footer>
+
+</body>
+</html>
