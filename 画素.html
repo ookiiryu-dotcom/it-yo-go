@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>画素</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ===== ヘッダー ===== -->
+
+<header>
+
+  <h1>
+    画素
+
+    <span style="
+      display:block;
+      font-size:0.55em;
+      font-weight:normal;
+      margin-top:8px;">
+      Pixel
+    </span>
+  </h1>
+
+  <p>
+    <span style="font-size:0.85em;">デジタル画像を構成する、<br>
+    色や明るさの情報を持った最小単位</span>
+  </p>
+
+</header>
+
+<!-- ===== メイン ===== -->
+
+<main>
+
+<div class="container">
+
+  <!-- ===== 画素とは ===== -->
+
+  <section class="card">
+
+    <h2>画素とは？</h2>
+
+    <p>
+      画素とは、写真やイラストなどのデジタル画像を構成する最小単位です。
+      英語では「Pixel（ピクセル）」と呼ばれます。
+    </p>
+
+    <p style="margin-top:15px;">
+      デジタル画像は、横方向と縦方向に並んだ多数の画素で作られています。
+      一つひとつの画素が色や明るさの情報を持ち、集まることで人物、風景、
+      文字、図形などを表現します。
+    </p>
+
+    <div class="point-box">
+      <p>
+        画素は画像を作る小さな要素で、画素数はその合計です。
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ===== イメージ ===== -->
+
+  <section class="card">
+
+    <h2>まずはイメージで理解する</h2>
+
+    <p>
+      画素は、モザイク画に使われる「色付きの小さなタイル」に例えられます。
+      近くで見ると一枚ずつのタイルですが、離れて見ると全体が一つの絵に見えます。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;
+      overflow-x:auto;">
+
+      <div style="
+        min-width:780px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:16px;
+        text-align:center;">
+
+        <div style="
+          background:#fff4e5;
+          border:1px solid #f0c36d;
+          border-radius:10px;
+          padding:18px;
+          width:210px;">
+          一つの画素<br>
+          一つの色や明るさ
+        </div>
+
+        <div style="font-size:1.5em; color:#666;">
+          →
+        </div>
+
+        <div style="
+          background:#eaf4ff;
+          border:2px solid #6ea8fe;
+          border-radius:10px;
+          padding:18px;
+          width:210px;
+          font-weight:bold;">
+          多数の画素を<br>
+          縦横に並べる
+        </div>
+
+        <div style="font-size:1.5em; color:#666;">
+          →
+        </div>
+
+        <div style="
+          background:#eaf7ea;
+          border:1px solid #82c785;
+          border-radius:10px;
+          padding:18px;
+          width:210px;">
+          写真や文字を<br>
+          一つの画像として表現
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="example">
+      <p>
+        画素が少ない画像を拡大すると、輪郭が階段状になり、粗く見えます。
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ===== 必要性 ===== -->
+
+  <section class="card">
+
+    <h2>なぜ画素が必要なのか</h2>
+
+    <p>
+      コンピューターは、現実の風景や紙の写真を、そのままの形では扱えません。
+      そこで画像を小さな区画に分け、それぞれの位置、色、明るさを数値として記録します。
+      その区画が画素です。
+    </p>
+
+    <p style="margin-top:15px;">
+      画素を使うことで、同じ画像データをスマートフォン、パソコン、カメラ、
+      ディスプレイなどで保存、加工、送信、表示できます。
+    </p><br>
+
+    <div class="parts-grid">
+
+      <div class="part-box">
+        <h3>保存できる</h3>
+        <p>
+          画素ごとの情報を数値化し、写真や画像ファイルとして保存できます。
+        </p>
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>加工できる</h3>
+        <p>
+          明るさや色の変更、切り抜き、拡大・縮小などの処理ができます。
+        </p>
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>共有できる</h3>
+        <p>
+          Webサイトやメール、SNSで同じ画像データを送受信できます。
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 仕組み ===== -->
+
+  <section class="card">
+
+    <h2>基本的な仕組み</h2>
+
+    <p>
+      画像を作って表示するまでには、「光を取り込む」「画像データを作る」
+      「画面へ表示する」という流れがあります。
+    </p><br>
+
+    <div class="parts-grid">
+
+      <div class="part-box">
+        <h3>1. 光を取り込む</h3>
+        <p>
+          カメラのイメージセンサーが光を受け、<br>
+          明るさなどを電気信号へ変換します。
+        </p>
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>2. 画像を作る</h3>
+        <p>
+          カメラの画像処理によって色や明るさを決め、<br>
+          画素が並んだ画像データを作ります。
+        </p>
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>3. 画面へ表示する</h3>
+        <p>
+          画像データを表示画素へ割り当て、<br>
+          色の付いた光として画面へ映し出します。
+        </p>
+      </div>
+
+    </div>
+
+    <div class="point-box">
+      <p>
+        画像の画素は色のデータで、ディスプレイの画素はそれを光で表示する部分です。
+      </p>
+    </div>
+
+    <p style="margin-top:15px;">
+      多くのディスプレイでは、一つの表示画素が赤・緑・青の小さな要素で構成され、
+      それぞれの光の強さを変えることで多くの色を表現します。
+    </p>
+
+  </section>
+
+  <!-- ===== 画素数 ===== -->
+
+  <section class="card">
+
+    <h2>画素数と画像サイズ</h2>
+
+    <p>
+      画素数は、画像全体に含まれる画素の合計です。
+      基本的には「横の画素数 × 縦の画素数」で求めます。
+    </p>
+
+    <div class="example">
+      <p>
+        1,920 × 1,080の画像では、1,920 × 1,080 ＝ 2,073,600となり、
+        約207万画素になります。
+      </p>
+    </div>
+
+    <p style="margin-top:15px;">
+      カメラの「1,200万画素」は、約1,200万個の画素で画像を記録できることを示します。
+      「MP（メガピクセル）」も使われ、1MPは約100万画素です。
+    </p>
+
+    <div class="table-wrap" style="width:100%; overflow-x:auto;">
+
+      <table style="min-width:1000px; width:100%;">
+        <thead>
+          <tr>
+            <th>呼び方</th>
+            <th>横 × 縦の画素数</th>
+            <th>合計画素数の目安</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>HD</td>
+            <td>1,280 × 720</td>
+            <td>約92万画素</td>
+          </tr>
+          <tr>
+            <td>フルHD</td>
+            <td>1,920 × 1,080</td>
+            <td>約207万画素</td>
+          </tr>
+          <tr>
+            <td>4K UHD</td>
+            <td>3,840 × 2,160</td>
+            <td>約829万画素</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <p style="margin-top:15px;">
+      同じ合計画素数でも、横と縦の比率が違えば画像の形は変わります。
+      実際の用途では、合計画素数だけでなく横と縦の画素数も確認します。
+    </p>
+
+  </section>
+
+  <!-- ===== 用途 ===== -->
+
+  <section class="card">
+
+    <h2>できること・用途</h2>
+
+    <p>
+      十分な画素数があると、画像の細部を残したまま、さまざまな用途へ使いやすくなります。
+      ただし、必要な画素数は最終的な表示方法によって異なります。
+    </p><br>
+
+    <div class="parts-grid">
+
+      <div class="part-box">
+        <h3>写真・動画</h3>
+        <p>
+          カメラで撮影した写真や動画を、<br>
+          画素の集まりとして記録します。
+        </p>
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>画面表示</h3>
+        <p>
+          スマートフォンやディスプレイで画像や文字を表示します。
+        </p>
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>Web・印刷</h3>
+        <p>
+          Web用画像や印刷データとして、用途に合う大きさで利用します。
+        </p>
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>画像処理</h3>
+        <p>
+          切り抜きや色補正、OCRなどの処理を、<br>
+          画素の情報を基に行います。
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===== メリット ===== -->
+
+  <section class="card">
+
+    <h2>高画素のメリット</h2>
+
+    <p>
+      高画素の主なメリットは、細かな情報を多く残せることです。
+      撮影後の使い方にも余裕が生まれます。
+    </p><br>
+
+    <div class="parts-grid">
+
+      <div class="part-box">
+        <h3>精細に表現しやすい</h3>
+        <p>
+          撮影条件やレンズ性能が十分であれば、<br>
+          細かな部分をより多く記録できます。
+        </p>
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>トリミングに強い</h3>
+        <p>
+          不要な部分を切り取っても、<br>
+          使用できる画素数を確保しやすくなります。
+        </p>
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>大きな出力に対応</h3>
+        <p>
+          大画面表示や大判印刷など、大きな出力へ対応しやすくなります。
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===== デメリット ===== -->
+
+  <section class="card">
+
+    <h2>デメリットと注意点</h2>
+
+    <p>
+      画素数が多いほど便利とは限りません。
+      データ量、機器への負荷、撮影条件とのバランスを考える必要があります。
+    </p><br>
+
+    <div class="parts-grid">
+
+      <div class="part-box">
+        <h3>容量が大きくなる</h3>
+        <p>
+          画像一枚のファイル容量が増え、<br>
+          保存やバックアップに多くの容量が必要です。
+        </p>
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>処理が重くなる</h3>
+        <p>
+          転送や画像編集に時間がかかり、<br>
+          端末の処理負荷も大きくなります。
+        </p>
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>暗所性能との関係</h3>
+        <p>
+          同じ大きさ・同世代のセンサーでは、<br>
+          高画素化で1画素の受光量が減る場合があります。
+        </p>
+      </div>
+
+    </div>
+
+    <div class="point-box">
+      <p>
+        画質は画素数だけでなく、レンズ、センサー、撮影条件、画像処理にも左右されます。
+      </p>
+    </div>
+
+    <p style="margin-top:15px;">
+      小さな画像をソフトウェアで拡大すると、画素を追加することはできます。
+      ただし、元の画像に記録されていない細部が、そのまま正確に戻るわけではありません。
+      JPEGなどの圧縮による劣化も、画素数とは別の問題です。
+    </p>
+
+    <div class="example">
+      <p>
+        必要な画素数、出力サイズ、元画像、容量、端末性能を確認します。
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ===== 関連技術 ===== -->
+
+  <section class="card">
+
+    <h2>関連技術との関係</h2>
+
+    <div class="table-wrap" style="width:100%; overflow-x:auto;">
+
+      <table style="min-width:1000px; width:100%;">
+        <thead>
+          <tr>
+            <th>関連用語・技術</th>
+            <th>意味</th>
+            <th>画素との関係</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>解像度</td>
+            <td>画像や画面が、どの程度細かく<br>
+            表現できるかを示します。</td>
+            <td>画面では1,920 × 1,080などの画素数、<br>
+            印刷ではppiなどで表されます。</td>
+          </tr>
+          <tr>
+            <td>ppi・dpi</td>
+            <td>ppiは1インチ当たりの画素数、<br>
+            dpiは1インチ当たりの印刷点数です。</td>
+            <td>画像の表示・印刷密度を考えるときに、<br>
+            使用する単位です。</td>
+          </tr>
+          <tr>
+            <td>サブピクセル</td>
+            <td>表示画素の中にある、<br>
+            赤・緑・青などの小さな発光要素です。</td>
+            <td>各色の光の強さを組み合わせ、<br>
+            画面上の一つの色を表現します。</td>
+          </tr>
+          <tr>
+            <td>イメージセンサー</td>
+            <td>カメラへ入った光を受け取り、<br>
+            電気信号へ変換する撮像用の部品です。</td>
+            <td>受け取った光の情報を画像処理し、<br>
+            デジタル画像を作ります。</td>
+          </tr>
+          <tr>
+            <td>ベクター画像</td>
+            <td>点や線、図形を数式で表し、<br>
+            画像として描画する方式です。</td>
+            <td>画素で記録する写真などと異なり、拡大しても<br>
+            輪郭が粗くなりにくい特徴があります。</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="point-box">
+      <p>
+        解像度は、横×縦の画素数やppi・dpiなど、場面によって意味が変わります。
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ===== まとめ ===== -->
+
+  <section class="card" style="border-left:6px solid #0d6efd;">
+
+    <h2>まとめ</h2>
+
+    <p>
+      画素は、デジタル画像を構成する最小単位で、ピクセルとも呼ばれます。
+      一つひとつが色や明るさの情報を持ち、その集合によって画像を表現します。
+    </p>
+
+    <p style="margin-top:15px;">
+      画素数が多いほど細部を記録しやすく、切り抜きや大きな出力にも対応しやすくなります。
+      一方で、ファイル容量や処理負荷が増え、画素数だけでは画質を判断できません。
+    </p>
+
+    <div class="point-box">
+      <p>
+        画質は画素数だけでなく、用途や表示サイズ、撮影条件とのバランスで考えます。
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ===== 戻る ===== -->
+
+  <div class="back">
+
+    <a href="index.html">
+      ← 用語一覧へ戻る
+    </a>
+
+  </div>
+
+</div>
+
+</main>
+
+<!-- ===== フッター ===== -->
+
+<footer>
+  IT学習用サイト
+</footer>
+
+</body>
+</html>
