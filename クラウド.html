@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>クラウド</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ===== ヘッダー ===== -->
+
+<header>
+
+  <h1>
+    クラウド
+
+    <span style="
+      display:block;
+      font-size:0.55em;
+      font-weight:normal;
+      margin-top:8px;">
+      Cloud Computing
+    </span>
+  </h1>
+
+  <p>
+    <span style="font-size:0.85em;">サーバーやソフトウェアなどのIT資源を、<br>ネットワーク経由で必要に応じて利用する仕組み</span>
+  </p>
+
+</header>
+
+<!-- ===== メイン ===== -->
+
+<main>
+
+<div class="container">
+
+  <!-- ===== クラウドとは ===== -->
+
+  <section class="card">
+
+    <h2>クラウドとは？</h2>
+
+    <p>
+      クラウドとは、サーバー、保存領域、データベース、ソフトウェアなどのIT資源を、
+      インターネットや専用ネットワークを通じて利用する仕組みです。
+      正式には「Cloud Computing（クラウドコンピューティング）」と呼ばれます。
+    </p>
+
+    <p style="margin-top:15px;">
+      利用者は、自分で物理サーバーを購入して設置しなくても、クラウド事業者が用意した資源を必要に応じて利用できます。
+      料金は、契約した機能や使用量などに応じて支払う方式が一般的です。
+    </p>
+
+    <div class="point-box">
+      <p>
+        クラウドにも物理的なサーバーがあり、事業者のデータセンター内で稼働しています。
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ===== イメージ ===== -->
+
+  <section class="card">
+
+    <h2>まずはイメージで理解する</h2>
+
+    <p>
+      クラウドは、必要な設備をすべて購入するのではなく、必要な分をサービスとして利用する仕組みに例えられます。
+      電気を使うために各家庭が発電所を持たず、電力会社から必要な分を受け取る考え方に似ています。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;
+      overflow-x:auto;">
+
+      <div style="
+        min-width:780px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:16px;
+        text-align:center;">
+
+        <div style="
+          background:#fff4e5;
+          border:1px solid #f0c36d;
+          border-radius:10px;
+          padding:18px;
+          width:210px;">
+          <div style=" font-size:0.9em;">利用者の端末<br>
+          パソコンやスマートフォン</div>
+        </div>
+
+        <div style="font-size:1.5em; color:#666;">
+          →
+        </div>
+
+        <div style="
+          background:#eaf4ff;
+          border:2px solid #6ea8fe;
+          border-radius:10px;
+          padding:18px;
+          width:210px;
+          font-weight:bold;">
+          ネットワーク経由で<br>
+          必要な機能を利用
+        </div>
+
+        <div style="font-size:1.5em; color:#666;">
+          →
+        </div>
+
+        <div style="
+          background:#eaf7ea;
+          border:1px solid #82c785;
+          border-radius:10px;
+          padding:18px;
+          width:210px;">
+          <div style=" font-size:0.9em;">クラウド事業者の<br>
+          サーバーやソフトウェア</div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="example">
+      <p>
+        Webメールやオンラインストレージは、事業者側のシステムを利用する身近なクラウドサービスです。
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ===== 必要性 ===== -->
+
+  <section class="card">
+
+    <h2>なぜクラウドが必要なのか</h2>
+
+    <p>
+      従来のオンプレミスでは、組織がサーバーを購入し、設置場所、電源、ネットワーク、保守体制を用意します。
+      利用開始までに時間がかかり、将来必要になる性能や容量も事前に見積もる必要があります。
+    </p>
+
+    <p style="margin-top:15px;">
+      利用量が予想より少なければ設備が余り、多ければ性能不足になることがあります。
+      機器の故障対応や定期的な交換も、所有する組織の負担です。
+    </p>
+
+    <p style="margin-top:15px;">
+      こうした準備期間や固定的な設備管理の負担を減らし、変化に合わせてIT資源を調整する選択肢として、クラウドが利用されています。
+    </p>
+
+  </section>
+
+  <!-- ===== 仕組みと種類 ===== -->
+
+  <section class="card">
+
+    <h2>仕組みと主な種類</h2>
+
+    <p>
+      クラウド事業者は、データセンターに多数の物理サーバー、保存装置、ネットワーク機器を用意します。
+      仮想化などの技術で資源を分けたりまとめたりし、利用者へ必要な分を提供します。
+    </p>
+
+    <p style="margin-top:15px;">
+      利用者がサービスへ接続すると、クラウド側で認証、保存、計算などの処理が行われ、その結果がブラウザやアプリへ返されます。
+      利用者がどこまで管理するかによって、主にIaaS、PaaS、SaaSへ分けられます。
+    </p>
+
+    <div class="table-wrap" style="width:100%; overflow-x:auto;">
+
+      <table style="min-width:1000px; width:100%;">
+        <thead>
+          <tr>
+            <th>種類</th>
+            <th>提供されるもの</th>
+            <th>利用イメージ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>IaaS</td>
+            <td>仮想サーバー、保存領域、<br>
+            ネットワークなどの基盤</td>
+            <td>OSやアプリは利用者が管理し、<br>
+            自由度の高い環境を構築します。</td>
+          </tr>
+          <tr>
+            <td>PaaS</td>
+            <td>アプリを開発・実行するための<br>
+            基盤や機能</td>
+            <td>サーバー管理を減らし、<br>
+            アプリの開発へ集中します。</td>
+          </tr>
+          <tr>
+            <td>SaaS</td>
+            <td>完成したソフトウェアや<br>
+            業務機能</td>
+            <td>メールや文書作成などを、<br>
+            ブラウザやアプリから利用します。</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <p style="margin-top:15px;">
+      利用形態には、事業者が広く提供するパブリッククラウド、一つの組織専用に構成するプライベートクラウド、
+      クラウドとオンプレミスなどを組み合わせるハイブリッドクラウドがあります。
+    </p>
+
+    <div class="point-box">
+      <p>
+        パブリッククラウドは、保存したデータが一般公開されるという意味ではありません。
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ===== 用途 ===== -->
+
+  <section class="card">
+
+    <h2>できること・主な用途</h2>
+
+    <p>
+      クラウドでは、個人向けのファイル保存から企業システムの運用まで、さまざまなIT機能を利用できます。
+      必要な性能、データの重要性、利用人数などに合わせてサービスを選びます。
+    </p><br>
+
+    <div class="parts-grid">
+
+      <div class="part-box">
+        <h3>保存とバックアップ</h3>
+        写真や文書、システムデータを保存し、<br>
+        別の端末から利用できます。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>Webサイトとアプリ</h3>
+        Webサイトや業務アプリを、<br>
+        クラウド上で稼働できます。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>共同作業</h3>
+        メールや文書、予定表などを、<br>
+        複数人で共有できます。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>データベース</h3>
+        商品や顧客、業務記録などのデータを、<br>
+        整理して管理できます。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>AIとデータ分析</h3>
+        大きな計算能力や専用機能を使い、<br>
+        AI処理やデータ分析を行えます。
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===== メリット ===== -->
+
+  <section class="card">
+
+    <h2>メリット</h2>
+
+    <p>
+      クラウドの主なメリットは、設備を自分で所有する範囲を減らし、必要なIT資源を柔軟に利用できることです。
+      実際の効果は、サービスの選び方や運用方法によって異なります。
+    </p><br>
+
+    <div class="parts-grid">
+
+      <div class="part-box">
+        <h3>初期費用を抑えやすい</h3>
+        大規模な機器を最初に購入せず、<br>
+        必要な規模から始められます。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>拡張しやすい</h3>
+        利用状況に合わせて性能や容量を、<br>
+        増減しやすくなります。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>導入が早い</h3>
+        用意されたIT資源を選び、<br>
+        短期間で利用を始められます。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>設備管理を減らせる</h3>
+        機器の設置や保守、交換などを、<br>
+        クラウド事業者へ任せられます。
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 注意点 ===== -->
+
+  <section class="card">
+
+    <h2>注意点と確認ポイント</h2>
+
+    <p>
+      クラウドは便利ですが、通信環境、料金、セキュリティ、移行方法を確認せずに利用すると、期待した効果を得られない場合があります。
+      利用開始後も設定や使用量を継続して管理することが重要です。
+    </p><br>
+
+    <div class="parts-grid">
+
+      <div class="part-box">
+        <h3>通信環境</h3>
+        回線やサービスに障害があると、<br>
+        利用できない場合があります。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>料金の変動</h3>
+        使用量や通信量が増えると、<br>
+        想定より高くなる場合があります。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>事業者への依存</h3>
+        独自機能を多く利用するほど、<br>
+        別サービスへの変更が難しくなります。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>設定ミス</h3>
+        公開範囲やアクセス権限を誤ると、<br>
+        情報漏えいにつながる可能性があります。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>移行の準備</h3>
+        互換性、データ転送、停止時間、<br>
+        移行費用などの確認が必要です。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>利用者側の管理</h3>
+        アカウント、権限、データなどを、<br>
+        利用者側でも適切に守ります。
+      </div>
+
+    </div>
+
+    <div class="point-box">
+      <p>
+        クラウド事業者が設備を守っていても、利用者側のセキュリティ対策は必要です。
+      </p>
+    </div>
+
+    <p style="margin-top:15px;">
+      利用者は、多要素認証、必要最小限の権限、公開設定の確認、ログ監視、暗号化、バックアップなどを行います。
+      事業者と利用者の管理範囲は、IaaS、PaaS、SaaSや契約内容によって異なるため、利用前に確認します。
+    </p>
+
+    <p style="margin-top:15px;">
+      既存システムを移す場合は、接続先や連携機能などの依存関係を調べ、小規模なシステムから段階的に試します。
+      問題が起きたときに元の環境へ戻す手順も準備しておくことが重要です。
+    </p>
+
+  </section>
+
+  <!-- ===== 関連技術 ===== -->
+
+  <section class="card">
+
+    <h2>関連技術との違いや関係</h2>
+
+    <div class="table-wrap" style="width:100%; overflow-x:auto;">
+
+      <table style="min-width:1000px; width:100%;">
+        <thead>
+          <tr>
+            <th>関連用語・技術</th>
+            <th>意味</th>
+            <th>クラウドとの関係</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>オンプレミス</td>
+            <td>自社や組織が設備を所有し、<br>
+            自分たちで運用する形態です。</td>
+            <td>クラウドと対比されますが、<br>
+            両方を組み合わせる場合もあります。</td>
+          </tr>
+          <tr>
+            <td>レンタルサーバー</td>
+            <td>事業者が用意したサーバーの機能を、<br>
+            契約して利用するサービスです。</td>
+            <td>どちらも外部の設備を利用しますが、一般的な<br>
+            料金体系や拡張方法はサービスごとに異なります。</td>
+          </tr>
+          <tr>
+            <td>仮想化</td>
+            <td>物理的なIT資源を論理的に分け、<br>
+            複数の環境として利用する技術です。</td>
+            <td>クラウドの資源を柔軟に分けて、<br>
+            提供するために利用されます。</td>
+          </tr>
+          <tr>
+            <td>コンテナ</td>
+            <td>アプリと必要な実行環境をまとめ、<br>
+            動かしやすくする仕組みです。</td>
+            <td>クラウド上でアプリを効率よく、<br>
+            配置・移動するために使われます。</td>
+          </tr>
+          <tr>
+            <td>エッジコンピューティング</td>
+            <td>利用者や機器に近い場所で、<br>
+            データを処理する考え方です。</td>
+            <td>クラウドと処理を分担し、<br>
+            遅延や通信量を抑えるために使われます。</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="example">
+      <p>
+        機密性や応答速度が重要な処理を社内や端末側に残し、その他の処理をクラウドで行う構成もあります。
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ===== まとめ ===== -->
+
+  <section class="card" style="border-left:6px solid #0d6efd;">
+
+    <h2>まとめ</h2>
+
+    <p>
+      クラウドは、サーバー、保存領域、ソフトウェアなどのIT資源を、ネットワーク経由で必要に応じて利用する仕組みです。
+      実際の処理は、事業者のデータセンターにある設備で行われます。
+    </p>
+
+    <p style="margin-top:15px;">
+      IaaS、PaaS、SaaSでは、事業者へ任せる範囲と利用者が管理する範囲が異なります。
+      保存、システム運用、共同作業、データ分析など、さまざまな用途に利用できます。
+    </p>
+
+    <p style="margin-top:15px;">
+      導入や拡張をしやすい一方で、料金、設定、通信障害、移行などへの備えが必要です。
+      目的と責任範囲を確認し、適切なセキュリティ設定と運用を行うことが重要です。
+    </p>
+
+    <div class="point-box">
+      <p>
+        クラウドは、IT資源の管理を事業者と分担し、必要な分をサービスとして利用する仕組みです。
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ===== 戻る ===== -->
+
+  <div class="back">
+
+    <a href="index.html">
+      ← 用語一覧へ戻る
+    </a>
+
+  </div>
+
+</div>
+
+</main>
+
+<!-- ===== フッター ===== -->
+
+<footer>
+  IT学習用サイト
+</footer>
+
+</body>
+</html>
