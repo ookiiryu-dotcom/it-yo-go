@@ -29,7 +29,7 @@
   },
  {
     "term": "MACアドレス",
-    "link": "MACアドレス.html"
+    "link": "MAC-address.html"
   },
    {
     "term": "アクセスポイント",
@@ -61,11 +61,11 @@
   },
    {
     "term": "パソコン(PC)",
-   "link": "パソコン(PC).html"
+   "link": "PC.html"
   },
    {
     "term": "AD<br><span style='font-size: 0.9em;'>(アクティブディレクトリ)</span><br/>",
-   "link": "AD(アクティブディレクトリ).html"
+   "link": "AD-active.html"
     },
    {
     "term": "GPU",
@@ -97,7 +97,7 @@
   },
   {
     "term": "ISP(プロバイダ）",
-   "link": "ISP(プロバイダ）.html"
+   "link": "ISP(Internet).html"
   },
   {
     "term": "ZTNA",
@@ -105,7 +105,7 @@
   },
   {
     "term": "Bitcoin(ビットコイン)",
-   "link": "Bitcoin(ビットコイン).html"
+   "link": "Bitcoin.html"
   },
   {
     "term": "回線",
@@ -141,7 +141,7 @@
   },
   {
    "term": "エクスプロイト",
-   "link": "エクスプロイト.html"
+   "link": "Exploit.html"
   },
   {
    "term": "シンクライアント",
@@ -149,7 +149,7 @@
   },
   {
    "term": "ブリッジ接続",
-   "link": "ブリッジ接続.html"
+   "link": "Bridge-setuzoku.html"
   },
   {
    "term": "MCP",
@@ -165,7 +165,7 @@
   },
   {
    "term": "レプリケーション",
-   "link": "レプリケーション.html"
+   "link": "Replication.html"
   },
   {
    "term": "定義ファイル",
@@ -173,7 +173,7 @@
   },
   {
    "term": "パスキー",
-   "link": "パスキー.html"
+   "link": "Passkey.html"
   },
   {
    "term": "VLAN",
@@ -193,11 +193,11 @@
   },
   {
    "term": "ブロックチェーン",
-   "link": "ブロックチェーン.html"
+   "link": "Blockchain.html"
   },
   {
    "term": "ハウジング",
-   "link": "ハウジング.html"
+   "link": "Housing.html"
   },
   {
    "term": "ホスティング",
@@ -205,7 +205,7 @@
   },
   {
    "term": "ドメインコントローラー",
-   "link": "ドメインコントローラー.html"
+   "link": "Domain-Controller.html"
   },
   {
    "term": "光クロスコネクト",
@@ -213,7 +213,7 @@
   },
   {
    "term": "APサーバー",
-   "link": "APサーバー.html"
+   "link": "Application-Server.html"
   },
   {
    "term": "SSO",
@@ -233,7 +233,7 @@
   },
   {
    "term": "bot(ボット)",
-   "link": "bot(ボット).html"
+   "link": "bot.html"
   },
   {
    "term": "クロスコネクト",
@@ -253,7 +253,7 @@
   },
   {
    "term": "仮想ブラウザ",
-   "link": "仮想ブラウザ.html"
+   "link": "Kasou-browser.html"
   },
   {
    "term": "CDR",
@@ -261,15 +261,15 @@
   },
   {
    "term": "デジタル・フォレンジック",
-   "link": "デジタル・フォレンジック.html"
+   "link": "digital-F.html"
   },
   {
    "term": "パケット",
-   "link": "パケット.html"
+   "link": "packet.html"
   },
   {
    "term": "リバースプロキシ",
-   "link": "リバースプロキシ.html"
+   "link": "reverse-proxy.html"
   },
   {
    "term": "FQDN",
