@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WPAとは？仕組みとWPA2・WPA3の違い</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ===== ヘッダー ===== -->
+
+<header>
+
+  <h1>
+    WPA
+
+    <span style="
+      display:block;
+      font-size:0.55em;
+      font-weight:normal;
+      margin-top:8px;">
+      Wi-Fi Protected Access
+    </span>
+  </h1>
+
+  <p>
+    <span style="font-size:0.85em;">Wi-Fiへ接続する端末を認証し、<br>
+    端末と無線LAN機器の間の通信を保護する仕組み</span>
+  </p>
+
+</header>
+
+<!-- ===== メイン ===== -->
+
+<main>
+
+  <div class="container">
+
+    <!-- ===== WPAとは ===== -->
+
+    <section class="card">
+
+      <h2>WPAとは？</h2>
+
+      <p>
+        WPAとは「Wi-Fi Protected Access」の略で、Wi-Fiへ接続する端末を認証し、
+        端末と無線LANルーターやアクセスポイントの間で送受信するデータを
+        暗号化するためのセキュリティ方式です。
+      </p>
+
+      <p style="margin-top:15px;">
+        WPA、WPA2、WPA3という世代があり、一般にはこれらをまとめて
+        WPAと呼ぶ場合があります。一方、設定画面で単に「WPA」と表示される場合は、
+        WPA2より前の古い第1世代を指すことがあるため、区別が必要です。
+      </p>
+
+      <div class="point-box">
+        <p>
+          WPAは、Wi-Fiへ誰を接続させるかを確認し、電波で送られる通信を保護する仕組みです。
+          単にWi-Fiへパスワードを付けることだけを意味するものではありません。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== イメージ ===== -->
+
+    <section class="card">
+
+      <h2>まずはイメージで理解する</h2>
+
+      <p>
+        Wi-Fiを建物への入口に例えると、SSIDは入口の名前、Wi-Fiパスワードは
+        合鍵のようなものです。WPAは、合鍵を確認して入場を許可し、
+        入口を通る会話を第三者に読まれにくくする警備の仕組みに当たります。
+      </p>
+
+      <div style="
+        background:#f8f9fa;
+        border:1px solid #ddd;
+        border-radius:12px;
+        padding:25px;
+        margin:25px 0;
+        overflow-x:auto;">
+
+        <div style="
+          min-width:780px;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          gap:16px;
+          text-align:center;">
+
+          <div style="
+            background:#fff4e5;
+            border:1px solid #f0c36d;
+            border-radius:10px;
+            padding:18px;
+            width:210px;">
+            スマートフォン<br>
+            パソコン<br>
+            スマート家電
+          </div>
+
+          <div style="font-size:1.5em; color:#666;">
+            →
+          </div>
+
+          <div style="
+            background:#eaf4ff;
+            border:2px solid #6ea8fe;
+            border-radius:10px;
+            padding:18px;
+            width:210px;
+            font-weight:bold;">
+            WPA<br>
+            認証・暗号化<br>
+            改ざんの検知
+          </div>
+
+          <div style="font-size:1.5em; color:#666;">
+            →
+          </div>
+
+          <div style="
+            background:#eaf7ea;
+            border:1px solid #82c785;
+            border-radius:10px;
+            padding:18px;
+            width:210px;">
+            無線LANルーター<br>
+            アクセスポイント<br>
+            家庭・社内LAN
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="example">
+        <p>
+          正しいWi-Fiパスワードを入力すると接続に必要な鍵が作られ、
+          その端末と無線LAN機器の間の通信が保護されます。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 必要性 ===== -->
+
+    <section class="card">
+
+      <h2>なぜWPAが必要なのか</h2>
+
+      <p>
+        Wi-Fiの電波は壁や窓を越えて周囲へ届くため、LANケーブルのように
+        物理的な接続だけで利用者を限定できません。保護がなければ、電波が届く場所から
+        通信を読み取られたり、ネットワークを無断利用されたりする可能性があります。
+      </p>
+
+      <p style="margin-top:15px;">
+        初期の方式であるWEPには重大な弱点があったため、その代替としてWPAが作られ、
+        その後WPA2、WPA3へと強化されました。現在は、安全性と機器の対応状況を考えて
+        WPA3またはWPA2を選びます。
+      </p><br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>盗み見を防ぐ</h3>
+          電波で送られるデータを暗号化し、<br>
+          通信内容を読まれにくくします。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>無断接続を防ぐ</h3>
+          パスワードや利用者情報を確認し、<br>
+          許可された端末を接続させます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>改ざんを検知する</h3>
+          通信途中でデータが変更されていないか、<br>
+          整合性を確認します。
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ===== 仕組み ===== -->
+
+    <section class="card">
+
+      <h2>WPAの基本的な仕組み</h2>
+
+      <p>
+        WPAによる接続では、最初に端末と無線LAN機器が、正しいパスワードや
+        利用者情報を持っているか確認します。確認に成功すると、通信を暗号化するための
+        鍵が作られ、Wi-Fi接続中のデータ保護に使われます。
+      </p>
+
+      <p style="margin-top:15px;">
+        家庭では共通のWi-Fiパスワードを使うPersonal方式が一般的です。
+        企業や学校では、利用者ごとにIDや証明書などで確認するEnterprise方式が使われます。
+      </p><br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>1. 接続先を選ぶ</h3>
+          端末がSSIDを選び、無線LAN機器へ<br>
+          接続を要求します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>2. 認証する</h3>
+          パスワードや利用者情報を使い、<br>
+          接続を許可できるか確認します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>3. 鍵を作る</h3>
+          端末と無線LAN機器が通信ごとの<br>
+          暗号鍵を準備します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>4. 通信を保護する</h3>
+          作成した鍵でデータを暗号化し、<br>
+          改ざんされていないか確認します。
+        </div>
+
+      </div>
+
+      <div class="point-box">
+        <p>
+          Wi-Fiパスワードそのものを毎回データへ付けて送るわけではありません。
+          パスワードなどを基に接続を確認し、通信に使う鍵を作ります。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 種類 ===== -->
+
+    <section class="card">
+
+      <h2>WPAの種類と選び方</h2>
+
+      <p>
+        WPAは世代が新しくなるにつれて、暗号化や認証方法が強化されています。
+        対応している場合はWPA3-Personalを優先し、古い端末との互換性が必要な場合は
+        WPA2/WPA3混在モードまたはWPA2-PersonalのAES方式を検討します。
+      </p>
+
+      <div class="table-wrap" style="width:100%; overflow-x:auto;">
+
+        <table style="min-width:1000px; width:100%;">
+          <thead>
+            <tr>
+              <th>方式</th>
+              <th>主な特徴</th>
+              <th>現在の考え方</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>WEP</td>
+              <td>WPAより前の方式で、暗号化に<br>
+              重大な弱点があります。</td>
+              <td>安全性が不足しているため、<br>
+              使用しません。</td>
+            </tr>
+            <tr>
+              <td>WPA</td>
+              <td>WEPから移行するための方式で、<br>
+              主にTKIPを使用します。</td>
+              <td>古く、安全性が低いため、<br>
+              使用しません。</td>
+            </tr>
+            <tr>
+              <td>WPA2</td>
+              <td>WPAを強化し、原則として<br>
+              AESを利用する方式です。</td>
+              <td>WPA3非対応機器がある場合は、<br>
+              WPA2-AESを使用します。</td>
+            </tr>
+            <tr>
+              <td>WPA3</td>
+              <td>Personal方式ではSAEを使い、パスワードを<br>
+              推測する攻撃への耐性を高めています。</td>
+              <td>ルーターと端末が対応していれば、<br>
+              WPA3-Personalを優先します。</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <h3 style="margin-top:25px;">PersonalとEnterprise</h3>
+
+      <div class="table-wrap" style="width:100%; overflow-x:auto;">
+
+        <table style="min-width:1000px; width:100%;">
+          <thead>
+            <tr>
+              <th>方式</th>
+              <th>認証方法</th>
+              <th>主な用途</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Personal</td>
+              <td>同じネットワークを利用する端末で、<br>
+              共通のパスワードを使用します。</td>
+              <td>家庭や小規模な環境で<br>
+              主に使用します。</td>
+            </tr>
+            <tr>
+              <td>Enterprise</td>
+              <td>認証サーバーと連携し、利用者ごとの<br>
+              IDや証明書などで確認します。</td>
+              <td>企業、学校など、多数の利用者を<br>
+              個別管理する環境で使用します。</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+    </section>
+
+    <!-- ===== メリット ===== -->
+
+    <section class="card">
+
+      <h2>WPAを利用するメリット</h2>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>通信を保護できる</h3>
+          電波を受信されても、暗号化によって<br>
+          内容を読み取られにくくします。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>利用者を制限できる</h3>
+          認証に成功した端末だけを接続させ、<br>
+          無断利用を防ぎます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>家庭でも導入しやすい</h3>
+          Personal方式では、共通パスワードで<br>
+          複数の端末を保護できます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>利用者ごとに管理できる</h3>
+          Enterprise方式では、退職や異動時に<br>
+          対象者の権限だけを変更できます。
+        </div>
+
+      </div>
+
+      <div class="point-box">
+        <p>
+          WPAは無線区間の基本的な防御です。
+          特にWPA3では、共通パスワードを使う家庭向け環境の認証が強化されています。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 注意点 ===== -->
+
+    <section class="card">
+
+      <h2>注意点と実務上の確認ポイント</h2>
+
+      <p>
+        WPAを有効にしても、弱いパスワード、古い暗号方式、更新されていないルーターを
+        使用していれば安全性は下がります。また、WPAが保護する中心範囲は端末と
+        無線LAN機器の間であり、危険なWebサイトやマルウェアまで防ぐものではありません。
+      </p><br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>設定方式</h3>
+          WPA3またはWPA2-AESを選び、WEP、<br>
+          WPA、TKIPだけの設定は避けます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>パスワード</h3>
+          推測されにくい十分に長い文字列を使い、<br>
+          初期値や使い回しを避けます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>対応機器</h3>
+          ルーターと接続端末の両方が、選択する<br>
+          WPA方式に対応しているか確認します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>更新とサポート</h3>
+          ファームウェアを更新し、サポートが終了した<br>
+          ルーターや端末は交換を検討します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>管理機能</h3>
+          不要なWPSや外部からの管理を無効にし、<br>
+          管理画面のパスワードも変更します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>企業での運用</h3>
+          認証方法、証明書、利用者の追加と削除、<br>
+          接続記録の管理方法を確認します。
+        </div>
+
+      </div>
+
+      <div class="example">
+        <p>
+          WPA2/WPA3混在モードは古い端末も接続できますが、多くの構成では両方式で同じパスワードを使うため、
+          WPA2側からパスワードが特定される危険が残ります。古い端末が不要になったらWPA3専用へ切り替えます。
+        </p>
+      </div>
+
+      <div class="point-box">
+        <p>
+          古い端末を分ける場合は、SSIDを変えるだけでなく、ゲストネットワークなどで通信も分離します。
+          分離すると家電操作や自動検出が使えない場合があるため、ルーターと機器の仕様を確認してください。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 関連技術 ===== -->
+
+    <section class="card">
+
+      <h2>関連技術との違いや関係</h2>
+
+      <div class="table-wrap" style="width:100%; overflow-x:auto;">
+
+        <table style="min-width:1000px; width:100%;">
+          <thead>
+            <tr>
+              <th>関連技術</th>
+              <th>主な役割</th>
+              <th>WPAとの違いや関係</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SSID</td>
+              <td>利用者が接続先を識別するための<br>
+              Wi-Fiネットワーク名です。</td>
+              <td>SSIDは名前であり、認証や暗号化を<br>
+              行うWPAとは役割が異なります。</td>
+            </tr>
+            <tr>
+              <td>WPS</td>
+              <td>ボタンやPINなどで、端末のWi-Fi設定を<br>
+              簡単にする機能です。</td>
+              <td>WPAの世代ではなく接続補助機能です。<br>
+              使用しない場合は無効化を検討します。</td>
+            </tr>
+            <tr>
+              <td>HTTPS</td>
+              <td>WebブラウザーとWebサーバーの間の<br>
+              通信を暗号化します。</td>
+              <td>WPAは主にWi-Fiの無線区間、HTTPSは<br>
+              Web通信の相手までを保護します。</td>
+            </tr>
+            <tr>
+              <td>VPN</td>
+              <td>端末とVPN接続先の間に、暗号化された<br>
+              通信経路を作ります。</td>
+              <td>WPAとは保護範囲が異なり、Wi-Fiへの<br>
+              無断接続を防ぐ代わりにはなりません。</td>
+            </tr>
+            <tr>
+              <td>IEEE 802.1X</td>
+              <td>利用者や端末を個別に認証するための<br>
+              アクセス制御の仕組みです。</td>
+              <td>WPA2・WPA3 Enterpriseで認証サーバーと<br>
+              連携する際に利用されます。</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <div class="point-box">
+        <p>
+          WPAだけでインターネット上のすべての通信が保護されるわけではありません。
+          HTTPS、端末の更新、ファイアウォールなどと組み合わせて安全性を高めます。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== まとめ ===== -->
+
+    <section class="card" style="border-left:6px solid #0d6efd;">
+
+      <h2>まとめ</h2>
+
+      <p>
+        WPAとは、Wi-Fiへ接続する端末を認証し、端末と無線LAN機器の間の通信を
+        暗号化して保護する仕組みです。WPA、WPA2、WPA3という世代があり、
+        現在は対応していればWPA3-Personalを優先します。
+      </p>
+
+      <p style="margin-top:15px;">
+        WPA3に対応しない端末がある場合は、WPA2/WPA3混在モードやWPA2-AESを
+        利用できます。ただし、混在モードはWPA3専用より安全性が下がるため、
+        古い端末が不要になったらWPA3専用へ切り替えます。
+      </p>
+
+      <p style="margin-top:15px;">
+        実際の運用では、強いWi-Fiパスワード、ルーターの更新、対応方式の確認、
+        不要な機能の無効化も必要です。古い端末を分離するときは、SSIDの名前だけでなく、
+        端末同士の通信が遮断される設定か確認します。
+      </p>
+
+    </section>
+
+    <!-- ===== 戻る ===== -->
+
+    <div class="back">
+      <a href="index.html">← 用語一覧へ戻る</a>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- ===== フッター ===== -->
+
+<footer>
+  IT学習用サイト
+</footer>
+
+</body>
+</html>
