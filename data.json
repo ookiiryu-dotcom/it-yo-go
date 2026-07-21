@@ -334,5 +334,9 @@
   {
    "term": "USB",
    "link": "USB.html"
+  },
+  {
+   "term": "VDI",
+   "link": "VDI.html"
   }
 ]
