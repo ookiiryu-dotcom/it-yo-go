@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VDI</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ===== ヘッダー ===== -->
+
+<header>
+
+  <h1>
+    VDI
+
+    <span style="
+      display:block;
+      font-size:0.55em;
+      font-weight:normal;
+      margin-top:8px;">
+      Virtual Desktop Infrastructure
+    </span>
+  </h1>
+
+  <p>
+    <span style="font-size:0.85em;">サーバー上の仮想デスクトップを、<br>
+    手元の端末から遠隔利用するための基盤</span>
+  </p>
+
+</header>
+
+<!-- ===== メイン ===== -->
+
+<main>
+
+<div class="container">
+
+  <!-- ===== VDIとは ===== -->
+
+  <section class="card">
+
+    <h2>VDIとは？</h2>
+
+    <p>
+      VDIとは、「Virtual Desktop Infrastructure」の略で、
+      サーバーやクラウド上に仮想的なパソコン環境を用意し、
+      利用者が手元の端末からネットワーク経由で使うための基盤です。
+      日本語では「仮想デスクトップ基盤」と呼ばれます。
+    </p>
+
+    <p style="margin-top:15px;">
+      OS、業務アプリ、主な処理は接続先の仮想デスクトップで動きます。
+      手元の端末はキーボードやマウスの操作情報を送り、
+      接続先から転送された画面を表示するのが基本です。
+    </p>
+
+    <div class="point-box">
+      <p>
+        VDIは単なる遠隔操作の機能ではなく、多数の仮想デスクトップを利用者へ割り当て、提供・管理する仕組み全体を指します。
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ===== イメージ ===== -->
+
+  <section class="card">
+
+    <h2>まずはイメージで理解する</h2>
+
+    <p>
+      VDIは、会社のパソコンを手元へ持ち帰るのではなく、
+      データセンターなどに置かれた「仮想パソコン」の画面を、
+      手元の端末から操作するイメージです。
+    </p>
+
+    <p style="margin-top:15px;">
+      利用者の操作は仮想デスクトップへ送られ、
+      処理結果の画面が手元へ返されます。
+      業務アプリやデータを主にサーバー側へ置ける点が特徴です。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;
+      overflow-x:auto;">
+
+      <div style="
+        min-width:780px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:16px;
+        text-align:center;">
+
+        <div style="
+          background:#fff4e5;
+          border:1px solid #f0c36d;
+          border-radius:10px;
+          padding:18px;
+          width:210px;">
+          手元の端末<br>
+          操作情報を送信<br>
+          画面を受信
+        </div>
+
+        <div style="font-size:1.5em; color:#666;">
+          →
+        </div>
+
+        <div style="
+          background:#eaf4ff;
+          border:2px solid #6ea8fe;
+          border-radius:10px;
+          padding:18px;
+          width:210px;
+          font-weight:bold;">
+          認証・接続管理<br>
+          本人と権限を確認<br>
+          接続先を割り当て
+        </div>
+
+        <div style="font-size:1.5em; color:#666;">
+          →
+        </div>
+
+        <div style="
+          background:#eaf7ea;
+          border:1px solid #82c785;
+          border-radius:10px;
+          padding:18px;
+          width:210px;">
+          仮想デスクトップ<br>
+          OS・アプリを実行<br>
+          データを保存
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="example">
+      <p>
+        例えば、自宅のパソコンから接続しても、会社が用意したWindows環境や業務アプリをサーバー側で利用できます。
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ===== 必要性 ===== -->
+
+  <section class="card">
+
+    <h2>なぜVDIが必要なのか</h2>
+
+    <p>
+      利用者ごとに物理パソコンを個別管理すると、
+      場所や端末が増えるほど、OSやアプリの更新、設定の統一、
+      故障時の復旧が複雑になります。
+    </p>
+
+    <p style="margin-top:15px;">
+      VDIは、業務用デスクトップをサーバー側へ集約し、
+      管理者がまとめて提供・更新・制御するために使われます。
+      社外から利用する場合の接続先やデータの保存場所も統一しやすくなります。
+    </p><br>
+
+    <div class="parts-grid">
+
+      <div class="part-box">
+        <h3>端末管理が分散する</h3>
+        OSやアプリの更新を、<br>
+        端末ごとに行います。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>働く場所が広がる</h3>
+        社外から業務環境へ接続する、<br>
+        安定した手段が必要です。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>環境を統一しにくい</h3>
+        端末ごとの設定差が、<br>
+        不具合の原因になります。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>データ管理が複雑になる</h3>
+        端末内へ保存された情報を、<br>
+        組織として管理します。
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 仕組みと構成 ===== -->
+
+  <section class="card">
+
+    <h2>仕組み・構成・種類</h2>
+
+    <p>
+      利用者が接続すると、認証基盤が本人と権限を確認し、
+      接続管理の仕組みが利用できる仮想デスクトップを選びます。
+      接続後は、操作情報と画面表示をネットワーク経由でやり取りします。
+    </p><br>
+
+    <div class="parts-grid">
+
+      <div class="part-box">
+        <h3>仮想化基盤</h3>
+        サーバーの資源を分け、複数の<br>
+        仮想マシンを動かします。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>仮想デスクトップ</h3>
+        OSや業務アプリが動く、<br>
+        利用者向けの環境です。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>接続管理</h3>
+        利用者を適切な環境へ割り当て、<br>
+        接続を仲介します。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>認証・アクセス制御</h3>
+        利用者を確認し、使える環境や<br>
+        アプリを制限します。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>ストレージ・プロファイル管理</h3>
+        仮想ディスクや利用者データ、<br>
+        個人設定を保存します。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>端末・ネットワーク</h3>
+        操作情報と画面を、接続用ソフトや<br>
+        ブラウザを通して運びます。
+      </div>
+
+    </div>
+
+    <h3 style="margin-top:25px;">永続型と非永続型</h3>
+
+    <div class="table-wrap" style="width:100%; overflow-x:auto;">
+
+      <table style="min-width:1000px; width:100%;">
+        <thead>
+          <tr>
+            <th>比較項目</th>
+            <th>永続型</th>
+            <th>非永続型</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>割り当て方</td>
+            <td>利用者ごとに決まった仮想デスクトップを<br>
+            継続して割り当てます。</td>
+            <td>ログイン時に共通のひな型などから<br>
+            利用可能な環境を割り当てます。</td>
+          </tr>
+          <tr>
+            <td>設定の保存</td>
+            <td>デスクトップ本体へ設定や変更を<br>
+            残しやすい方式です。</td>
+            <td>個人設定を引き継ぐ場合は、プロファイルを<br>
+            本体と分けて保存します。</td>
+          </tr>
+          <tr>
+            <td>管理上の特徴</td>
+            <td>個別の使い方に合わせやすい一方、<br>
+            利用者ごとの管理量が増えます。</td>
+            <td>環境を統一・再作成しやすい一方、<br>
+            保存対象の設計が必要です。</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="point-box">
+      <p>
+        非永続型でも、個人設定を次回へ引き継がない運用ではプロファイル管理が必須とは限りません。保存する設定やデータを先に決めることが重要です。
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ===== 用途 ===== -->
+
+  <section class="card">
+
+    <h2>VDIでできること</h2>
+
+    <p>
+      VDIは、利用する場所や端末が変わっても、
+      組織が用意したデスクトップやアプリを提供したい場面で使われます。
+      実際に適するかどうかは、業務アプリや周辺機器、通信条件によって異なります。
+    </p><br>
+
+    <div class="parts-grid">
+
+      <div class="part-box">
+        <h3>テレワーク</h3>
+        自宅や外出先から、<br>
+        業務環境へ接続します。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>端末の共用</h3>
+        共用端末から、利用者ごとの<br>
+        環境を呼び出します。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>標準環境の提供</h3>
+        部署や用途に合わせた設定を、<br>
+        まとめて配布します。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>短期利用者への提供</h3>
+        研修や期間限定業務へ、<br>
+        必要な環境を割り当てます。
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===== メリット ===== -->
+
+  <section class="card">
+
+    <h2>VDIのメリット</h2>
+
+    <p>
+      VDIの主な効果は、デスクトップ環境を集約し、
+      管理や利用方法をそろえやすくなることです。
+      利用者と管理者のどちらに効果が出るかは、運用設計によって変わります。
+    </p><br>
+
+    <div class="parts-grid">
+
+      <div class="part-box">
+        <h3>集中管理しやすい</h3>
+        OS、アプリ、設定を、<br>
+        管理者がまとめて扱えます。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>同じ環境を使いやすい</h3>
+        場所や端末が変わっても、<br>
+        共通の環境へ接続できます。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>端末交換に対応しやすい</h3>
+        接続先が保たれていれば、<br>
+        別端末から業務を再開できます。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>データを集約しやすい</h3>
+        保存先をサーバー側へ寄せ、<br>
+        端末への分散を抑えられます。
+      </div>
+
+    </div>
+
+    <div class="point-box">
+      <p>
+        VDIでも、ダウンロード、クリップボード、USB、印刷などを許可すれば端末側へ情報を持ち出せます。データを残さないための制御は別途必要です。
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ===== デメリット ===== -->
+
+  <section class="card">
+
+    <h2>VDIのデメリットと注意点</h2>
+
+    <p>
+      VDIはサーバー、ストレージ、ネットワーク、ライセンス、
+      運用体制を組み合わせるため、導入や維持に費用と専門知識が必要です。
+      利用者が集中する時間帯には、性能不足や遅延が表面化することがあります。
+    </p><br>
+
+    <div class="parts-grid">
+
+      <div class="part-box">
+        <h3>費用と設計が必要</h3>
+        機器、クラウド、ライセンス、<br>
+        運用費を見積もります。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>通信品質に左右される</h3>
+        帯域や遅延が不足すると、<br>
+        操作性が低下します。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>障害の影響が広がる</h3>
+        接続基盤や共有設備の障害が、<br>
+        多数の利用者へ影響します。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>周辺機器に制約がある</h3>
+        USB、印刷、カメラなどは、<br>
+        事前確認が必要です。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>高負荷処理に備える</h3>
+        動画や3D処理では、GPUや<br>
+        十分な通信性能が必要です。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>セキュリティ設計が必要</h3>
+        認証、権限、持ち出し、ログを<br>
+        個別に設計します。
+      </div>
+
+    </div>
+
+    <div class="example">
+      <p>
+        導入前には、同時接続数、業務アプリ、保存容量、通信遅延、周辺機器、障害時の代替手段を実際の利用条件で確認します。
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ===== 関連技術 ===== -->
+
+  <section class="card">
+
+    <h2>VDIと関連技術の関係</h2>
+
+    <p>
+      VDI、リモートデスクトップ、DaaSは、いずれも離れた場所から
+      デスクトップを利用できますが、指している範囲が異なります。
+      名称だけでなく、どの環境を誰が提供・管理するかで区別します。
+    </p>
+
+    <div class="table-wrap" style="width:100%; overflow-x:auto;">
+
+      <table style="min-width:1000px; width:100%;">
+        <thead>
+          <tr>
+            <th>関連技術</th>
+            <th>主な意味</th>
+            <th>VDIとの関係</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>リモートデスクトップ</td>
+            <td>離れたパソコンや仮想環境の画面を表示し、<br>
+            手元から操作する技術や機能です。</td>
+            <td>VDIが利用する接続方法の一つですが、<br>
+            物理パソコンの遠隔操作にも使われます。</td>
+          </tr>
+          <tr>
+            <td>セッション方式</td>
+            <td>一つのサーバーOSを複数人で共有し、<br>
+            利用者ごとにセッションを分けます。</td>
+            <td>仮想マシン単位で環境を提供するVDIとは、<br>
+            OSや資源の分け方が異なります。</td>
+          </tr>
+          <tr>
+            <td>DaaS</td>
+            <td>仮想デスクトップをクラウドサービスとして<br>
+            提供する形態です。</td>
+            <td>接続管理などの基盤部分を、<br>
+            サービス事業者が運用します。</td>
+          </tr>
+          <tr>
+            <td>シンクライアント</td>
+            <td>サーバー上の環境を使うことを前提に、<br>
+            機能を絞った端末や考え方です。</td>
+            <td>VDIへの接続端末として使えますが、<br>
+            VDIそのものではありません。</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="example"><p>
+      DaaSでは、接続先の割り当てやゲートウェイなどを担う管理基盤を、
+      事業者が運用するのが一般的です。一方、利用者ID、アプリ、データ、
+      端末などは利用企業が管理し、仮想マシン、ストレージ、ネットワークの分担はサービスによって異なります。
+    </p></div>
+
+    <div class="point-box">
+      <p>
+        DaaSはすべてを事業者へ任せる仕組みではありません。契約前に、事業者と利用企業の責任分界を構成要素ごとに確認します。
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ===== まとめ ===== -->
+
+  <section class="card" style="border-left:6px solid #0d6efd;">
+
+    <h2>まとめ</h2>
+
+    <p>
+      VDIとは、サーバーやクラウド上の仮想デスクトップを、
+      手元の端末から遠隔利用するための基盤です。
+      OSやアプリを集約し、利用者への割り当てや管理を行います。
+    </p>
+
+    <p style="margin-top:15px;">
+      集中管理や場所を選ばない利用に役立つ一方、
+      サーバー性能、ストレージ、通信品質、周辺機器、障害対策、
+      ライセンス、データ持ち出し制御まで設計する必要があります。
+    </p>
+
+    <p style="margin-top:15px;">
+      永続型と非永続型では設定の保存方法が異なり、
+      DaaSでは事業者と利用企業の管理範囲がサービスごとに異なります。
+      導入時は、実際の業務条件と責任分界を確認することが重要です。
+    </p>
+
+  </section>
+
+  <!-- ===== 戻る ===== -->
+
+  <div class="back">
+
+    <a href="index.html">
+      ← 用語一覧へ戻る
+    </a>
+
+  </div>
+
+</div>
+
+</main>
+
+<!-- ===== フッター ===== -->
+
+<footer>
+  IT学習用サイト
+</footer>
+</body>
+</html>
