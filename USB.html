@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>USBとは？仕組み・種類・注意点を初心者向けに解説</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ===== ヘッダー ===== -->
+
+<header>
+
+  <h1>
+    USB
+
+    <span style="
+      display:block;
+      font-size:0.55em;
+      font-weight:normal;
+      margin-top:8px;">
+      Universal Serial Bus
+    </span>
+  </h1>
+
+  <p>
+    <span style="font-size:0.85em;">パソコンやスマートフォンと周辺機器を接続し、<br>
+    データ通信や電力供給を行うための共通規格</span>
+  </p>
+
+</header>
+
+<!-- ===== メイン ===== -->
+
+<main>
+
+<div class="container">
+
+  <!-- ===== USBとは ===== -->
+
+  <section class="card">
+
+    <h2>USBとは？</h2>
+
+    <p>
+      USBとは、「Universal Serial Bus」の略で、パソコンやスマートフォンなどに
+      周辺機器を接続するための共通規格です。端子やケーブルの形だけでなく、
+      データをやり取りする方法や電力を供給する方法も定めています。
+    </p>
+
+    <p style="margin-top:15px;">
+      キーボード、マウス、USBメモリ、外付けSSD、プリンター、
+      Webカメラ、スマートフォンなど、さまざまな機器で利用されています。
+      USBは保存機器そのものではなく、機器を接続するための規格全体を指します。
+    </p>
+
+    <div class="point-box">
+      <p>
+        USBの基本的な役割は、1つの接続規格でデータ通信と電力供給を扱い、多くの機器を接続しやすくすることです。
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ===== イメージ ===== -->
+
+  <section class="card">
+
+    <h2>まずはイメージで理解する</h2>
+
+    <p>
+      USBは、さまざまな機器が共通して利用できる「接続用の道路」のようなものです。
+      道路を通る荷物がデータ、沿道へ届けるエネルギーが電力に当たります。
+    </p>
+
+    <p style="margin-top:15px;">
+      同じUSB接続でも、USBメモリではファイルをやり取りし、
+      マウスでは操作情報を送り、スマートフォンでは通信と充電を同時に行うことがあります。
+    </p>
+
+    <div style="
+      background:#f8f9fa;
+      border:1px solid #ddd;
+      border-radius:12px;
+      padding:25px;
+      margin:25px 0;
+      overflow-x:auto;">
+
+      <div style="
+        min-width:780px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:16px;
+        text-align:center;">
+
+        <div style="
+          background:#eaf4ff;
+          border:2px solid #6ea8fe;
+          border-radius:10px;
+          padding:18px;
+          width:210px;
+          font-weight:bold;">
+          パソコンなど<br>
+          接続を管理する機器
+        </div>
+
+        <div style="font-size:1.5em; color:#666;">
+          ⇄
+        </div>
+
+        <div style="
+          background:#fff4e5;
+          border:1px solid #f0c36d;
+          border-radius:10px;
+          padding:18px;
+          width:210px;">
+          USB<br>
+          データ通信<br>
+          電力供給
+        </div>
+
+        <div style="font-size:1.5em; color:#666;">
+          ⇄
+        </div>
+
+        <div style="
+          background:#eaf7ea;
+          border:1px solid #82c785;
+          border-radius:10px;
+          padding:18px;
+          width:210px;">
+          マウス・保存機器<br>
+          カメラ・スマートフォン
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="example">
+      <p>
+        外付けSSDを接続すると、USBを通してファイルを送受信しながら、動作に必要な電力も受け取れる場合があります。
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ===== 必要性 ===== -->
+
+  <section class="card">
+
+    <h2>なぜUSBが必要なのか</h2>
+
+    <p>
+      機器ごとに端子や通信方法が異なると、利用者は専用の接続口、ケーブル、
+      設定方法を用意しなければなりません。USBは接続方法を共通化し、
+      多くの周辺機器を同じ考え方で扱えるようにします。
+    </p>
+
+    <p style="margin-top:15px;">
+      対応する機器を接続すると、OSが機器の種類を確認し、必要なドライバーを利用します。
+      ドライバーとは、OSが機器を制御するためのソフトウェアです。
+      これにより、利用者が複雑な設定をしなくても使い始められる場合があります。
+    </p>
+
+    <div class="point-box">
+      <p>
+        USBは接続を共通化しますが、同じ形の端子ならすべての機能を使えるという意味ではありません。
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ===== 仕組み ===== -->
+
+  <section class="card">
+
+    <h2>USBの基本的な仕組み</h2>
+
+    <p>
+      基本的なUSB接続では、パソコンなどの「ホスト」が通信を管理し、
+      マウスやUSBメモリなどの「デバイス」とデータをやり取りします。
+      接続時には、ホストが機器の種類や利用できる通信方法を確認します。
+    </p>
+
+    <p style="margin-top:15px;">
+      USB Type-Cでは、CC（Configuration Channel）という信号線を使い、
+      ケーブルの向きや電力を送る側・受ける側などを判定します。
+      USB Power Deliveryに対応する機器同士では、必要な電力を交渉したり、
+      対応範囲内でデータや電力の役割を切り替えたりできます。
+    </p><br>
+
+    <div class="parts-grid">
+
+      <div class="part-box">
+        <h3>接続を検出する</h3>
+        機器がつながったことや<br>
+        端子の状態を確認します。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>機器を識別する</h3>
+        種類や利用できる機能などの<br>
+        情報を読み取ります。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>通信を開始する</h3>
+        OSとドライバーが連携し、<br>
+        データをやり取りします。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>電力を供給する</h3>
+        対応する範囲で機器の動作や<br>
+        バッテリー充電に使います。
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 分類 ===== -->
+
+  <section class="card">
+
+    <h2>端子の形・通信規格・電力供給の違い</h2>
+
+    <p>
+      USBを理解するうえで最も重要なのは、端子の形、通信規格、
+      電力供給の仕組みを分けて考えることです。
+      これらは関係していますが、同じものではありません。
+    </p>
+
+    <div class="table-wrap" style="width:100%; overflow-x:auto;">
+
+      <table style="min-width:1000px; width:100%;">
+        <thead>
+          <tr>
+            <th>分類</th>
+            <th>主な例</th>
+            <th>表しているもの</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>端子の形</td>
+            <td>USB Type-A、Type-B、Type-C、<br>
+            Micro-Bなど</td>
+            <td>差し込み口とプラグの形状です。<br>
+            Type-Cは上下を区別せず挿せます。</td>
+          </tr>
+          <tr>
+            <td>通信規格</td>
+            <td>USB 2.0、USB 3.2、<br>
+            USB4など</td>
+            <td>データの通信方法や最大速度などを定めます。<br>
+            実際の速度は機器や利用状況でも変わります。</td>
+          </tr>
+          <tr>
+            <td>電力供給</td>
+            <td>通常のUSB給電、<br>
+            USB Power Deliveryなど</td>
+            <td>供給できる電力や交渉方法などを定めます。<br>
+            充電器、機器、ケーブルすべての対応が必要です。</td>
+          </tr>
+          <tr>
+            <td>追加機能</td>
+            <td>DisplayPort Alt Mode、<br>
+            Thunderboltなど</td>
+            <td>対応するType-C端子やケーブルで、映像などを扱います。<br>
+            Type-C端子だけでは対応を判断できません。</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="point-box">
+      <p>
+        USB Type-Cは端子の形を表すため、Type-Cだから必ず高速通信・急速充電・映像出力に対応するとは限りません。
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ===== 用途とメリット ===== -->
+
+  <section class="card">
+
+    <h2>USBでできることとメリット</h2>
+
+    <p>
+      USBは、操作情報、ファイル、映像、音声などのデータ通信と、
+      機器の動作や充電に使う電力供給に利用されます。
+      ただし、利用できる機能は接続する機器、端子、ケーブルの組み合わせで異なります。
+    </p><br>
+
+    <div class="parts-grid">
+
+      <div class="part-box">
+        <h3>周辺機器を接続する</h3>
+        入力機器やプリンターなどを<br>
+        共通の規格で利用できます。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>データを保存・転送する</h3>
+        USBメモリや外付けSSDと<br>
+        ファイルをやり取りできます。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>機器へ電力を供給する</h3>
+        周辺機器を動作させたり、<br>
+        バッテリーを充電したりします。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>接続を簡単にする</h3>
+        対応機器なら接続時に認識され、<br>
+        すぐ使える場合があります。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>接続口を増やす</h3>
+        USBハブを使い、1つの端子へ<br>
+        複数の機器を接続できます。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>機器を取り外して使う</h3>
+        電源を切らずに接続や取り外しが<br>
+        できるよう設計されています。
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===== 注意点 ===== -->
+
+  <section class="card">
+
+    <h2>注意点と実務上の確認ポイント</h2>
+
+    <p>
+      USB製品は、端子の外見だけでは性能や機能を判断できません。
+      購入時には、端子の形だけでなく、製品仕様や認証ロゴに記載された
+      通信速度、供給電力、映像出力への対応を確認します。
+    </p>
+
+    <p style="margin-top:15px;">
+      接続全体の性能は、パソコン、周辺機器、ケーブル、ハブや変換アダプターの
+      組み合わせで決まります。どこか1つが低速または非対応なら、
+      速度や機能が制限されることがあります。
+    </p><br>
+
+    <div class="parts-grid">
+
+      <div class="part-box">
+        <h3>端子の形</h3>
+        接続する両方の機器とケーブルで<br>
+        形状が合うか確認します。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>通信速度</h3>
+        5Gbps、10Gbpsなどの表示と<br>
+        機器側の仕様を確認します。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>データ通信への対応</h3>
+        充電専用ケーブルではファイルを<br>
+        やり取りできません。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>充電能力</h3>
+        60W、240Wなどの表示と<br>
+        USB PD対応を確認します。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>映像出力</h3>
+        機器、端子、ケーブルすべてが<br>
+        必要な方式に対応するか確認します。
+      </div>
+
+      <br>
+
+      <div class="part-box">
+        <h3>安全な取り外し</h3>
+        保存中の機器はOSの操作で停止し、<br>
+        書き込み完了後に外します。
+      </div>
+
+    </div>
+
+    <div class="example">
+      <p>
+        「240W」は対応する電力を示す表示であり、高速通信や映像出力への対応を保証するものではありません。
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ===== 関連技術 ===== -->
+
+  <section class="card">
+
+    <h2>関連する機器・技術との違い</h2>
+
+    <p>
+      USBという言葉は、端子、ケーブル、保存機器、充電方法などを指す言葉として
+      混同されることがあります。それぞれの役割を分けると理解しやすくなります。
+    </p>
+
+    <div class="table-wrap" style="width:100%; overflow-x:auto;">
+
+      <table style="min-width:1000px; width:100%;">
+        <thead>
+          <tr>
+            <th>名称</th>
+            <th>主な役割</th>
+            <th>USBとの関係</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>USBメモリ</td>
+            <td>ファイルを保存し、<br>
+            持ち運ぶための機器です。</td>
+            <td>USB規格を使って接続する保存機器の一種です。<br>
+            USBそのものと同じ意味ではありません。</td>
+          </tr>
+          <tr>
+            <td>USBハブ</td>
+            <td>1つのUSB端子を分岐し、<br>
+            複数の機器を接続します。</td>
+            <td>通信帯域や供給電力を複数機器で共有するため、<br>
+            製品仕様と電源方式の確認が必要です。</td>
+          </tr>
+          <tr>
+            <td>USB Power Delivery</td>
+            <td>対応機器同士で電力条件を交渉し、<br>
+            必要な電力を供給します。</td>
+            <td>USB Type-Cで利用される電力供給の仕組みです。<br>
+            すべてのType-C機器が同じ電力に対応するとは限りません。</td>
+          </tr>
+          <tr>
+            <td>DisplayPort Alt Mode</td>
+            <td>対応するUSB Type-C端子から<br>
+            DisplayPort映像を出力します。</td>
+            <td>Type-C端子を利用する追加機能です。<br>
+            USB端子の形だけでは対応を判断できません。</td>
+          </tr>
+          <tr>
+            <td>Thunderbolt</td>
+            <td>高速なデータ通信や映像出力などを<br>
+            1つの接続で扱います。</td>
+            <td>USB Type-Cと同じ形の端子を使う世代がありますが、<br>
+            対応規格と機能は製品仕様で確認します。</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="point-box">
+      <p>
+        「USBに保存する」は一般に「USBメモリに保存する」という意味で使われますが、USBは本来、接続規格の名称です。
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ===== まとめ ===== -->
+
+  <section class="card" style="border-left:6px solid #0d6efd;">
+
+    <h2>まとめ</h2>
+
+    <p>
+      USBとは、パソコンやスマートフォンと周辺機器を接続し、
+      データ通信や電力供給を行うための共通規格です。
+    </p>
+
+    <p style="margin-top:15px;">
+      USB Type-AやType-Cは端子の形、USB 2.0やUSB4は通信規格、
+      USB Power Deliveryは電力供給の仕組みを表します。
+      同じ形の端子でも、通信速度、充電能力、映像出力への対応は異なります。
+    </p>
+
+    <p style="margin-top:15px;">
+      製品を選ぶときは、接続する機器、ケーブル、ハブや変換アダプターを含め、
+      端子の形、Gbpsで示される通信速度、Wで示される電力、
+      必要な追加機能への対応を確認することが重要です。
+    </p>
+
+  </section>
+
+  <!-- ===== 戻る ===== -->
+
+  <div class="back">
+
+    <a href="index.html">← 用語一覧へ戻る</a>
+
+  </div>
+
+</div>
+
+</main>
+
+<!-- ===== フッター ===== -->
+
+<footer>
+  IT学習用サイト
+</footer>
+
+</body>
+</html>
