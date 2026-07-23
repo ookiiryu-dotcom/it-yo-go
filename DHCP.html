@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DHCP</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ===== ヘッダー ===== -->
+
+<header>
+
+  <h1>
+    DHCP
+
+    <span style="
+      display:block;
+      font-size:0.55em;
+      font-weight:normal;
+      margin-top:8px;">
+      Dynamic Host Configuration Protocol
+    </span>
+  </h1>
+
+  <p>
+    <span style="font-size:0.85em;">ネットワークへ接続した端末に、IPアドレスや通信に必要な設定を<br>
+    自動的に割り当てるためのプロトコル</span>
+  </p>
+
+</header>
+
+<!-- ===== メイン ===== -->
+
+<main>
+
+  <div class="container">
+
+    <!-- ===== DHCPとは ===== -->
+
+    <section class="card">
+
+      <h2>DHCPとは？</h2>
+
+      <p>
+        DHCPとは、「Dynamic Host Configuration Protocol」の略で、
+        ネットワークへ接続したパソコンやスマートフォンなどに、
+        IPアドレスや通信に必要な設定を自動的に割り当てるプロトコルです。
+        プロトコルとは、機器同士が通信するための決まりを意味します。
+      </p>
+
+      <p style="margin-top:15px;">
+        家庭では主にルーターがDHCPサーバーとして働き、接続した端末へ設定を配ります。
+        企業では専用サーバーやネットワーク機器がこの役割を担う場合があります。
+        このページではDHCPv4を中心に説明し、IPv6との違いは後半で扱います。
+      </p>
+
+      <div class="point-box">
+        <p>
+          DHCPの役割はインターネット回線を提供することではなく、そのネットワーク内で端末が通信を始められるように設定を自動化することです。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== イメージ ===== -->
+
+    <section class="card">
+
+      <h2>まずはイメージで理解する</h2>
+
+      <p>
+        DHCPは、ネットワークの「受付係」に例えられます。
+        新しく来た端末から利用申請を受け、空いているIPアドレスと必要な案内を一定期間貸し出します。
+      </p>
+
+      <p style="margin-top:15px;">
+        IPアドレスはネットワーク上の住所に当たります。
+        受付係が同じ住所を複数の端末へ誤って渡さないように管理することで、
+        利用者が端末ごとに設定しなくても通信を始められます。
+      </p>
+
+      <div style="
+        background:#f8f9fa;
+        border:1px solid #ddd;
+        border-radius:12px;
+        padding:25px;
+        margin:25px 0;
+        overflow-x:auto;">
+
+        <div style="
+          min-width:780px;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          gap:16px;
+          text-align:center;">
+
+          <div style="
+            background:#fff4e5;
+            border:1px solid #f0c36d;
+            border-radius:10px;
+            padding:18px;
+            width:210px;">
+            <div style="font-size: 0.9em;">
+            パソコン・スマートフォン</div>
+            ネットワークへ接続<br>
+            設定を要求
+          </div>
+
+          <div style="font-size:1.5em; color:#666;">
+            →
+          </div>
+
+          <div style="
+            background:#eaf4ff;
+            border:2px solid #6ea8fe;
+            border-radius:10px;
+            padding:18px;
+            width:210px;
+            font-weight:bold;">
+            DHCPサーバー<br>
+            利用できる設定を選択<br>
+            一定期間貸し出し
+          </div>
+
+          <div style="font-size:1.5em; color:#666;">
+            →
+          </div>
+
+          <div style="
+            background:#eaf7ea;
+            border:1px solid #82c785;
+            border-radius:10px;
+            padding:18px;
+            width:210px;">
+            IPアドレスを取得<br>
+            通信先を判断<br>
+            ネットワークを利用
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="example">
+        <p>
+          例えばスマートフォンを自宅のWi-Fiへ初めて接続すると、通常はIPアドレスを手入力しなくても、ルーターから必要な設定を受け取れます。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 必要性 ===== -->
+
+    <section class="card">
+
+      <h2>なぜDHCPが必要なのか</h2>
+
+      <p>
+        DHCPがなければ、管理者や利用者が端末ごとにIPアドレス、
+        サブネットマスク、デフォルトゲートウェイ、DNSサーバーなどを設定する必要があります。
+        端末が増えるほど作業量が増え、入力ミスも起こりやすくなります。
+      </p>
+
+      <p style="margin-top:15px;">
+        また、同じIPアドレスを複数の端末へ設定すると、IPアドレスの重複によって通信できない場合があります。
+        DHCPは利用中のアドレスと貸し出し期限を管理し、利用可能なアドレスを再利用しやすくします。
+      </p><br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>手作業が増える</h3>
+          端末ごとに複数の項目を入力し、<br>
+          設定内容を管理する必要があります。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>入力ミスが起こる</h3>
+          アドレスやDNSなどを誤ると、<br>
+          正しく通信できません。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>IPアドレスが重複する</h3>
+          同じアドレスを複数端末へ設定すると、<br>
+          通信が不安定になります。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>変更を反映しにくい</h3>
+          DNSやゲートウェイを変更するたびに、<br>
+          多数の端末を直す必要があります。
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ===== 仕組み ===== -->
+
+    <section class="card">
+
+      <h2>DHCPv4の仕組み</h2>
+
+      <p>
+        DHCPv4の初回取得では、端末側のDHCPクライアントとDHCPサーバーが
+        Discover、Offer、Request、ACKの順にメッセージを交換します。
+        頭文字を取って「DORA」と呼ばれる一般的な覚え方があります。
+      </p>
+
+      <p style="margin-top:15px;">
+        端末は最初、自分のIPアドレスもDHCPサーバーの場所も分かりません。
+        そのためDiscoverでは送信元を「0.0.0.0」、宛先を「255.255.255.255」とし、
+        同じネットワーク内へブロードキャストで問い合わせます。
+      </p>
+
+      <div style="
+        background:#f8f9fa;
+        border:1px solid #ddd;
+        border-radius:12px;
+        padding:25px;
+        margin:25px 0;">
+
+        <div style="
+          display:flex;
+          flex-direction:column;
+          align-items:center;
+          gap:14px;
+          text-align:center;">
+
+          <div style="
+            background:#fff;
+            border:1px solid #ddd;
+            border-radius:10px;
+            padding:14px 18px;
+            width:100%;
+            max-width:560px;
+            line-height:1.8;">
+            <strong>1. Discover</strong><br>
+            端末が利用できるDHCPサーバーを<br>ブロードキャストで探す
+          </div>
+
+          <div style="font-size:1.4em; color:#666;">↓</div>
+
+          <div style="
+            background:#eaf4ff;
+            border:1px solid #9fc5f8;
+            border-radius:10px;
+            padding:14px 18px;
+            width:100%;
+            max-width:560px;
+            line-height:1.8;">
+            <strong>2. Offer</strong><br>
+            サーバーが利用可能なIPアドレスと<br>設定内容を端末へ提案する
+          </div>
+
+          <div style="font-size:1.4em; color:#666;">↓</div>
+
+          <div style="
+            background:#fff4e5;
+            border:1px solid #f0c36d;
+            border-radius:10px;
+            padding:14px 18px;
+            width:100%;
+            max-width:560px;
+            line-height:1.8;">
+            <strong>3. Request</strong><br>
+            端末が採用する提案とサーバーを<br>ブロードキャストで知らせる
+          </div>
+
+          <div style="font-size:1.4em; color:#666;">↓</div>
+
+          <div style="
+            background:#eaf7ea;
+            border:1px solid #82c785;
+            border-radius:10px;
+            padding:14px 18px;
+            width:100%;
+            max-width:560px;
+            line-height:1.8;">
+            <strong>4. ACK</strong><br>
+            選ばれたサーバーが貸し出しを確定し、<br>通信に必要な設定を渡す
+          </div>
+
+        </div>
+
+      </div>
+
+      <p>
+        初回のRequestをブロードキャストすることで、複数のサーバーからOfferを受けた場合に、
+        選ばれなかったサーバーにも提案が採用されなかったことが伝わります。
+        一方、通常のリース更新では、端末は原則として貸し出し元のサーバーへ直接Requestを送ります。
+      </p>
+
+      <p style="margin-top:15px;">
+        ブロードキャストは通常、ルーターを越えません。
+        DHCPサーバーが別のネットワークにある場合は、DHCPリレーが端末とサーバーの間でメッセージを中継します。
+      </p><br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>DHCPクライアント</h3>
+          端末側で設定を要求し、受け取った<br>
+          情報をネットワークへ反映します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>DHCPサーバー</h3>
+          貸し出す範囲と設定を管理し、<br>
+          クライアントへ割り当てます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>DHCPリレー</h3>
+          異なるネットワークにいる端末と<br>
+          サーバーの通信を中継します。
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ===== 配る情報 ===== -->
+
+    <section class="card">
+
+      <h2>配られる情報とリース</h2>
+
+      <p>
+        DHCPサーバーは、あらかじめ設定されたアドレスの範囲からIPアドレスを選び、
+        通信に必要な情報と一緒に端末へ渡します。
+        実際に配る項目は、ネットワークや製品の設定によって異なります。
+      </p>
+
+      <div class="table-wrap" style="width:100%; overflow-x:auto;">
+
+        <table style="min-width:1000px; width:100%;">
+          <thead>
+            <tr>
+              <th>主な情報</th>
+              <th>役割</th>
+              <th>端末での使われ方</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>IPアドレス</td>
+              <td>ネットワーク上で端末を識別する<br>
+              住所に当たる情報です。</td>
+              <td>同じネットワークや他のネットワークと<br>
+              通信するときに使用します。</td>
+            </tr>
+            <tr>
+              <td>サブネットマスク</td>
+              <td>同じネットワークに含まれる<br>
+              アドレスの範囲を示します。</td>
+              <td>通信相手が同じネットワーク内か、<br>
+              ルーターの先にいるかを判断します。</td>
+            </tr>
+            <tr>
+              <td>デフォルトゲートウェイ</td>
+              <td>別のネットワークへ通信するときの<br>
+              出口を示します。</td>
+              <td>家庭では通常、ルーターの<br>
+              LAN側IPアドレスを使用します。</td>
+            </tr>
+            <tr>
+              <td>DNSサーバー</td>
+              <td>ドメイン名をIPアドレスへ<br>
+              変換する問い合わせ先です。</td>
+              <td>Webサイト名などを使った通信を<br>
+              行うために参照します。</td>
+            </tr>
+            <tr>
+              <td>リース期間</td>
+              <td>割り当てたIPアドレスを<br>
+              利用できる期限です。</td>
+              <td>期限が切れる前に更新し、<br>
+              継続して利用できるようにします。</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <p style="margin-top:15px;">
+        IPアドレスは永久に与えられるとは限らず、通常はリース期間を設けて貸し出されます。
+        端末は期限が切れる前に更新を試み、利用されなくなったアドレスは期限後に再び割り当てられます。
+        そのため、同じ端末でも再接続や設定変更によってIPアドレスが変わる場合があります。
+      </p>
+
+      <div class="point-box">
+        <p>
+          DHCPサーバーは、端末から送られるクライアント識別子を使って端末を区別し、それがない場合はDHCPメッセージ内のハードウェアアドレスなどを使用します。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 用途とメリット ===== -->
+
+    <section class="card">
+
+      <h2>主な用途とメリット</h2>
+
+      <p>
+        DHCPは、家庭のWi-Fiから多数の端末を扱う企業ネットワークまで利用されます。
+        接続する端末が変わる環境では、必要な設定を自動化し、管理を一か所へ集められることが大きな利点です。
+      </p><br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>端末設定を自動化できる</h3>
+          利用者が複数項目を手入力せず、<br>
+          接続後すぐに通信を始められます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>設定を統一しやすい</h3>
+          DNSやゲートウェイなどを、<br>
+          管理者がまとめて指定できます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>重複を防ぎやすい</h3>
+          貸し出し状況を管理することで、<br>
+          同じIPの割り当てを避けます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>アドレスを再利用できる</h3>
+          使われなくなったIPアドレスを、<br>
+          別の端末へ割り当てられます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>一時利用へ対応しやすい</h3>
+          来客用Wi-Fiや持ち込み端末にも、<br>
+          必要な設定を自動で配れます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>変更を反映しやすい</h3>
+          配布設定を変更し、更新や再取得時に<br>
+          新しい内容を端末へ渡せます。
+        </div>
+
+      </div>
+
+      <div class="example">
+        <p>
+          例えば会社のDNSサーバーを変更する場合、DHCPの配布設定を変更すれば、端末はリース更新や再接続の際に新しい情報を取得できます。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 注意点 ===== -->
+
+    <section class="card">
+
+      <h2>注意点と実務上の確認ポイント</h2>
+
+      <p>
+        DHCPは設定作業を減らしますが、サーバーや配布範囲の設計が不適切だと、
+        IPアドレスを取得できない、誤った通信先が設定される、
+        重要な機器のアドレスが変わるといった問題が起こります。
+      </p>
+
+      <p style="margin-top:15px;">
+        また、基本的なDHCPの交換だけで、接続した端末や応答したサーバーが信頼できることを保証するわけではありません。
+        接続制御、監視、ネットワーク分離などと組み合わせて運用します。
+      </p><br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>配布範囲と台数</h3>
+          接続する端末数に対して、十分な<br>
+          IPアドレスがあるか確認します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>サーバー停止への備え</h3>
+          冗長化、復旧手順、設定の保存、<br>
+          障害時の影響を確認します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>複数サーバーの管理</h3>
+          意図しないDHCPが動作していないか、<br>
+          配布範囲と役割を確認します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>固定設定との重複</h3>
+          手動設定するIPアドレスを配布範囲から<br>
+          除外し、台帳で管理します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>リレーと経路</h3>
+          ネットワークを越える場合は、中継先や<br>
+          ファイアウォール設定を確認します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>記録と不正対策</h3>
+          貸し出し履歴を保存し、許可していない<br>
+          DHCPサーバーを検知・遮断します。
+        </div>
+
+      </div>
+
+      <div class="example">
+        <p>
+          ルーターをアクセスポイントとして追加する場合、意図的な構成でなければ追加機器側のDHCPサーバー機能を停止し、既存のDHCPサーバーへ一本化します。
+        </p>
+      </div>
+
+      <div class="point-box">
+        <p>
+          DHCPサーバーが停止しても、取得済みの端末はリース期限まで通信を続けられる場合がありますが、新規取得や更新は失敗する可能性があります。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 関連技術 ===== -->
+
+    <section class="card">
+
+      <h2><div style="font-size: 0.9em;">固定IP・DHCP予約・IPv6との関係</div></h2>
+
+      <p>
+        常に同じIPアドレスが必要なプリンターやサーバーでは、
+        端末へ直接設定する固定IPアドレスか、DHCPサーバー側で同じアドレスを配るDHCP予約を使います。
+        どちらを選ぶかは、機器の用途や障害時の運用方法によって異なります。
+      </p>
+
+      <div class="table-wrap" style="width:100%; overflow-x:auto;">
+
+        <table style="min-width:1000px; width:100%;">
+          <thead>
+            <tr>
+              <th>方法・技術</th>
+              <th>仕組み</th>
+              <th>確認点</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>DHCPによる動的割り当て</td>
+              <td>利用可能な範囲から、サーバーが<br>
+              IPアドレスを一定期間貸し出します。</td>
+              <td>同じ端末でもIPアドレスが<br>
+              変わる場合があります。</td>
+            </tr>
+            <tr>
+              <td>DHCP予約</td>
+              <td>端末の識別情報とIPアドレスを対応付け、<br>
+              毎回同じアドレスを配ります。</td>
+              <td>家庭用機器ではMACアドレスを使うことが多く、<br>
+              ランダム化機能の影響も確認します。</td>
+            </tr>
+            <tr>
+              <td>固定IPアドレス</td>
+              <td>端末側へIPアドレスやDNSなどを<br>
+              手作業で設定します。</td>
+              <td>DHCPの配布範囲との重複や、<br>
+              設定変更の反映漏れに注意します。</td>
+            </tr>
+            <tr>
+              <td>DHCPv6</td>
+              <td>IPv6向けの別の仕組みで、Solicit、Advertise、<br>
+              Request、Replyなどを使用します。</td>
+              <td>IPv4のDORAとは動作が異なり、<br>
+              SLAACと併用される場合があります。</td>
+            </tr>
+            <tr>
+              <td>SLAAC</td>
+              <td>ルーター広告を基に、端末がIPv6アドレスを<br>
+              自動設定する仕組みです。</td>
+              <td>IPv6ではDHCPv6だけでなく、SLAACや<br>
+              ルーター広告の設定も確認します。</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <div class="point-box">
+        <p>
+          IPv6では、IPアドレスをDHCPv6またはSLAACで設定でき、通常はデフォルトゲートウェイをルーター広告から学習します。IPv4と同じ考え方だけで設計しないことが重要です。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== まとめ ===== -->
+
+    <section class="card" style="border-left:6px solid #0d6efd;">
+
+      <h2>まとめ</h2>
+
+      <p>
+        DHCPとは、ネットワークへ接続した端末に、IPアドレス、サブネットマスク、
+        デフォルトゲートウェイ、DNSサーバーなどの設定を自動的に割り当てるプロトコルです。
+      </p>
+
+      <p style="margin-top:15px;">
+        DHCPv4の初回取得では、Discover、Offer、Request、ACKの順に情報を交換します。
+        IPアドレスは通常、リース期間を設けて貸し出され、期限前に更新されます。
+      </p>
+
+      <p style="margin-top:15px;">
+        導入時には、配布範囲、固定設定との重複、サーバー停止時の影響、
+        DHCPリレー、貸し出し履歴、不正なDHCPサーバーへの対策を確認します。
+        同じIPアドレスが必要な機器では、固定IPアドレスとDHCP予約を使い分けます。
+      </p>
+
+    </section>
+
+    <!-- ===== 戻る ===== -->
+
+    <div class="back">
+      <a href="index.html">← 用語一覧へ戻る</a>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- ===== フッター ===== -->
+
+<footer>
+  IT学習用サイト
+</footer>
+
+</body>
+</html>
