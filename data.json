@@ -346,5 +346,9 @@
   {
    "term": "DHCP",
    "link": "DHCP.html"
+  },
+  {
+   "term": "Proxy",
+   "link": "Proxy.html"
   }
 ]
