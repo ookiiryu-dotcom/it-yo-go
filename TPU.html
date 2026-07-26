@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TPU</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ===== ヘッダー ===== -->
+
+<header>
+
+  <h1>
+    TPU
+
+    <span style="
+      display:block;
+      font-size:0.55em;
+      font-weight:normal;
+      margin-top:8px;">
+      Tensor Processing Unit
+    </span>
+  </h1>
+
+  <p>
+    <span style="font-size:0.85em;">Googleが機械学習の計算を高速化するために開発した、<br>
+    大規模な行列計算に強い専用プロセッサ</span>
+  </p>
+
+</header>
+
+<!-- ===== メイン ===== -->
+
+<main>
+
+  <div class="container">
+
+    <!-- ===== TPUとは ===== -->
+
+    <section class="card">
+
+      <h2>TPUとは？</h2>
+
+      <p>
+        TPUとは、<strong>Tensor Processing Unit</strong>の略で、
+        Googleが機械学習の処理を高速化するために開発した専用プロセッサです。
+        特定用途向けに設計された集積回路であるASICの一種で、
+        AIで大量に行われる行列計算を効率よく処理します。
+      </p>
+
+      <p style="margin-top:15px;">
+        Tensorは、AIが扱う数値を多次元に並べたデータです。
+        画像、文章、音声などは数値へ変換され、モデル内部では
+        行列の掛け算と足し算を中心とする多数の計算が行われます。
+        TPUは、その計算に重点を置いて設計されています。
+      </p>
+
+      <div class="point-box">
+        <p>
+          TPUはAIそのものではなく、AIモデルの学習や推論に必要な計算を担当するハードウェアです。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== イメージ ===== -->
+
+    <section class="card">
+
+      <h2>まずはイメージで理解する</h2>
+
+      <p>
+        TPUは、大量の掛け算と足し算を同じ流れで処理する専門工場に例えられます。
+        幅広い仕事へ柔軟に対応することよりも、
+        機械学習で繰り返される計算をまとめて進めることを重視しています。
+      </p>
+
+      <p style="margin-top:15px;">
+        例えば画像認識では、入力画像の数値とモデルが持つ重みを掛け合わせ、
+        結果を足し合わせる処理が何度も行われます。
+        TPUは、このような規則的で大規模な計算を並行して進めます。
+      </p>
+
+      <div style="
+        background:#f8f9fa;
+        border:1px solid #ddd;
+        border-radius:12px;
+        padding:25px;
+        margin:25px 0;">
+
+        <div style="
+          display:flex;
+          flex-direction:column;
+          align-items:center;
+          gap:18px;
+          text-align:center;">
+
+          <div style="
+            background:#fff;
+            border:1px solid #ddd;
+            border-radius:10px;
+            padding:14px 18px;
+            width:100%;
+            max-width:560px;
+            line-height:1.8;">
+            画像・文章・音声などを<br>
+            数値の集まりへ変換する
+          </div>
+
+          <div style="font-size:1.4em; color:#666;">↓</div>
+
+          <div style="
+            background:#eaf4ff;
+            border:1px solid #9fc5f8;
+            border-radius:10px;
+            padding:14px 18px;
+            width:100%;
+            max-width:560px;
+            font-weight:bold;
+            line-height:1.8;">
+            TPUで大規模な行列計算を<br>
+            高い処理量で実行する
+          </div>
+
+          <div style="font-size:1.4em; color:#666;">↓</div>
+
+          <div style="
+            background:#eaf7ea;
+            border:1px solid #82c785;
+            border-radius:10px;
+            padding:14px 18px;
+            width:100%;
+            max-width:560px;
+            line-height:1.8;">
+            学習結果や推論結果を<br>
+            ホスト側のシステムへ返す
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="example">
+        <p>
+          TPUが得意なのは、同じ種類の大規模な計算をまとめて処理できる場面です。条件に合わない処理まで常に速くなるわけではありません。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 必要性 ===== -->
+
+    <section class="card">
+
+      <h2>なぜTPUが必要なのか</h2>
+
+      <p>
+        機械学習モデルでは、学習データやモデルが大きくなるほど、
+        行列計算の量も増えます。CPUだけで順番に処理すると時間がかかり、
+        大規模な学習や多数の推論要求へ対応しにくくなります。
+      </p>
+
+      <p style="margin-top:15px;">
+        GPUも多数の計算を並列に実行できますが、AI以外の処理にも使えるように設計されています。
+        TPUは対象を機械学習の計算へ絞り、演算器、メモリ、チップ間通信などを
+        一体として最適化することで、高い処理量を目指します。
+      </p><br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>計算量の増加</h3>
+          大規模モデルでは、学習や推論に<br>
+          膨大な行列計算が必要です。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>処理時間の短縮</h3>
+          同時に多くの演算を進め、<br>
+          計算の待ち時間を減らします。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>大規模化への対応</h3>
+          複数のTPUを接続し、モデルや<br>
+          データを分担して処理できます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>計算効率の向上</h3>
+          機械学習向けの構成により、<br>
+          演算資源の効率的な利用を狙います。
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ===== 仕組み ===== -->
+
+    <section class="card">
+
+      <h2>TPUの基本的な仕組み</h2>
+
+      <p>
+        TPUを使う処理では、プログラム全体をTPUだけで実行するわけではありません。
+        データの準備や制御などはホストとなるコンピューターが担当し、
+        TPUに適した計算をXLAというコンパイラがTPU向けの命令へ変換します。
+      </p>
+
+      <p style="margin-top:15px;">
+        TPU内部では、MXUと呼ばれる行列演算ユニットが中心となります。
+        MXUには多数の積和演算器が格子状に並び、データを隣の演算器へ渡しながら
+        掛け算と足し算を連続して行うシストリックアレイが使われています。
+      </p>
+
+      <div style="
+        background:#f8f9fa;
+        border:1px solid #ddd;
+        border-radius:12px;
+        padding:25px;
+        margin:25px 0;">
+
+        <div style="
+          display:flex;
+          flex-direction:column;
+          align-items:center;
+          gap:14px;
+          text-align:center;">
+
+          <div style="
+            background:#fff;
+            border:1px solid #ddd;
+            border-radius:10px;
+            padding:14px 18px;
+            width:100%;
+            max-width:560px;
+            line-height:1.8;">
+            <strong>1. ホスト</strong><br>
+            データの準備やプログラム全体の<br>制御を担当する
+          </div>
+
+          <div style="font-size:1.4em; color:#666;">↓</div>
+
+          <div style="
+            background:#fff4e5;
+            border:1px solid #f0c36d;
+            border-radius:10px;
+            padding:14px 18px;
+            width:100%;
+            max-width:560px;
+            line-height:1.8;">
+            <strong>2. XLA</strong><br>
+            機械学習の計算をまとめ、<br>TPU向けの命令へ変換する
+          </div>
+
+          <div style="font-size:1.4em; color:#666;">↓</div>
+
+          <div style="
+            background:#eaf4ff;
+            border:1px solid #9fc5f8;
+            border-radius:10px;
+            padding:14px 18px;
+            width:100%;
+            max-width:560px;
+            line-height:1.8;">
+            <strong>3. TPU</strong><br>
+            <div style="font-size: 0.85em;">MXU、ベクトル演算部、メモリなどで<br>計算を実行する</div>
+          </div>
+
+          <div style="font-size:1.4em; color:#666;">↓</div>
+
+          <div style="
+            background:#eaf7ea;
+            border:1px solid #82c785;
+            border-radius:10px;
+            padding:14px 18px;
+            width:100%;
+            max-width:560px;
+            line-height:1.8;">
+            <strong>4. 結果の受け渡し</strong><br>
+            計算結果をホストへ戻し、<br>保存や次の処理へ進める
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="point-box">
+        <p>
+          行列計算中にデータを演算器の間で順番に渡すことで、途中結果をメモリへ何度も出し入れする負担を抑えます。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 用途 ===== -->
+
+    <section class="card">
+
+      <h2>TPUでできること・主な用途</h2>
+
+      <p>
+        TPUは、機械学習モデルを作る学習と、
+        学習済みモデルから結果を得る推論の両方に利用できます。
+        特に、計算の多くを大規模な行列演算が占める処理に向いています。
+      </p>
+
+      <p style="margin-top:15px;">
+        Cloud TPUは、Google Cloud上の計算資源として提供され、
+        JAXやPyTorchなどの機械学習フレームワークから利用できます。
+        対応する構成や利用方法は、TPUの世代とサービスによって異なります。
+      </p><br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>大規模モデルの学習</h3>
+          大量のデータからモデルの重みを<br>
+          更新する計算に利用します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>学習済みモデルの推論</h3>
+          入力データに対する予測や生成を<br>
+          多数まとめて処理します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>画像・文章の処理</h3>
+          画像認識や言語モデルなどの<br>
+          行列計算が多い処理に使われます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>推薦・ランキング</h3>
+          商品や情報の候補を評価し、<br>
+          利用者に合う順番を計算します。
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ===== メリット ===== -->
+
+    <section class="card">
+
+      <h2>TPUを利用するメリット</h2>
+
+      <p>
+        TPUのメリットは、適した機械学習処理で多数の演算器を活用し、
+        大きな計算を高い処理量で実行できることです。
+        ただし、効果はモデル、データの形、使用する精度、台数、最適化によって変わります。
+      </p><br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>高い処理量</h3>
+          大規模な行列の演算を、<br>
+          多数まとめて実行できます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>大規模な並列処理</h3>
+          複数チップを高速に接続し、<br>
+          一つの処理を分担できます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>大容量モデルへの対応</h3>
+          広いメモリ帯域や複数チップを使い、<br>
+          大きなモデルを扱いやすくします。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>専用設計による効率</h3>
+          対象処理を機械学習へ絞り、<br>
+          計算資源の効率的な利用を狙います。
+        </div>
+
+      </div>
+
+      <div class="example">
+        <p>
+          同じAIモデルでも、TPU向けに計算やデータの形を整えた場合と、十分に最適化していない場合では、得られる性能が異なります。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 注意点 ===== -->
+
+    <section class="card">
+
+      <h2>デメリット・注意点・確認ポイント</h2>
+
+      <p>
+        TPUは機械学習向けの専用プロセッサであるため、
+        分岐が多い処理、行列計算以外が中心の処理、高精度演算が必要な処理では、
+        特長を十分に活かせない場合があります。
+      </p>
+
+      <p style="margin-top:15px;">
+        導入時は、単体の演算性能だけで判断せず、
+        モデルがTPUへ対応しているか、データを供給する速度が足りるか、
+        必要な費用と処理時間を含めて実際の処理で検証します。
+      </p><br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>得意な処理が限られる</h3>
+          行列演算が少ない処理では、<br>
+          MXUを十分に活用できません。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>形状による効率低下</h3>
+          行列の大きさが合わない場合、<br>
+          補完処理で無駄が生じます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>動的な処理との相性</h3>
+          データ形状が頻繁に変わる処理は、<br>
+          コンパイル上の制約を受けます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>対応状況の確認</h3>
+          使用する演算、フレームワーク、<br>
+          TPU世代への対応を確認します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>データ供給の速度</h3>
+          保存先やネットワークが遅いと、<br>
+          TPUの待ち時間が増えます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>総費用で比較する</h3>
+          利用料金だけでなく、開発、転送、<br>
+          保存にかかる費用も確認します。
+        </div>
+
+      </div>
+
+      <div class="point-box">
+        <p>
+          CPU、GPU、TPUのどれが最適かは処理内容によって変わるため、実際のモデルで速度、費用、開発のしやすさを比較することが重要です。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 関連技術 ===== -->
+
+    <section class="card">
+
+      <h2>CPU・GPUとの違いと関係</h2>
+
+      <p>
+        CPU、GPU、TPUは、得意な処理と設計の重点が異なります。
+        実際のAIシステムでは一つだけを使うとは限らず、
+        CPUが全体を制御し、GPUやTPUが大規模な計算を担当する構成が一般的です。
+      </p>
+
+      <div class="table-wrap" style="width:100%; overflow-x:auto;">
+
+        <table style="min-width:1000px; width:100%;">
+          <thead>
+            <tr>
+              <th>プロセッサ</th>
+              <th>主な特徴</th>
+              <th>AIでの主な役割</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CPU</td>
+              <td>幅広い処理と複雑な制御へ<br>
+              柔軟に対応します。</td>
+              <td>データ準備、全体制御、小規模な学習や<br>
+              推論などを担当します。</td>
+            </tr>
+            <tr>
+              <td>GPU</td>
+              <td>多数の演算器で並列計算を行い、<br>
+              幅広い計算へ対応します。</td>
+              <td>AIの学習・推論に加え、画像処理や<br>
+              科学技術計算などにも使われます。</td>
+            </tr>
+            <tr>
+              <td>TPU</td>
+              <td>機械学習のテンソル計算へ重点を置いた、<br>
+              Googleの専用プロセッサです。</td>
+              <td>行列計算が中心となる大規模な学習や<br>
+              推論を高速化します。</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <div class="example">
+        <p>
+          GPUにも行列計算を高速化する専用機能があるため、「GPUは画像専用、TPUはAI専用」と単純に分けるのは正確ではありません。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== まとめ ===== -->
+
+    <section class="card" style="border-left:6px solid #0d6efd;">
+
+      <h2>まとめ</h2>
+
+      <p>
+        TPUは、Googleが機械学習の処理を高速化するために開発した専用プロセッサです。
+        MXUのシストリックアレイを中心に、大規模な行列の掛け算と足し算を効率よく実行します。
+      </p>
+
+      <p style="margin-top:15px;">
+        AIモデルの学習と推論に利用でき、特に行列計算が多い大規模な処理で特長を活かせます。
+        一方で、分岐や行列以外の計算が多い処理、動的に形が変わるデータなどは適さない場合があります。
+      </p>
+
+      <p style="margin-top:15px;">
+        TPUがCPUやGPUより常に速いわけではありません。
+        使用するモデル、対応する演算、データ供給、費用、開発環境を確認し、
+        実際の処理で比較して選ぶことが重要です。
+      </p>
+
+    </section>
+
+    <!-- ===== 戻る ===== -->
+
+    <div class="back">
+      <a href="index.html">← 用語一覧へ戻る</a>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- ===== フッター ===== -->
+
+<footer>
+  IT学習用サイト
+</footer>
+
+</body>
+</html>
