@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SSEとは？仕組みとSASEとの違い</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ===== ヘッダー ===== -->
+
+<header>
+
+  <h1>
+    SSE
+
+    <span style="
+      display:block;
+      font-size:0.55em;
+      font-weight:normal;
+      margin-top:8px;">
+      Security Service Edge
+    </span>
+  </h1>
+
+  <p>
+    <span style="font-size:0.85em;">Web、クラウドサービス、社内システムへのアクセスを、<br>
+    主にクラウド上のセキュリティ機能で保護する考え方</span>
+  </p>
+
+</header>
+
+<!-- ===== メイン ===== -->
+
+<main>
+
+  <div class="container">
+
+    <!-- ===== SSEとは ===== -->
+
+    <section class="card">
+
+      <h2>SSEとは？</h2>
+
+      <p>
+        SSEとは、<strong>Security Service Edge</strong>の略で、
+        利用者がWeb、クラウドサービス、社内の業務システムへアクセスするときに、
+        必要なセキュリティ機能を主にクラウドからまとめて提供する考え方です。
+      </p>
+
+      <p style="margin-top:15px;">
+        SSEの中心には、Webアクセスを保護するSWG、クラウドサービスの利用を管理するCASB、
+        利用者や端末を確認して非公開アプリへの接続を制御するZTNAがあります。
+        製品によっては、DLPやFWaaSなどの機能も統合されます。
+      </p>
+
+      <div class="point-box">
+        <p>
+          SSEは一つの機器や単独機能の名前ではなく、場所に依存せずアクセスを検査・制御する複数のセキュリティ機能を統合した考え方です。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== イメージ ===== -->
+
+    <section class="card">
+
+      <h2>まずはイメージで理解する</h2>
+
+      <p>
+        SSEは、会社の外にも設置された共通のセキュリティ検査所に例えられます。
+        自宅、外出先、オフィスなど、利用者がいる場所にかかわらず、
+        対象の通信を検査所へ送り、同じ方針で許可や遮断を判断します。
+      </p>
+
+      <p style="margin-top:15px;">
+        従来は、通信を社内へ戻して社内のセキュリティ機器で検査する構成が多くありました。
+        SSEでは、端末や拠点を近くのクラウド上の接続点へつなぎ、
+        インターネットや業務システムへのアクセスを保護します。
+      </p>
+
+      <div style="
+        background:#f8f9fa;
+        border:1px solid #ddd;
+        border-radius:12px;
+        padding:25px;
+        margin:25px 0;
+        overflow-x:auto;">
+
+        <div style="
+          min-width:780px;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          gap:16px;
+          text-align:center;">
+
+          <div style="
+            background:#fff4e5;
+            border:1px solid #f0c36d;
+            border-radius:10px;
+            padding:18px;
+            width:210px;">
+            オフィス<br>
+            自宅・外出先<br>
+            各拠点
+          </div>
+
+          <div style="font-size:1.5em; color:#666;">
+            →
+          </div>
+
+          <div style="
+            background:#eaf4ff;
+            border:2px solid #6ea8fe;
+            border-radius:10px;
+            padding:18px;
+            width:210px;
+            font-weight:bold;">
+            SSE<br>
+            利用者と端末を確認<br>
+            通信を検査・制御
+          </div>
+
+          <div style="font-size:1.5em; color:#666;">
+            →
+          </div>
+
+          <div style="
+            background:#eaf7ea;
+            border:1px solid #82c785;
+            border-radius:10px;
+            padding:18px;
+            width:210px;">
+            Web<br>
+            クラウドサービス<br>
+            社内の業務システム
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="example">
+        <p>
+          例えば、自宅から業務用クラウドへ接続する場合も、危険なサイトの遮断や情報持ち出しの制御などを会社の方針に合わせて適用できます。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 必要性 ===== -->
+
+    <section class="card">
+
+      <h2>なぜSSEが必要なのか</h2>
+
+      <p>
+        クラウドサービスやテレワークが広がり、利用者、端末、接続先は社内ネットワークの外にも分散しています。
+        すべての通信を社内へ戻して検査する方法では、遠回りによる遅延や設備負担が生じる場合があります。
+      </p>
+
+      <p style="margin-top:15px;">
+        また、Web、クラウドサービス、社内アプリを別々の製品で守ると、
+        管理画面やルール、ログが分かれやすくなります。
+        SSEは、分散した利用環境へ一貫したセキュリティ方針を適用するために使われます。
+      </p><br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>利用場所が分散する</h3>
+          オフィス以外からの接続にも、<br>
+          共通の保護が必要です。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>接続先がクラウドへ移る</h3>
+          SaaSやインターネットへ直接向かう<br>
+          通信が増えています。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>境界だけでは守りにくい</h3>
+          社内にいるかではなく、利用者や<br>
+          端末ごとの確認が重要です。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>管理が分かれやすい</h3>
+          個別製品のルールやログを<br>
+          横断して管理する必要があります。
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ===== 構成要素 ===== -->
+
+    <section class="card">
+
+      <h2>SSEの主な構成要素</h2>
+
+      <p>
+        SSEの中心として一般に挙げられるのは、SWG、CASB、ZTNAです。
+        それぞれが異なる接続先やリスクを担当し、連携してアクセスを保護します。
+      </p>
+
+      <p style="margin-top:15px;">
+        DLPは複数の機能を横断してデータを保護する役割を持ちます。
+        FWaaS、DNSセキュリティ、ブラウザ分離などを含むかは、
+        製品や資料の定義によって異なります。
+      </p><br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>SWG</h3>
+          Web通信を検査し、危険なサイトや<br>
+          不正なダウンロードを遮断します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>CASB</h3>
+          クラウドサービスの利用を把握し、<br>
+          操作やデータを制御します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>ZTNA</h3>
+          利用者や端末を確認し、許可した<br>
+          アプリだけへ接続させます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>DLP</h3>
+          機密情報を識別し、送信や共有による<br>
+          情報漏えいを防ぎます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>追加される機能</h3>
+          FWaaSやDNSセキュリティなどが<br>
+          統合される場合があります。
+        </div>
+
+      </div>
+
+      <div class="point-box">
+        <p>
+          SWG・CASB・ZTNAを中心に理解し、DLPは横断的なデータ保護、その他の機能は製品によって範囲が異なるものとして確認すると整理しやすくなります。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 仕組みと範囲 ===== -->
+
+    <section class="card">
+
+      <h2>基本的な仕組みと保護範囲</h2>
+
+      <p>
+        SSEを利用するには、端末用クライアント、プロキシ設定、拠点からのトンネルなどを使い、
+        保護したい通信をSSEの接続点へ送ります。
+        SSEは利用者、端末状態、接続先、操作内容などを確認し、設定された方針に従って処理します。
+      </p>
+
+      <p style="margin-top:15px;">
+        社内にある非公開アプリへ接続する場合は、社内側にZTNA用コネクタを設置する方式があります。
+        一方、同じLAN内で直接行われる通信や、SSEへ転送していない拠点間通信まで、
+        自動的に検査されるわけではありません。
+      </p>
+
+      <div class="table-wrap" style="width:100%; overflow-x:auto;">
+
+        <table style="min-width:1000px; width:100%;">
+          <thead>
+            <tr>
+              <th>通信・対象</th>
+              <th>主な接続方法</th>
+              <th>一般的な保護範囲</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>端末からWeb・SaaS</td>
+              <td>端末用クライアントや<br>
+              プロキシ設定で転送します。</td>
+              <td>SSEを経由する通信を<br>
+              SWGやCASBなどで保護できます。</td>
+            </tr>
+            <tr>
+              <td>端末から社内アプリ</td>
+              <td>端末用クライアントと<br>
+              ZTNA用コネクタを使います。</td>
+              <td>利用者や端末を確認し、許可した<br>
+              アプリへの接続を制御できます。</td>
+            </tr>
+            <tr>
+              <td>拠点からインターネット</td>
+              <td>拠点ルーターなどから<br>
+              トンネルで転送します。</td>
+              <td>SSEへ送った拠点の通信を<br>
+              共通の方針で保護できます。</td>
+            </tr>
+            <tr>
+              <td>同一LAN内・サーバー間</td>
+              <td>SSEを通らず直接通信する<br>
+              構成が一般的です。</td>
+              <td>通常は自動的な保護対象ではなく、<br>
+              別の対策が必要です。</td>
+            </tr>
+            <tr>
+              <td>クラウド上の保存データ</td>
+              <td>CASBがクラウドサービスの<br>
+              APIと連携する方式があります。</td>
+              <td>通信を通過させず、保存済みデータや<br>
+              設定を調査できる場合があります。</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <div class="example">
+        <p>
+          SSEを導入しても、同じ社内LANにある端末同士の直接通信は通常そのままです。保護対象は、どの通信をどの方法でSSEへ転送するかによって決まります。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== できることとメリット ===== -->
+
+    <section class="card">
+
+      <h2>SSEでできることとメリット</h2>
+
+      <p>
+        SSEは、Web、クラウドサービス、非公開アプリへのアクセスを一つの考え方で保護し、
+        利用場所が変わっても組織のルールを適用しやすくします。
+        利用者には必要な接続だけを許可し、危険な通信や情報持ち出しを制御できます。
+      </p>
+
+      <p style="margin-top:15px;">
+        既存のWANやSD-WANを残し、セキュリティ機能から段階的に導入できることも利点です。
+        ただし、導入期間や費用、管理の統合範囲は製品と既存環境によって異なります。
+      </p><br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>共通ルールを適用できる</h3>
+          場所が異なる利用者や端末にも、<br>
+          同じ方針を適用しやすくなります。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>必要なアプリだけ許可する</h3>
+          ネットワーク全体ではなく、利用者に<br>
+          必要な接続だけを許可できます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>クラウド利用を把握する</h3>
+          利用中のサービスや操作を確認し、<br>
+          危険な利用を制御できます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>情報をまとめて確認する</h3>
+          複数機能のポリシーやログを<br>
+          統合して管理しやすくなります。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>段階的に導入できる</h3>
+          既存ネットワークを利用しながら、<br>
+          対象や機能を広げられます。
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ===== 注意点 ===== -->
+
+    <section class="card">
+
+      <h2>注意点と実務上の確認ポイント</h2>
+
+      <p>
+        SSEは、設定すればすべての通信を自動的に守る仕組みではありません。
+        保護対象、転送方法、除外通信、利用者と端末の識別方法を設計し、
+        SSEを通らない通信には別の対策を用意する必要があります。
+      </p>
+
+      <p style="margin-top:15px;">
+        また、クラウド上の接続点を経由するため、遅延、障害時の動作、接続点の配置も重要です。
+        暗号化通信を検査する場合は、証明書の配布、対応しないアプリ、
+        復号したデータの保護やプライバシーにも配慮します。
+      </p><br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>保護対象と経路</h3>
+          端末、拠点、アプリごとに、どの通信を<br>
+          SSEへ送るか確認します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>性能と接続点</h3>
+          利用地域からの遅延、帯域、接続点の<br>
+          混雑や冗長性を確認します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>暗号化通信の検査</h3>
+          証明書配布、除外対象、復号データの<br>
+          取り扱いを決めます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>機能と連携範囲</h3>
+          必要なSWG、CASB、ZTNA、DLPや<br>
+          既存製品との連携を確認します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>障害時の動作</h3>
+          接続を止めるか迂回させるか、<br>
+          業務継続の方針を決めます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>運用とログ</h3>
+          ルール変更、例外、監視、保存期間、<br>
+          問い合わせ体制を確認します。
+        </div>
+
+      </div>
+
+      <div class="example">
+        <p>
+          導入前には、利用者数だけでなく、拠点数、通信量、対象アプリ、必要機能、ログ保存、サポート範囲を整理し、実際の通信で性能と互換性を確認します。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 関連技術 ===== -->
+
+    <section class="card">
+
+      <h2>SASE・SD-WAN・VPNとの関係</h2>
+
+      <p>
+        SSEは、SASEを構成するセキュリティ側に焦点を当てた考え方です。
+        SASEはSSEに加えて、SD-WANなどのネットワーク機能も組み合わせ、
+        接続とセキュリティを一体として扱います。
+      </p>
+
+      <p style="margin-top:15px;">
+        SSEだけを導入する場合は、既存のWANやVPN、SD-WANをそのまま利用できます。
+        一方、複数回線からの経路選択、拠点間通信の最適化、
+        ネットワークとセキュリティの一体管理は別途検討が必要です。
+      </p>
+
+      <div class="table-wrap" style="width:100%; overflow-x:auto;">
+
+        <table style="min-width:1000px; width:100%;">
+          <thead>
+            <tr>
+              <th>用語</th>
+              <th>主な役割</th>
+              <th>SSEとの関係</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SSE</td>
+              <td>Web、SaaS、非公開アプリへの<br>
+              アクセスを保護します。</td>
+              <td>クラウド型のセキュリティ機能を<br>
+              中心に統合します。</td>
+            </tr>
+            <tr>
+              <td>SASE</td>
+              <td>ネットワーク機能とセキュリティ機能を<br>
+              一体として提供する考え方です。</td>
+              <td>SSEはSASEのセキュリティ側に<br>
+              位置付けられます。</td>
+            </tr>
+            <tr>
+              <td>SD-WAN</td>
+              <td>複数拠点や回線をまとめて制御し、<br>
+              通信経路を最適化します。</td>
+              <td>SSEと組み合わせることで、<br>
+              SASEの構成へ近づきます。</td>
+            </tr>
+            <tr>
+              <td>VPN</td>
+              <td>端末や拠点を社内ネットワークへ<br>
+              暗号化して接続します。</td>
+              <td>既存VPNと併用したり、用途の一部を<br>
+              ZTNAへ置き換えたりできます。</td>
+            </tr>
+            <tr>
+              <td>ゼロトラスト</td>
+              <td>場所だけで信頼せず、アクセスごとに<br>
+              利用者や端末などを確認します。</td>
+              <td>SSEやZTNAを設計するときの<br>
+              基本的な考え方になります。</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <div class="point-box">
+        <p>
+          「SASEはSSEにSD-WANを足したもの」という表現は全体像をつかむための簡略化です。実際の機能範囲や統合方法は製品によって異なります。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== まとめ ===== -->
+
+    <section class="card" style="border-left:6px solid #0d6efd;">
+
+      <h2>まとめ</h2>
+
+      <p>
+        SSEとは、Web、クラウドサービス、社内の業務システムへのアクセスを、
+        主にクラウド上のセキュリティ機能でまとめて保護する考え方です。
+        SWG、CASB、ZTNAを中心に、DLPなどを組み合わせます。
+      </p>
+
+      <p style="margin-top:15px;">
+        SSEは、利用者や端末の場所にかかわらず共通の方針を適用し、
+        必要なアプリだけへの接続や危険な通信の遮断、クラウド利用の管理を行います。
+        ただし、SSEへ転送していないLAN内通信などは自動的な保護対象になりません。
+      </p>
+
+      <p style="margin-top:15px;">
+        導入時には、対象通信と転送方法、必要機能、性能、暗号化通信の検査、
+        障害時の動作、ログ運用を確認します。
+        経路制御や拠点間通信の最適化が必要な場合は、SD-WANやSASEとの組み合わせを検討します。
+      </p>
+
+    </section>
+
+    <!-- ===== 戻る ===== -->
+
+    <div class="back">
+      <a href="index.html">← 用語一覧へ戻る</a>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- ===== フッター ===== -->
+
+<footer>
+  IT学習用サイト
+</footer>
+
+</body>
+</html>
