@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>サブネットマスク</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ===== ヘッダー ===== -->
+
+<header>
+
+  <h1>
+    サブネットマスク
+
+    <span style="
+      display:block;
+      font-size:0.55em;
+      font-weight:normal;
+      margin-top:8px;">
+      Subnet Mask
+    </span>
+  </h1>
+
+  <p>
+    <span style="font-size:0.85em;">IPv4アドレスをネットワーク部分と端末部分に分け、<br>
+    同じネットワークかどうかを判断するための値</span>
+  </p>
+
+</header>
+
+<!-- ===== メイン ===== -->
+
+<main>
+
+  <div class="container">
+
+    <!-- ===== サブネットマスクとは ===== -->
+
+    <section class="card">
+
+      <h2>サブネットマスクとは？</h2>
+
+      <p>
+        サブネットマスクとは、IPv4アドレスのどこまでが
+        「ネットワーク部分」で、どこからが「端末部分」かを示す32ビットの値です。
+        IPアドレスと組み合わせて使い、同じネットワークに属する相手かどうかを判断します。
+      </p>
+
+      <p style="margin-top:15px;">
+        例えば、IPアドレスが192.168.1.10、サブネットマスクが
+        255.255.255.0の場合、先頭の192.168.1がネットワーク部分、
+        最後の10がそのネットワーク内の端末部分になります。
+      </p>
+
+      <div class="point-box">
+        <p>
+          サブネットマスクはIPアドレスそのものではなく、IPアドレスの区切り位置を示す値です。同じIPアドレスでも、マスクが異なれば属するネットワークの範囲が変わります。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== イメージと必要性 ===== -->
+
+    <section class="card">
+
+      <h2>イメージと、なぜ必要なのか</h2>
+
+      <p>
+        IPアドレスを住所に例えると、ネットワーク部分は町名、
+        端末部分は家の番号です。サブネットマスクは、
+        IPアドレスのどこまでを町名として読むかを示す境界線に当たります。
+      </p>
+
+      <p style="margin-top:15px;">
+        この境界がなければ、端末は相手が同じネットワーク内にいるのか、
+        ルーターの先にいるのかを判断できません。
+        通信を直接届けるか、ルーターへ渡すかを決めるために必要です。
+      </p>
+
+      <div style="
+        background:#f8f9fa;
+        border:1px solid #ddd;
+        border-radius:12px;
+        padding:25px;
+        margin:25px 0;
+        overflow-x:auto;">
+
+        <div style="
+          min-width:780px;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          gap:16px;
+          text-align:center;">
+
+          <div style="
+            background:#fff4e5;
+            border:1px solid #f0c36d;
+            border-radius:10px;
+            padding:18px;
+            width:210px;">
+            IPアドレス<br>
+            192.168.1.10
+          </div>
+
+          <div style="font-size:1.5em; color:#666;">
+            ＋
+          </div>
+
+          <div style="
+            background:#eaf4ff;
+            border:2px solid #6ea8fe;
+            border-radius:10px;
+            padding:18px;
+            width:210px;
+            font-weight:bold;">
+            サブネットマスク<br>
+            255.255.255.0
+          </div>
+
+          <div style="font-size:1.5em; color:#666;">
+            →
+          </div>
+
+          <div style="
+            background:#eaf7ea;
+            border:1px solid #82c785;
+            border-radius:10px;
+            padding:18px;
+            width:210px;">
+            ネットワーク<br>
+            192.168.1.0
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="example">
+        <p>
+          192.168.1.20は同じネットワークとして扱われ、192.168.2.20は別のネットワークとして扱われます。別ネットワークへの通信は、基本的にルーターを経由します。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 表記と読み方 ===== -->
+
+    <section class="card">
+
+      <h2>表記と読み方</h2>
+
+      <p>
+        IPv4アドレスとサブネットマスクは、それぞれ32ビットで構成されます。
+        サブネットマスクを2進数で表したとき、先頭から連続する1がネットワーク部分、
+        続く0が端末部分を示します。
+      </p>
+
+      <p style="margin-top:15px;">
+        255.255.255.0は「/24」とも表せます。
+        /24は、32ビットのうち先頭24ビットがネットワーク部分という意味です。
+        この「/数字」をプレフィックス長と呼びます。
+      </p>
+
+      <div class="table-wrap" style="width:100%; overflow-x:auto;">
+
+        <table style="min-width:1000px; width:100%;">
+          <thead>
+            <tr>
+              <th>プレフィックス長</th>
+              <th>サブネットマスク</th>
+              <th>意味</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>/16</td>
+              <td>255.255.0.0</td>
+              <td>先頭16ビットがネットワーク部分で、<br>
+              残り16ビットが端末部分です。</td>
+            </tr>
+            <tr>
+              <td>/24</td>
+              <td>255.255.255.0</td>
+              <td>先頭24ビットがネットワーク部分で、<br>
+              残り8ビットが端末部分です。</td>
+            </tr>
+            <tr>
+              <td>/25</td>
+              <td>255.255.255.128</td>
+              <td>先頭25ビットがネットワーク部分で、<br>
+              最後の8ビットの途中に境界があります。</td>
+            </tr>
+            <tr>
+              <td>/30</td>
+              <td>255.255.255.252</td>
+              <td>先頭30ビットがネットワーク部分で、<br>
+              一つの範囲に4個のアドレスがあります。</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <div class="point-box">
+        <p>
+          区切り位置はドットの位置とは限りません。/25や/27のように、8ビットの途中でネットワーク部分と端末部分を分けることもできます。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 判断の仕組み ===== -->
+
+    <section class="card">
+
+      <h2>同じネットワークを判断する仕組み</h2>
+
+      <p>
+        端末は、自分と通信相手のIPアドレスに同じサブネットマスクを適用し、
+        それぞれのネットワークアドレスを求めます。
+        その結果が同じなら同一ネットワーク、異なれば別ネットワークと判断します。
+      </p>
+
+      <p style="margin-top:15px;">
+        内部では、IPアドレスとサブネットマスクの各ビットを比較する
+        AND演算が使われます。初心者の段階では、
+        「マスクを重ねてネットワーク部分だけを取り出す」と考えれば十分です。
+      </p>
+
+      <div style="
+        background:#f8f9fa;
+        border:1px solid #ddd;
+        border-radius:12px;
+        padding:25px;
+        margin:25px 0;">
+
+        <div style="
+          display:flex;
+          flex-direction:column;
+          align-items:center;
+          gap:14px;
+          text-align:center;">
+
+          <div style="
+            background:#fff;
+            border:1px solid #ddd;
+            border-radius:10px;
+            padding:14px 18px;
+            width:100%;
+            max-width:560px;
+            line-height:1.8;">
+            <strong>1. 宛先を確認する</strong><br>
+            宛先IPアドレスとマスクから、<br>宛先のネットワークを求める
+          </div>
+
+          <div style="font-size:1.4em; color:#666;">↓</div>
+
+          <div style="
+            background:#eaf4ff;
+            border:1px solid #9fc5f8;
+            border-radius:10px;
+            padding:14px 18px;
+            width:100%;
+            max-width:560px;
+            line-height:1.8;">
+            <strong>2. 自分のネットワークと比較する</strong><br>
+            求めたネットワークアドレスが<br>一致するか確認する
+          </div>
+
+          <div style="font-size:1.4em; color:#666;">↓</div>
+
+          <div style="
+            background:#eaf7ea;
+            border:1px solid #82c785;
+            border-radius:10px;
+            padding:14px 18px;
+            width:100%;
+            max-width:560px;
+            line-height:1.8;">
+            <strong>3. 通信先を決める</strong><br>
+            同じなら直接、別ならルーターなどの<br>次の中継先へ渡す
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="example">
+        <p>
+          192.168.1.10/24から192.168.1.20へは同一ネットワークとして通信します。一方、192.168.2.20へは別ネットワークと判断し、経路設定に従って通常はデフォルトゲートウェイへ送ります。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== アドレスの役割 ===== -->
+
+    <section class="card">
+
+      <h2>範囲内にあるアドレスの役割</h2>
+
+      <p>
+        一つのサブネットには、ネットワーク自体を表すアドレス、
+        端末へ割り当てるアドレス、同じサブネット全体を宛先にする
+        ブロードキャストアドレスがあります。
+      </p>
+
+      <p style="margin-top:15px;">
+        192.168.1.0/24には256個のアドレスがあります。
+        通常は先頭と末尾の2個を端末へ割り当てないため、
+        192.168.1.1から192.168.1.254までの254個を利用できます。
+      </p><br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>ネットワークアドレス</h3>
+          端末部分がすべて0で、<br>
+          サブネット自体を表します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>端末へ割り当てるアドレス</h3>
+          パソコンやルーターなどの<br>
+          インターフェースを識別します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>ブロードキャストアドレス</h3>
+          端末部分がすべて1で、<br>
+          同じサブネット全体を宛先にします。
+        </div>
+
+      </div>
+
+      <div class="table-wrap" style="width:100%; overflow-x:auto;">
+
+        <table style="min-width:1000px; width:100%;">
+          <thead>
+            <tr>
+              <th>サブネット</th>
+              <th>各アドレスの範囲</th>
+              <th>通常の端末割り当て数</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>192.168.1.0/24</td>
+              <td>ネットワーク：192.168.1.0<br>
+              端末：192.168.1.1～192.168.1.254<br>
+              ブロードキャスト：192.168.1.255</td>
+              <td>254個</td>
+            </tr>
+            <tr>
+              <td>192.168.1.0/25</td>
+              <td>ネットワーク：192.168.1.0<br>
+              端末：192.168.1.1～192.168.1.126<br>
+              ブロードキャスト：192.168.1.127</td>
+              <td>126個</td>
+            </tr>
+            <tr>
+              <td>192.168.1.128/25</td>
+              <td>ネットワーク：192.168.1.128<br>
+              端末：192.168.1.129～192.168.1.254<br>
+              ブロードキャスト：192.168.1.255</td>
+              <td>126個</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <div class="point-box">
+        <p>
+          「全アドレス数から常に2個を引く」には例外があります。機器間を1対1で結ぶIPv4の/31や、1個のアドレスだけを示す/32は、通常の端末用サブネットとは扱いが異なります。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== できることとメリット ===== -->
+
+    <section class="card">
+
+      <h2>できることとメリット</h2>
+
+      <p>
+        サブネットマスクを使うと、一つのIPv4アドレス空間を
+        必要な大きさのネットワークへ分割できます。
+        部署、用途、拠点などに合わせてアドレス範囲を設計しやすくなります。
+      </p>
+
+      <p style="margin-top:15px;">
+        分割したネットワーク間の通信をルーターへ集めれば、
+        通信経路やアクセス制御を管理しやすくなります。
+        ただし、サブネットマスク自体に通信を許可・拒否する機能はありません。
+      </p><br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>規模に合わせて分割する</h3>
+          必要な端末数に応じて、<br>
+          サブネットの大きさを選べます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>アドレスを整理する</h3>
+          部署や用途ごとに範囲を分け、<br>
+          管理しやすくできます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>ブロードキャストを区切る</h3>
+          同じ範囲全体へ届く通信を、<br>
+          サブネット内に限定できます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>経路をまとめる</h3>
+          連続するアドレス範囲を単位に、<br>
+          ルーターへ経路を設定できます。
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ===== 注意点 ===== -->
+
+    <section class="card">
+
+      <h2>注意点と実務上の確認ポイント</h2>
+
+      <p>
+        IPアドレスが正しくても、サブネットマスクが誤っていると、
+        本来はルーターへ送る相手を同じネットワークと判断したり、
+        直接通信できる相手を別ネットワークと判断したりします。
+        その結果、一部の宛先だけ通信できないことがあります。
+      </p>
+
+      <p style="margin-top:15px;">
+        設計時は必要な端末数だけでなく、将来の増加、ルーターへ割り当てるアドレス、
+        DHCPの配布範囲、固定IPアドレスとの重複も確認します。
+        変更時は同じサブネット内の機器とルーター側の設定をそろえる必要があります。
+      </p><br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>設定値をそろえる</h3>
+          IPアドレス、マスク、ゲートウェイを<br>
+          一組として確認します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>利用可能範囲を確認する</h3>
+          ネットワークとブロードキャストを<br>
+          端末へ誤って割り当てないようにします。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>必要数に余裕を持たせる</h3>
+          現在の端末だけでなく、増設分や<br>
+          機器用のアドレスも見込みます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>DHCPとの重複を避ける</h3>
+          自動配布する範囲と固定設定する<br>
+          アドレスを重ねないようにします。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>セキュリティと混同しない</h3>
+          分割だけで通信は遮断されないため、<br>
+          ルーターやファイアウォールで制御します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>変更範囲を把握する</h3>
+          端末、DHCP、ルーター、監視などの<br>
+          関連設定を事前に確認します。
+        </div>
+
+      </div>
+
+      <div class="example">
+        <p>
+          同じ192.168.1.10でも、/24なら192.168.1.200を同一ネットワークと判断しますが、/25なら別ネットワークと判断します。末尾の数字だけでは判断できません。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 関連技術 ===== -->
+
+    <section class="card">
+
+      <h2>関連用語との違いや関係</h2>
+
+      <p>
+        ネットワーク設定では、IPアドレス、プレフィックス長、
+        デフォルトゲートウェイなどが一緒に表示されます。
+        それぞれの役割を分けて理解すると、設定ミスを見つけやすくなります。
+      </p>
+
+      <div class="table-wrap" style="width:100%; overflow-x:auto;">
+
+        <table style="min-width:1000px; width:100%;">
+          <thead>
+            <tr>
+              <th>関連用語</th>
+              <th>主な役割</th>
+              <th>サブネットマスクとの関係</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>IPアドレス</td>
+              <td>ネットワーク上の機器や<br>
+              インターフェースを識別します。</td>
+              <td>マスクと組み合わせて、所属する<br>
+              ネットワークと端末番号を判断します。</td>
+            </tr>
+            <tr>
+              <td>プレフィックス長</td>
+              <td>/24のように、ネットワーク部分の<br>
+              ビット数を表します。</td>
+              <td>IPv4では、サブネットマスクと同じ<br>
+              境界を別の形式で表せます。</td>
+            </tr>
+            <tr>
+              <td>デフォルトゲートウェイ</td>
+              <td>経路が個別に決まっていない<br>
+              別ネットワークへの中継先です。</td>
+              <td>マスクで別ネットワークと判断した後、<br>
+              通常はこの中継先へ通信を渡します。</td>
+            </tr>
+            <tr>
+              <td>VLAN</td>
+              <td>スイッチ上のネットワークを<br>
+              論理的に分割する技術です。</td>
+              <td>通常はVLANごとに異なるサブネットを<br>
+              割り当てますが、両者は別の仕組みです。</td>
+            </tr>
+            <tr>
+              <td>IPv6のプレフィックス</td>
+              <td>IPv6アドレスのネットワーク部分を<br>
+              /64などの長さで表します。</td>
+              <td>IPv6では、255.255.255.0のような<br>
+              ドット区切りのマスクは使いません。</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <div class="point-box">
+        <p>
+          サブネットマスクは主にIPv4で使う表現です。現在の設定画面では、IPv4でも255.255.255.0ではなく/24のようなプレフィックス長だけを表示する場合があります。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== まとめ ===== -->
+
+    <section class="card" style="border-left:6px solid #0d6efd;">
+
+      <h2>まとめ</h2>
+
+      <p>
+        サブネットマスクとは、IPv4アドレスをネットワーク部分と端末部分に分ける値です。
+        端末はIPアドレスとマスクからネットワークアドレスを求め、
+        相手が同じネットワークかどうかを判断します。
+      </p>
+
+      <p style="margin-top:15px;">
+        255.255.255.0は/24と表せ、境界はドットの位置に限りません。
+        /25のように途中で区切ることで、一つのアドレス範囲を
+        より小さなサブネットへ分割できます。
+      </p>
+
+      <p style="margin-top:15px;">
+        設定時は、利用可能なアドレス範囲、デフォルトゲートウェイ、
+        DHCP、ルーター側の設定をまとめて確認します。
+        サブネットの分割だけでは通信を遮断できないため、
+        必要に応じてルーターやファイアウォールで制御します。
+      </p>
+
+    </section>
+
+    <!-- ===== 戻る ===== -->
+
+    <div class="back">
+      <a href="index.html">← 用語一覧へ戻る</a>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- ===== フッター ===== -->
+
+<footer>
+  IT学習用サイト
+</footer>
+
+</body>
+</html>
