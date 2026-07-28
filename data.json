@@ -362,5 +362,9 @@
   {
    "term": "SSE",
    "link": "SSE.html"
+  },
+  {
+   "term": "サブネットマスク",
+   "link": "Subnet-Mask.html"
   }
 ]
