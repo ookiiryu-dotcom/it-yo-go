@@ -358,5 +358,9 @@
   {
    "term": "SASE",
    "link": "SASE.html"
+  },
+  {
+   "term": "SSE",
+   "link": "SSE.html"
   }
 ]
