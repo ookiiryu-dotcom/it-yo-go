@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ストレージ</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ===== ヘッダー ===== -->
+
+<header>
+
+  <h1>
+    ストレージ
+
+    <span style="
+      display:block;
+      font-size:0.55em;
+      font-weight:normal;
+      margin-top:8px;">
+      Storage
+    </span>
+  </h1>
+
+  <p>
+    <span style="font-size:0.85em;">写真、文書、アプリ、システムなどのデータを記録し、<br>
+    必要なときに読み出せるように保存する装置や仕組み</span>
+  </p>
+
+</header>
+
+<!-- ===== メイン ===== -->
+
+<main>
+
+  <div class="container">
+
+    <!-- ===== ストレージとは ===== -->
+
+    <section class="card">
+
+      <h2>ストレージとは？</h2>
+
+      <p>
+        ストレージとは、写真、動画、文書、アプリ、OSなどのデータを記録し、
+        必要なときに読み出せるように保存する装置や仕組みです。
+        パソコンのSSDやHDDだけでなく、USBメモリ、NAS、
+        クラウドストレージなども広い意味で含まれます。
+      </p>
+
+      <p style="margin-top:15px;">
+        メモリ（RAM）が処理中のデータを一時的に置く場所であるのに対し、
+        ストレージは電源を切った後もデータを保持するために使われます。
+        そのため、保存容量を表す「128GB」や「1TB」などの表示は、
+        通常はストレージへ保存できるデータ量の目安です。
+      </p>
+
+      <div class="point-box">
+        <p>
+          ストレージは「データをしまい、後で取り出す場所」です。メモリとは役割が異なり、保存しただけで自動的にバックアップになるわけでもありません。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== イメージ ===== -->
+
+    <section class="card">
+
+      <h2>まずはイメージで理解する</h2>
+
+      <p>
+        コンピューターを仕事場に例えると、CPUは作業する人、
+        メモリは作業中の資料を広げる机、ストレージは資料を保管する本棚や倉庫です。
+      </p>
+
+      <p style="margin-top:15px;">
+        作業を始めるときはストレージから必要なデータをメモリへ読み込み、
+        作業結果を残すときはストレージへ書き戻します。
+        どれか一つで他の役割を完全に代用できるわけではありません。
+      </p>
+
+      <div style="
+        background:#f8f9fa;
+        border:1px solid #ddd;
+        border-radius:12px;
+        padding:25px;
+        margin:25px 0;
+        overflow-x:auto;">
+
+        <div style="
+          min-width:780px;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          gap:16px;
+          text-align:center;">
+
+          <div style="
+            background:#fff4e5;
+            border:1px solid #f0c36d;
+            border-radius:10px;
+            padding:18px;
+            width:210px;">
+            ストレージ<br>
+            本棚・倉庫<br>
+            データを保存
+          </div>
+
+          <div style="font-size:1.5em; color:#666;">
+            ⇄
+          </div>
+
+          <div style="
+            background:#eaf4ff;
+            border:2px solid #6ea8fe;
+            border-radius:10px;
+            padding:18px;
+            width:210px;
+            font-weight:bold;">
+            メモリ<br>
+            作業中の机<br>
+            データを一時保持
+          </div>
+
+          <div style="font-size:1.5em; color:#666;">
+            ⇄
+          </div>
+
+          <div style="
+            background:#eaf7ea;
+            border:1px solid #82c785;
+            border-radius:10px;
+            padding:18px;
+            width:210px;">
+            CPU<br>
+            作業する人<br>
+            データを処理
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="example">
+        <p>
+          画像編集アプリを開くと、アプリや画像がストレージからメモリへ読み込まれ、CPUが処理します。保存操作をすると、編集結果がストレージへ書き込まれます。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 必要性 ===== -->
+
+    <section class="card">
+
+      <h2>なぜストレージが必要なのか</h2>
+
+      <p>
+        コンピューターは、電源を切った後もOS、アプリ、設定、作成したデータを残し、
+        次回の起動時に再び利用できる必要があります。
+        ストレージがなければ、必要なデータを利用のたびに用意し直さなければなりません。
+      </p>
+
+      <p style="margin-top:15px;">
+        また、データ量や利用者が増えると、一台の端末だけでは管理しにくくなります。
+        用途に合ったストレージを使うことで、データの保管、共有、持ち運び、
+        復旧に備えたコピーなどを行えます。
+      </p>
+
+      <br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>データを残す</h3>
+          電源を切った後も、文書や写真、<br>
+          設定などを保持します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>繰り返し利用する</h3>
+          OSやアプリを保存し、次回も<br>
+          同じ環境を利用できます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>多くのデータを管理する</h3>
+          大容量のファイルを整理して保存し、<br>
+          必要なデータを読み出します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>共有や復旧に備える</h3>
+          複数人での利用や、別の場所への<br>
+          コピーに使えます。
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ===== 仕組み ===== -->
+
+    <section class="card">
+
+      <h2>データを保存・読み出しする仕組み</h2>
+
+      <p>
+        一般的なパソコンでは、アプリから保存の指示を受けると、
+        OSがファイル名や保存場所を管理し、ストレージへデータを書き込みます。
+        読み出すときは、その位置を探してデータをメモリへ渡します。
+      </p>
+
+      <p style="margin-top:15px;">
+        ファイルやフォルダーを整理する規則をファイルシステムと呼びます。
+        実際の記録方法は、HDDの磁気記録、SSDのフラッシュメモリなどで異なりますが、
+        利用者は通常、ファイルとして共通の操作を行えます。
+      </p>
+
+      <div style="
+        background:#f8f9fa;
+        border:1px solid #ddd;
+        border-radius:12px;
+        padding:25px;
+        margin:25px 0;">
+
+        <div style="
+          display:flex;
+          flex-direction:column;
+          align-items:center;
+          gap:14px;
+          text-align:center;">
+
+          <div style="
+            background:#fff;
+            border:1px solid #ddd;
+            border-radius:10px;
+            padding:14px 18px;
+            width:100%;
+            max-width:560px;
+            line-height:1.8;">
+            <strong>1. 保存を指示する</strong><br>
+            アプリからOSへデータと保存先を伝える
+          </div>
+
+          <div style="font-size:1.4em; color:#666;">↓</div>
+
+          <div style="
+            background:#eaf4ff;
+            border:1px solid #9fc5f8;
+            border-radius:10px;
+            padding:14px 18px;
+            width:100%;
+            max-width:560px;
+            line-height:1.8;">
+            <strong>2. 保存場所を管理する</strong><br>
+            ファイルシステムが名前や位置を整理する
+          </div>
+
+          <div style="font-size:1.4em; color:#666;">↓</div>
+
+          <div style="
+            background:#fff4e5;
+            border:1px solid #f0c36d;
+            border-radius:10px;
+            padding:14px 18px;
+            width:100%;
+            max-width:560px;
+            line-height:1.8;">
+            <strong>3. データを記録する</strong><br>
+            装置がデータを細かな領域へ書き込む
+          </div>
+
+          <div style="font-size:1.4em; color:#666;">↓</div>
+
+          <div style="
+            background:#eaf7ea;
+            border:1px solid #82c785;
+            border-radius:10px;
+            padding:14px 18px;
+            width:100%;
+            max-width:560px;
+            line-height:1.8;">
+            <strong>4. 必要なときに読み出す</strong><br>
+            指定されたデータをメモリへ渡す
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="point-box">
+        <p>
+          画面上で一つに見えるファイルでも、ストレージ内部では複数の領域へ分かれて記録されることがあります。OSや装置が位置を管理するため、利用者は通常その違いを意識せずに使えます。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 種類 ===== -->
+
+    <section class="card">
+
+      <h2>ストレージの種類と利用形態</h2>
+
+      <p>
+        ストレージを理解するときは、「何に記録するか」と
+        「どこに置き、どのように接続して使うか」を分けて考えます。
+        HDDやSSDは記録装置の種類、NASやクラウドは主に利用形態を表します。
+      </p>
+
+      <br>
+
+      <h3>記録媒体・装置の主な種類</h3>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>HDD</h3>
+          磁気ディスクへ記録します。<br>
+          大容量を比較的安く用意できます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>SSD</h3>
+          フラッシュメモリへ記録します。<br>
+          高速で、動作中の衝撃にも比較的強い方式です。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>USBメモリ・SDカード</h3>
+          フラッシュメモリを使い、<br>
+          小型で持ち運びやすい媒体です。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>光学ディスク</h3>
+          レーザーでデータを読み取り、<br>
+          種類によっては書き込みも行います。
+        </div>
+
+      </div>
+
+      <br>
+
+      <h3>接続・利用形態の主な種類</h3>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>内蔵ストレージ</h3>
+          パソコンやスマートフォンの内部にあり、<br>
+          OSやアプリ、個人データを保存します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>外付け・リムーバブル</h3>
+          USBなどで接続または取り外しでき、<br>
+          追加保存や持ち運びに使います。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>NAS</h3>
+          ネットワークへ接続して、複数の端末から<br>
+          ファイルを利用できる装置です。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>クラウドストレージ</h3>
+          事業者が管理する保存領域を、<br>
+          ネットワーク経由で利用するサービスです。
+        </div>
+
+      </div>
+
+      <div class="point-box">
+        <p>
+          NASの内部でもHDDやSSDが使われます。クラウドストレージにも物理的な保存装置があるため、NASやクラウドをHDD・SSDと同じ分類として比べないことが重要です。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 用途 ===== -->
+
+    <section class="card">
+
+      <h2>ストレージの主な用途</h2>
+
+      <p>
+        ストレージは、端末を動かすためのデータから、
+        個人や組織が作成するデータまで幅広く保存します。
+        用途によって、必要な容量、速度、共有方法、保管期間が異なります。
+      </p>
+
+      <br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>OS・アプリの保存</h3>
+          端末の起動に必要なOSや、<br>
+          利用するアプリを保存します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>個人データの保存</h3>
+          写真、動画、文書、音楽などを<br>
+          端末や外付け装置へ保存します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>組織内での共有</h3>
+          NASなどを使い、複数の利用者が<br>
+          同じファイルへアクセスします。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>システムデータの保存</h3>
+          データベース、仮想マシン、ログなどを<br>
+          用途に合う方式で保存します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>持ち運び・受け渡し</h3>
+          USBメモリなどへ保存し、<br>
+          端末間でデータを移動します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>バックアップ・保管</h3>
+          復旧用のコピーや、長期保存する<br>
+          データの置き場所に使います。
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ===== メリット ===== -->
+
+    <section class="card">
+
+      <h2>ストレージを使うメリット</h2>
+
+      <p>
+        ストレージを使うことで、データを継続的に利用し、
+        必要な量や使い方に合わせて保管場所を選べます。
+        得られる効果は、装置やサービスの種類と構成によって異なります。
+      </p>
+
+      <br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>電源を切っても保持できる</h3>
+          作成したデータや設定を残し、<br>
+          次回も利用できます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>大容量を確保できる</h3>
+          メモリより大きな保存領域を、<br>
+          用途に合わせて用意できます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>整理して再利用できる</h3>
+          ファイルやフォルダーとして管理し、<br>
+          必要なデータを探して使えます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>共有や拡張ができる</h3>
+          ネットワークで共有したり、外付け装置で<br>
+          容量を追加したりできます。
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ===== 注意点 ===== -->
+
+    <section class="card">
+
+      <h2>注意点と実務上の確認ポイント</h2>
+
+      <p>
+        ストレージは故障、経年劣化、誤操作、盗難、攻撃などにより、
+        データを失う可能性があります。
+        重要なデータは一つの保存先だけに置かず、復旧方法まで準備します。
+      </p>
+
+      <p style="margin-top:15px;">
+        また、電源を切っても通常はデータを保持しますが、永久に残るわけではありません。
+        媒体の劣化や故障、高温、長期間の無通電なども考慮し、
+        長期保管するデータは定期的に状態を確認して別の媒体へ移します。
+      </p>
+
+      <div class="table-wrap" style="width:100%; overflow-x:auto;">
+
+        <table style="min-width:1000px; width:100%;">
+          <thead>
+            <tr>
+              <th>考え方</th>
+              <th>主な目的・働き</th>
+              <th>注意点</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>通常のデータ保管</td>
+              <td>日常的に使う元のデータを、<br>
+              ストレージへ保存します。</td>
+              <td>保存先が故障すると、<br>
+              データを失う可能性があります。</td>
+            </tr>
+            <tr>
+              <td>二重化</td>
+              <td>同じデータを複数の装置で持ち、<br>
+              一部の故障時も利用を続けやすくします。</td>
+              <td>誤削除や破損も反映される場合があり、<br>
+              それだけではバックアップになりません。</td>
+            </tr>
+            <tr>
+              <td>バックアップ</td>
+              <td>元のデータを失ったときに戻せるよう、<br>
+              復旧用のコピーを別に保持します。</td>
+              <td>保存先を分け、保持期間と<br>
+              復元手順を確認する必要があります。</td>
+            </tr>
+            <tr>
+              <td>クラウド同期</td>
+              <td>端末とクラウドなどのファイルを、<br>
+              同じ状態にそろえます。</td>
+              <td>削除や上書きも反映される場合があるため、<br>
+              履歴やゴミ箱の仕様を確認します。</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <br>
+
+      <h3>選定・運用で確認すること</h3>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>容量と空き領域</h3>
+          表示容量と実際の空き領域を確認し、<br>
+          データ増加分の余裕も確保します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>速度と用途</h3>
+          起動、動画編集、共有、長期保管など、<br>
+          用途に合う読み書き性能を選びます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>接続と互換性</h3>
+          端子、通信方式、対応OS、<br>
+          ファイルシステムを確認します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>故障と復旧方法</h3>
+          故障時の影響、保証、交換手順、<br>
+          データを戻す方法を確認します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>アクセス制御と暗号化</h3>
+          閲覧できる人を制限し、必要に応じて<br>
+          保存データを暗号化します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>廃棄・譲渡時の消去</h3>
+          初期化だけに頼らず、媒体と機密度に<br>
+          合う方法でデータを消去します。
+        </div>
+
+      </div>
+
+      <div class="example">
+        <p>
+          クラウドへ同期していても、端末側の誤削除が同期先へ反映される場合があります。バージョン履歴、ゴミ箱の保持期間、復元方法を実際に確認します。
+        </p>
+      </div>
+
+      <br>
+
+      <div class="point-box">
+        <p>
+          大切なのは「保存できるか」だけでなく、「失ったときに戻せるか」です。重要なデータは、元の保存先と同時に失われにくい場所へバックアップします。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== まとめ ===== -->
+
+    <section class="card" style="border-left:6px solid #0d6efd;">
+
+      <h2>まとめ</h2>
+
+      <p>
+        ストレージとは、写真、文書、アプリ、OSなどのデータを記録し、
+        必要なときに読み出せるように保存する装置や仕組みです。
+        メモリが処理中のデータを一時的に置く場所であるのに対し、
+        ストレージは電源を切った後もデータを保持します。
+      </p>
+
+      <p style="margin-top:15px;">
+        HDDやSSDは記録装置の種類、NASやクラウドストレージは主に接続・利用形態です。
+        用途に応じて容量、速度、共有方法、接続、セキュリティを確認します。
+      </p>
+
+      <p style="margin-top:15px;">
+        どのストレージも永久に安全とは限りません。
+        二重化、バックアップ、クラウド同期の違いを理解し、
+        重要なデータは別の場所へコピーして復元方法まで確認することが大切です。
+      </p>
+
+    </section>
+
+    <!-- ===== 戻る ===== -->
+
+    <div class="back">
+      <a href="index.html">← 用語一覧へ戻る</a>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- ===== フッター ===== -->
+
+<footer>
+  IT学習用サイト
+</footer>
+
+</body>
+</html>
