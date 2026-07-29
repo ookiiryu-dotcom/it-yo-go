@@ -370,5 +370,9 @@
   {
    "term": "サーバー",
    "link": "Server.html"
+  },
+  {
+   "term": "ストレージ",
+   "link": "Storage.html"
   }
 ]
