@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LSTM</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ===== ヘッダー ===== -->
+
+<header>
+
+  <h1>
+    LSTM
+
+    <span style="
+      display:block;
+      font-size:0.55em;
+      font-weight:normal;
+      margin-top:8px;">
+      Long Short-Term Memory
+    </span>
+  </h1>
+
+  <p>
+    <span style="font-size:0.85em;">過去の情報を選んで保持しながら、文章や時系列データを<br>
+    順番に処理するRNNの一種</span>
+  </p>
+
+</header>
+
+<!-- ===== メイン ===== -->
+
+<main>
+
+  <div class="container">
+
+    <!-- ===== LSTMとは ===== -->
+
+    <section class="card">
+
+      <h2>LSTMとは？</h2>
+
+      <p>
+        LSTMとは、<strong>Long Short-Term Memory</strong>の略で、
+        過去の情報を選んで保持しながら、順番のあるデータを処理する
+        ニューラルネットワークです。RNN（再帰型ニューラルネットワーク）の一種で、
+        文章、音声、売上やセンサー値などの時系列データに利用されます。
+      </p>
+
+      <p style="margin-top:15px;">
+        通常のRNNよりも、離れた時点の情報を学習しやすいように設計されています。
+        名前に「Memory」とありますが、人間の記憶を再現したものではなく、
+        計算によって情報を残す量や取り出す量を調整する仕組みです。
+      </p>
+
+      <div class="point-box">
+        <p>
+          LSTMはAI全体の名称ではなく、機械学習の中で順番のあるデータを扱うために使われるモデルの一つです。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== イメージ ===== -->
+
+    <section class="card">
+
+      <h2>まずはイメージで理解する</h2>
+
+      <p>
+        LSTMは、文章を一語ずつ読みながら、後で必要になりそうな内容をメモに残し、
+        不要になった内容を消していく人に例えると理解しやすくなります。
+      </p>
+
+      <p style="margin-top:15px;">
+        新しいデータを受け取るたびに、以前の情報をどれだけ残すか、
+        新しい情報をどれだけ加えるか、その時点で何を処理結果として出すかを調整します。
+      </p>
+
+      <div style="
+        background:#f8f9fa;
+        border:1px solid #ddd;
+        border-radius:12px;
+        padding:25px;
+        margin:25px 0;
+        overflow-x:auto;">
+
+        <div style="
+          min-width:780px;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          gap:16px;
+          text-align:center;">
+
+          <div style="
+            background:#fff4e5;
+            border:1px solid #f0c36d;
+            border-radius:10px;
+            padding:18px;
+            width:210px;">
+            前までの情報<br>
+            新しい入力<br>
+            現在の記憶
+          </div>
+
+          <div style="font-size:1.5em; color:#666;">
+            →
+          </div>
+
+          <div style="
+            background:#eaf4ff;
+            border:2px solid #6ea8fe;
+            border-radius:10px;
+            padding:18px;
+            width:210px;
+            font-weight:bold;">
+            LSTM<br>
+            忘れる・加える<br>
+            取り出す
+          </div>
+
+          <div style="font-size:1.5em; color:#666;">
+            →
+          </div>
+
+          <div style="
+            background:#eaf7ea;
+            border:1px solid #82c785;
+            border-radius:10px;
+            padding:18px;
+            width:210px;">
+            更新された記憶<br>
+            その時点の結果<br>
+            次の処理へ
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="example">
+        <p>
+          「私は昨日リンゴを買いました。今日、それを食べました」では、前に出た「リンゴ」の情報を残すことで、「それ」が何を指すか判断する手掛かりにできます。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 必要性 ===== -->
+
+    <section class="card">
+
+      <h2>なぜLSTMが必要なのか</h2>
+
+      <p>
+        文章や時系列データでは、現在の値だけでなく、前後の順番や過去との関係が重要です。
+        例えば売上の予測では、直前の売上だけでなく、過去の季節変動が判断材料になることがあります。
+      </p>
+
+      <p style="margin-top:15px;">
+        通常のRNNは、系列が長くなると古い情報を学習へ反映しにくくなることがあります。
+        これは、学習に使う信号が過去へ伝わる途中で極端に小さくなる
+        「勾配消失」などが起こるためです。LSTMはこの問題を緩和し、
+        長い範囲の関係を学習しやすくするために使われます。
+      </p><br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>順番に意味がある</h3>
+          文章や音声は、同じ要素でも<br>
+          並ぶ順番によって意味が変わります。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>過去が現在へ影響する</h3>
+          売上や機器の状態は、以前の変化が<br>
+          現在の予測に役立つことがあります。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>関係が離れて現れる</h3>
+          必要な情報と結果が、長い系列の中で<br>
+          離れている場合があります。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>通常のRNNには限界がある</h3>
+          学習信号が弱まり、古い情報との<br>
+          関係を学びにくいことがあります。
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ===== 仕組み ===== -->
+
+    <section class="card">
+
+      <h2>LSTMの仕組み</h2>
+
+      <p>
+        LSTMは、情報を内部で運ぶ<strong>セル状態</strong>と、
+        その時点の処理結果を表す<strong>隠れ状態</strong>を次の時点へ渡します。
+        セル状態は長期的な記憶、隠れ状態は現在の作業結果に近いイメージですが、
+        厳密に長期と短期へ分かれているわけではありません。
+      </p>
+
+      <p style="margin-top:15px;">
+        情報量の調整には「ゲート」と呼ばれる仕組みを使います。
+        ゲートは0から1の範囲に近い値を使い、情報をどの程度通すかを決めます。
+        これらの値は、学習によってデータに合うように調整されます。
+      </p><br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>セル状態</h3>
+          過去の情報を内部で保持し、<br>
+          次の時点へ運ぶ経路です。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>忘却ゲート</h3>
+          以前のセル状態から、どの情報を<br>
+          どの程度残すか決めます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>入力ゲート</h3>
+          新しい入力のうち、どの情報を<br>
+          セル状態へ加えるか決めます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>出力ゲート</h3>
+          更新したセル状態から、何を<br>
+          隠れ状態として取り出すか決めます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>隠れ状態</h3>
+          その時点の処理結果を表し、出力や<br>
+          次の時点の計算に使われます。
+        </div>
+
+      </div>
+
+      <div class="point-box">
+        <p>
+          セル状態の比較的単純な経路によって学習信号を過去へ伝えやすくしますが、LSTMでも勾配消失を完全に防げるわけではありません。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 処理の流れ ===== -->
+
+    <section class="card">
+
+      <h2>データを処理する基本的な流れ</h2>
+
+      <p>
+        LSTMは、データを一つずつ受け取り、前の時点から渡されたセル状態と隠れ状態を使って、
+        記憶と処理結果を更新します。この流れを系列の終わりまで繰り返します。
+      </p>
+
+      <div style="
+        background:#f8f9fa;
+        border:1px solid #ddd;
+        border-radius:12px;
+        padding:25px;
+        margin:25px 0;">
+
+        <div style="
+          display:flex;
+          flex-direction:column;
+          align-items:center;
+          gap:14px;
+          text-align:center;">
+
+          <div style="
+            background:#fff;
+            border:1px solid #ddd;
+            border-radius:10px;
+            padding:14px 18px;
+            width:100%;
+            max-width:560px;
+            line-height:1.8;">
+            <strong>1. 入力を受け取る</strong><br>
+            現在のデータと、前の時点から渡された<br>セル状態・隠れ状態を受け取る
+          </div>
+
+          <div style="font-size:1.4em; color:#666;">↓</div>
+
+          <div style="
+            background:#fff4e5;
+            border:1px solid #f0c36d;
+            border-radius:10px;
+            padding:14px 18px;
+            width:100%;
+            max-width:560px;
+            line-height:1.8;">
+            <strong>2. 残す情報を決める</strong><br>
+            忘却ゲートが以前のセル状態を<br>どの程度残すか調整する
+          </div>
+
+          <div style="font-size:1.4em; color:#666;">↓</div>
+
+          <div style="
+            background:#eaf4ff;
+            border:1px solid #9fc5f8;
+            border-radius:10px;
+            padding:14px 18px;
+            width:100%;
+            max-width:560px;
+            line-height:1.8;">
+            <strong>3. 新しい情報を加える</strong><br>
+            入力ゲートが新しい入力から<br>記憶へ加える情報を調整する
+          </div>
+
+          <div style="font-size:1.4em; color:#666;">↓</div>
+
+          <div style="
+            background:#eaf7ea;
+            border:1px solid #82c785;
+            border-radius:10px;
+            padding:14px 18px;
+            width:100%;
+            max-width:560px;
+            line-height:1.8;">
+            <strong>4. 結果を取り出す</strong><br>
+            出力ゲートが隠れ状態を作り、<br>出力や次の時点の計算へ渡す
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="example">
+        <p>
+          売上データを月ごとに入力する場合、LSTMは各月の値を順番に処理し、更新した状態を次の月の計算へ引き継ぎます。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 用途 ===== -->
+
+    <section class="card">
+
+      <h2>LSTMの主な用途</h2>
+
+      <p>
+        LSTMは、データの並び方や時間的な変化が判断に関係する用途で使われます。
+        どの用途でもLSTMが最適とは限らず、データ量、系列の長さ、必要な精度、
+        処理環境に応じて他のモデルと比較します。
+      </p><br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>時系列予測</h3>
+          過去の売上、需要、気温などから、<br>
+          将来の値を予測します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>異常検知</h3>
+          センサー値や通信量の通常パターンと<br>
+          異なる変化を見つけます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>音声処理</h3>
+          時間に沿って変化する音の特徴を<br>
+          順番に処理します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>文章処理</h3>
+          文章の分類、単語予測、翻訳などで、<br>
+          前後の情報を利用します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>設備の状態予測</h3>
+          稼働データの変化から、故障や<br>
+          保守が必要な時期を予測します。
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ===== メリット ===== -->
+
+    <section class="card">
+
+      <h2>LSTMのメリット</h2>
+
+      <p>
+        LSTMの主な利点は、通常のRNNよりも長い範囲の関係を学習しやすく、
+        長さの異なる系列を同じ仕組みで扱えることです。
+      </p><br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>過去の情報を選んで残せる</h3>
+          ゲートによって、以前の情報を<br>
+          どの程度保持するか調整できます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>長期的な関係を学びやすい</h3>
+          通常のRNNより、離れた時点の<br>
+          関係を学習しやすくなります。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>長さの違いへ対応できる</h3>
+          文や時系列ごとにデータ数が<br>
+          異なる場合にも利用できます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>逐次処理に利用できる</h3>
+          状態を引き継ぎながら、到着した<br>
+          データを順番に処理できます。
+        </div>
+
+      </div>
+
+      <div class="point-box">
+        <p>
+          LSTMが他のモデルより高精度または低コストになるとは一律に言えず、実際のデータと実行環境で評価する必要があります。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 注意点 ===== -->
+
+    <section class="card">
+
+      <h2>注意点と実務上の確認ポイント</h2>
+
+      <p>
+        LSTMは時点ごとの計算を順番に行うため、学習時に系列全体を一度に並列処理しにくく、
+        長いデータでは処理時間が増えることがあります。また、長期的な関係を学びやすくしても、
+        すべての過去情報を正確に保持できるわけではありません。
+      </p>
+
+      <p style="margin-top:15px;">
+        導入時はモデル名だけで決めず、比較対象となる単純な予測方法や他のモデルを用意し、
+        未学習データで精度、処理速度、メモリ使用量、運用のしやすさを確認します。
+      </p><br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>学習を並列化しにくい</h3>
+          前の時点の結果を使うため、系列を<br>
+          順番に計算する必要があります。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>長い系列にも限界がある</h3>
+          重要な情報が非常に遠い場合は、<br>
+          十分に学習できないことがあります。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>設定で結果が変わる</h3>
+          層数、ユニット数、入力期間などを<br>
+          データに合わせて調整します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>データの品質が重要</h3>
+          欠損、外れ値、偏り、時間順の乱れが<br>
+          学習や評価へ影響します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>未来の情報を混ぜない</h3>
+          学習用と評価用を時間順に分け、<br>
+          先の情報が漏れないようにします。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>運用後も監視する</h3>
+          データ傾向や精度の変化を確認し、<br>
+          必要に応じて再学習します。
+        </div>
+
+      </div>
+
+      <div class="example">
+        <p>
+          売上予測の評価データへ将来月の情報が混ざると、実運用では再現できない高い精度が出るため、時間順を守って分割します。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 関連技術 ===== -->
+
+    <section class="card">
+
+      <h2>RNN・GRU・Transformerとの関係</h2>
+
+      <p>
+        LSTMと関連モデルは、順番のあるデータを扱うという目的が重なりますが、
+        情報の保持方法や計算方法が異なります。用途名だけで優劣を決めず、
+        精度と計算資源の両方を比較します。
+      </p>
+
+      <div class="table-wrap" style="width:100%; overflow-x:auto;">
+
+        <table style="min-width:1000px; width:100%;">
+          <thead>
+            <tr>
+              <th>技術</th>
+              <th>主な特徴</th>
+              <th>LSTMとの関係</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>通常のRNN</td>
+              <td>前の隠れ状態を次の時点へ渡し、<br>
+              系列を順番に処理します。</td>
+              <td>LSTMの基礎となる方式で、構造は単純ですが、<br>
+              長期的な関係を学びにくい場合があります。</td>
+            </tr>
+            <tr>
+              <td>LSTM</td>
+              <td>セル状態と複数のゲートを使い、<br>
+              残す情報や出力する情報を調整します。</td>
+              <td>通常のRNNが持つ長期依存の学習問題を<br>
+              緩和するために設計されています。</td>
+            </tr>
+            <tr>
+              <td>GRU</td>
+              <td>ゲートを使って情報を調整するRNNで、<br>
+              LSTMより構成要素が少ない方式です。</td>
+              <td>LSTMと似た用途で候補になりますが、<br>
+              どちらが高精度かはデータによって異なります。</td>
+            </tr>
+            <tr>
+              <td>Transformer</td>
+              <td>Attentionという仕組みで、系列内の<br>
+              要素同士の関係を直接計算します。</td>
+              <td>学習を並列化しやすく、長い文章などで広く使われますが、<br>
+              必要な計算量やメモリは構成によって異なります。</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <div class="point-box">
+        <p>
+          現在もLSTMは時系列予測や異常検知などの候補ですが、既存実績、系列長、データ量、応答速度、実行環境を基に選びます。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== まとめ ===== -->
+
+    <section class="card" style="border-left:6px solid #0d6efd;">
+
+      <h2>まとめ</h2>
+
+      <p>
+        LSTMとは、セル状態とゲートを使って過去の情報を選んで保持しながら、
+        文章、音声、時系列データなどを順番に処理するRNNの一種です。
+      </p>
+
+      <p style="margin-top:15px;">
+        通常のRNNより長期的な関係を学習しやすい一方で、
+        勾配消失を完全に防ぐものではなく、逐次計算による処理時間などの注意点があります。
+      </p>
+
+      <p style="margin-top:15px;">
+        実務では、LSTM、GRU、Transformer、単純な予測方法などを同じ評価データで比較し、
+        精度、処理速度、計算資源、運用方法に合うモデルを選ぶことが重要です。
+      </p>
+
+    </section>
+
+    <!-- ===== 戻る ===== -->
+
+    <div class="back">
+      <a href="index.html">← 用語一覧へ戻る</a>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- ===== フッター ===== -->
+
+<footer>
+  IT学習用サイト
+</footer>
+
+</body>
+</html>
