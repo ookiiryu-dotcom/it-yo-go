@@ -374,5 +374,9 @@
   {
    "term": "ストレージ",
    "link": "Storage.html"
+  },
+  {
+   "term": "LSTM",
+   "link": "LSTM.html"
   }
 ]
