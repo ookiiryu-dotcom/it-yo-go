@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RNN</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ===== ヘッダー ===== -->
+
+<header>
+
+  <h1>
+    RNN
+
+    <span style="
+      display:block;
+      font-size:0.55em;
+      font-weight:normal;
+      margin-top:8px;">
+      Recurrent Neural Network
+    </span>
+  </h1>
+
+  <p>
+    <span style="font-size:0.7em;">前までの情報を引き継ぎながら、<br>
+    文章・音声・時系列データなどを順番に処理するニューラルネットワーク</span>
+  </p>
+
+</header>
+
+<!-- ===== メイン ===== -->
+
+<main>
+
+  <div class="container">
+
+    <!-- ===== RNNとは ===== -->
+
+    <section class="card">
+
+      <h2>RNNとは？</h2>
+
+      <p>
+        RNNとは、<strong>Recurrent Neural Network</strong>の略で、
+        日本語では<strong>再帰型ニューラルネットワーク</strong>と呼ばれます。
+        前の時点で作った情報を次の時点へ渡しながら、
+        順番のあるデータを処理するニューラルネットワークです。
+      </p>
+
+      <p style="margin-top:15px;">
+        次へ渡す情報は<strong>隠れ状態</strong>と呼ばれます。
+        RNNは過去の入力をそのまま保存するのではなく、
+        それまでの特徴を数値にまとめた隠れ状態を更新しながら判断します。
+      </p>
+
+      <div class="point-box">
+        <p>
+          RNNの特徴は、各入力を独立して見るのではなく、それまでの流れを次の処理に引き継ぐことです。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== イメージ ===== -->
+
+    <section class="card">
+
+      <h2>まずはイメージで理解する</h2>
+
+      <p>
+        RNNは、文章を先頭から一語ずつ読む人に例えると分かりやすくなります。
+        新しい語を読むたびに、それまでに読んだ内容から作った理解を更新し、
+        次の語の解釈へ利用します。
+      </p>
+
+      <p style="margin-top:15px;">
+        例えば「私は昨日、映画を見た」という文章では、
+        最後の「見た」だけでなく、それまでの「私は」「昨日」「映画を」という流れも
+        判断材料になります。RNNでは、この流れを隠れ状態として受け渡します。
+      </p>
+
+      <div style="
+        background:#f8f9fa;
+        border:1px solid #ddd;
+        border-radius:12px;
+        padding:25px;
+        margin:25px 0;
+        overflow-x:auto;">
+
+        <div style="
+          min-width:780px;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          gap:16px;
+          text-align:center;">
+
+          <div style="
+            background:#fff4e5;
+            border:1px solid #f0c36d;
+            border-radius:10px;
+            padding:18px;
+            width:210px;">
+            現在の入力<br>
+            「映画を」
+          </div>
+
+          <div style="font-size:1.5em; color:#666;">＋</div>
+
+          <div style="
+            background:#eaf4ff;
+            border:2px solid #6ea8fe;
+            border-radius:10px;
+            padding:18px;
+            width:210px;
+            font-weight:bold;">
+            前までの情報<br>
+            隠れ状態
+          </div>
+
+          <div style="font-size:1.5em; color:#666;">→</div>
+
+          <div style="
+            background:#eaf7ea;
+            border:1px solid #82c785;
+            border-radius:10px;
+            padding:18px;
+            width:210px;">
+            現在の出力<br>
+            更新した隠れ状態
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="example">
+        <p>
+          RNNの「記憶」は文章を保存するメモではなく、過去の特徴を判断に使える数値へ圧縮したものです。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 必要性 ===== -->
+
+    <section class="card">
+
+      <h2>なぜRNNが必要なのか</h2>
+
+      <p>
+        文章、音声、売上、気温、センサーデータなどでは、
+        現在の値だけでなく、その前後関係や変化の順番が意味を持ちます。
+        入力を一件ずつ独立して扱う方式だけでは、この流れを十分に利用できません。
+      </p>
+
+      <p style="margin-top:15px;">
+        RNNは同じ処理を各時点へ繰り返し適用しながら、
+        隠れ状態を通じて過去の情報を現在の判断へ反映します。
+        これにより、長さが異なる系列も共通の仕組みで扱えます。
+      </p><br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>文章</h3>
+          単語の並びや前の文脈で、<br>
+          意味や次の語が変わります。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>音声</h3>
+          音が時間順に続くことで、<br>
+          言葉として理解できます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>時系列</h3>
+          過去の値や変化の傾向が、<br>
+          将来予測の手掛かりになります。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>センサー</h3>
+          一時点の値だけでなく、<br>
+          変化の流れから異常を探します。
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ===== 仕組みと種類 ===== -->
+
+    <section class="card">
+
+      <h2>基本的な仕組みと主な種類</h2>
+
+      <p>
+        RNNは各時点で、現在の入力と一つ前の隠れ状態を組み合わせ、
+        現在の出力と次へ渡す隠れ状態を計算します。
+        学習では、予測と正解のずれを系列の後ろから前へ伝え、内部の重みを調整します。
+      </p>
+
+      <p style="margin-top:15px;">
+        基本形のRNNには長い間隔の情報を学びにくい弱点があります。
+        その弱点を軽減する代表的な構造がLSTMとGRUです。
+        双方向RNNはセルの種類ではなく、正方向と逆方向の処理を組み合わせる構成です。
+      </p>
+
+      <div style="
+        background:#f8f9fa;
+        border:1px solid #ddd;
+        border-radius:12px;
+        padding:25px;
+        margin:25px 0;">
+
+        <div style="
+          display:flex;
+          flex-direction:column;
+          align-items:center;
+          gap:14px;
+          text-align:center;">
+
+          <div style="
+            background:#fff;
+            border:1px solid #ddd;
+            border-radius:10px;
+            padding:14px 18px;
+            width:100%;
+            max-width:560px;
+            line-height:1.8;">
+            <strong>1. 入力を受け取る</strong><br>
+            現在の単語や時点の値を受け取る
+          </div>
+
+          <div style="font-size:1.4em; color:#666;">↓</div>
+
+          <div style="
+            background:#eaf4ff;
+            border:1px solid #9fc5f8;
+            border-radius:10px;
+            padding:14px 18px;
+            width:100%;
+            max-width:560px;
+            line-height:1.8;">
+            <strong>2. 隠れ状態を更新する</strong><br>
+            <div style="font-size: 0.9em;">現在の入力と前までの情報を組み合わせる</div>
+          </div>
+
+          <div style="font-size:1.4em; color:#666;">↓</div>
+
+          <div style="
+            background:#fff4e5;
+            border:1px solid #f0c36d;
+            border-radius:10px;
+            padding:14px 18px;
+            width:100%;
+            max-width:560px;
+            line-height:1.8;">
+            <strong>3. 出力して次へ渡す</strong><br>
+            <div style="font-size: 0.9em;">予測を出し、更新した隠れ状態を引き継ぐ</div>
+          </div>
+
+        </div>
+
+      </div><br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>基本形のRNN</h3>
+          構造は比較的単純ですが、<br>
+          長期的な関係の学習が苦手です。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>LSTM</h3>
+          情報を残す・忘れる仕組みで、<br>
+          長期依存の問題を軽減します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>GRU</h3>
+          LSTMより構造を簡略化し、<br>
+          情報の保持と更新を制御します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>双方向RNN</h3>
+          系列を前後から処理して、<br>
+          両方向の情報を利用します。
+        </div>
+
+      </div>
+
+      <div class="point-box">
+        <p>
+          双方向RNNは後ろのデータも必要とするため、未来の入力がまだ存在しないリアルタイム予測や逐次生成には、そのままでは利用できません。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 用途と効果 ===== -->
+
+    <section class="card">
+
+      <h2>RNNの主な用途と利用効果</h2>
+
+      <p>
+        RNNは、順番が重要なデータの分類、予測、生成に利用できます。
+        系列を一つの結果へまとめる処理にも、各時点で結果を出す処理にも対応できます。
+      </p>
+
+      <p style="margin-top:15px;">
+        各時点で同じ重みを共有し、前までの情報を隠れ状態へまとめるため、
+        長さが異なるデータを扱えます。また、一方向RNNは入力を受け取るたびに
+        状態を更新できるので、逐次的な処理にも利用できます。
+      </p><br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>文章処理</h3>
+          文章分類や単語ごとの判定、<br>
+          文章生成などに使われます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>音声処理</h3>
+          時間順に並ぶ音の特徴から、<br>
+          発話内容などを推定します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>時系列予測</h3>
+          売上、需要、気温などの<br>
+          過去の変化から先を予測します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>異常検知</h3>
+          機器や通信の変化を学習し、<br>
+          通常と異なる流れを探します。
+        </div>
+
+      </div>
+
+      <div class="example">
+        <p>
+          例えば需要予測では、直近の売上だけでなく、過去から続く増減の傾向を隠れ状態へ反映して次の値を予測します。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 弱点 ===== -->
+
+    <section class="card">
+
+      <h2>RNNの弱点と限界</h2>
+
+      <p>
+        RNNは系列が長くなるほど、遠い過去の情報を学びにくくなり、
+        計算にも時間がかかりやすくなります。
+        RNNを選ぶときは、データの長さと必要な文脈の範囲を確認する必要があります。
+      </p>
+
+      <p style="margin-top:15px;">
+        学習時には、勾配が小さくなりすぎる<strong>勾配消失</strong>と、
+        大きくなりすぎる<strong>勾配爆発</strong>が起こる場合があります。
+        また、同じ系列内では前の時点の計算結果が必要なため、時間方向をまとめて並列処理しにくい構造です。
+      </p><br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>勾配消失</h3>
+          学習の手掛かりが小さくなり、<br>
+          遠い過去を学びにくくなります。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>勾配爆発</h3>
+          勾配が過度に大きくなり、<br>
+          学習が不安定になります。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>並列化しにくい</h3>
+          系列内を順番に計算するため、<br>
+          長いデータでは時間がかかります。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>情報の圧縮</h3>
+          過去を限られた状態へまとめるため、<br>
+          細かな情報を失う場合があります。
+        </div>
+
+      </div>
+
+      <div class="example">
+        <p>
+          LSTMやGRUは主に長期依存と勾配消失を軽減し、勾配爆発には勾配の大きさを制限する勾配クリッピングなどが使われます。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== 実務 ===== -->
+
+    <section class="card">
+
+      <h2>実務上の確認ポイント</h2>
+
+      <p>
+        実務では、RNNを使えるかではなく、データの性質と運用条件に適しているかを確認します。
+        精度だけでなく、学習時間、応答時間、必要な計算資源、将来情報を利用できるかも選定条件です。
+      </p>
+
+      <p style="margin-top:15px;">
+        時系列データは未来の情報が学習側へ混ざらないよう、原則として時間順を考慮して分割します。
+        比較対象として単純な予測方法や他のモデルも評価し、RNNを使う効果を確認します。
+      </p><br>
+
+      <div class="parts-grid">
+
+        <div class="part-box">
+          <h3>系列の長さ</h3>
+          どこまで過去を使うのか、<br>
+          必要な文脈範囲を決めます。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>処理の方向</h3>
+          リアルタイムか、全体取得後かで、<br>
+          双方向処理の可否が変わります。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>データの分割</h3>
+          未来の情報が学習へ漏れないよう、<br>
+          時間の順序を考慮します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>速度と資源</h3>
+          学習時間、応答時間、メモリ、<br>
+          消費電力などを確認します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>評価方法</h3>
+          用途に合う指標と単純な方式を、<br>
+          共通条件で比較します。
+        </div>
+
+        <br>
+
+        <div class="part-box">
+          <h3>運用後の変化</h3>
+          データ傾向や精度の変化を監視し、<br>
+          必要に応じて再学習します。
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ===== 関連技術 ===== -->
+
+    <section class="card">
+
+      <h2>関連技術との違いや関係</h2>
+
+      <p>
+        LSTMとGRUはRNNの弱点を軽減する派生型であり、RNNと無関係な別技術ではありません。
+        一方、TransformerはAttentionという仕組みを中心に系列全体の関係を捉える別方式です。
+      </p>
+
+      <p style="margin-top:15px;">
+        自然言語処理などではTransformerが主流ですが、
+        RNNがすべて置き換えられたわけではありません。
+        データ量、系列長、逐次処理、計算資源などの条件に応じて方式を選びます。
+      </p>
+
+      <div class="table-wrap" style="width:100%; overflow-x:auto;">
+
+        <table style="min-width:1000px; width:100%;">
+          <thead>
+            <tr>
+              <th>方式</th>
+              <th>主な特徴</th>
+              <th>RNNとの関係</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>基本形のRNN</td>
+              <td>隠れ状態を順番に更新し、<br>
+              過去の情報を引き継ぎます。</td>
+              <td>RNNの基本となる構造ですが、<br>
+              長期的な関係の学習が苦手です。</td>
+            </tr>
+            <tr>
+              <td>LSTM</td>
+              <td>情報を残す・忘れる仕組みを持ち、<br>
+              長期依存の問題を軽減します。</td>
+              <td>RNNに含まれる代表的な派生型で、<br>
+              基本形より構造が複雑です。</td>
+            </tr>
+            <tr>
+              <td>GRU</td>
+              <td>LSTMより簡略化した構造で、<br>
+              情報の保持と更新を制御します。</td>
+              <td>RNNに含まれる派生型で、<br>
+              用途によりLSTMと性能が異なります。</td>
+            </tr>
+            <tr>
+              <td>双方向RNN</td>
+              <td>正方向と逆方向の結果を組み合わせ、<br>
+              前後の情報を利用します。</td>
+              <td>基本形、LSTM、GRUなどへ適用できる<br>
+              処理方向の構成です。</td>
+            </tr>
+            <tr>
+              <td>Transformer</td>
+              <td>Attentionを中心に関係を捉え、<br>
+              系列内を並列処理しやすい方式です。</td>
+              <td>RNNとは異なる方式で、自然言語処理などの<br>
+              大規模モデルで主流になっています。</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <div class="point-box">
+        <p>
+          「RNNかTransformerか」だけで決めず、必要な文脈の長さ、逐次処理の有無、データ量、速度、計算資源を含めて比較します。
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ===== まとめ ===== -->
+
+    <section class="card" style="border-left:6px solid #0d6efd;">
+
+      <h2>まとめ</h2>
+
+      <p>
+        RNNは、前の時点で作った隠れ状態を次へ渡しながら、
+        文章、音声、時系列などの順番が重要なデータを処理するニューラルネットワークです。
+      </p>
+
+      <p style="margin-top:15px;">
+        LSTMとGRUは長期的な関係を学びにくい問題を軽減するRNNの派生型です。
+        双方向RNNは、データ全体を取得できる場合に前後両方の情報を利用する構成です。
+      </p>
+
+      <p style="margin-top:15px;">
+        RNNには、勾配消失、勾配爆発、系列内を並列処理しにくいという弱点があります。
+        導入時には、系列長、処理方向、データ分割、速度、計算資源、運用後の変化を確認します。
+      </p>
+
+      <p style="margin-top:15px;">
+        TransformerはRNNとは異なる系列処理方式です。
+        自然言語処理などでは主流ですが、RNNを含め、用途と条件に合う方式を比較して選びます。
+      </p>
+
+    </section>
+
+    <!-- ===== 戻る ===== -->
+
+    <div class="back">
+      <a href="index.html">← 用語一覧へ戻る</a>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- ===== フッター ===== -->
+
+<footer>
+  IT学習用サイト
+</footer>
+
+</body>
+</html>
