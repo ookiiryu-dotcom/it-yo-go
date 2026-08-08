@@ -378,5 +378,9 @@
   {
    "term": "LSTM",
    "link": "LSTM.html"
+  },
+  {
+   "term": "RNN",
+   "link": "RNN.html"
   }
 ]
